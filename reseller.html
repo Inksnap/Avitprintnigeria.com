@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reseller Program - PrintHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .top-bar {
+            background: #f8f9fa;
+            padding: 10px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #e9ecef;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar-left {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .top-bar-left a {
+            color: #6c757d;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .top-bar-left a:hover {
+            color: #17a2b8;
+        }
+
+        .top-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            color: #495057;
+        }
+
+        .contact-number {
+            color: #17a2b8;
+            font-weight: 600;
+        }
+
+        header {
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #495057;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #17a2b8;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .sign-in {
+            color: #17a2b8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .create-account {
+            background: #17a2b8;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: background 0.3s;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 56px;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-section p {
+            font-size: 22px;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .primary-cta {
+            background: white;
+            color: #17a2b8;
+        }
+
+        .primary-cta:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+        }
+
+        .secondary-cta {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .secondary-cta:hover {
+            background: white;
+            color: #17a2b8;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .benefits-section h2 {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 3rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 48px;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .benefit-card p {
+            color: #6c757d;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Pricing Tiers */
+        .pricing-section {
+            padding: 80px 0;
+        }
+
+        .pricing-section h2 {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border: 3px solid #17a2b8;
+            transform: scale(1.05);
+        }
+
+        .pricing-header {
+            padding: 2rem;
+            text-align: center;
+            background: #f8f9fa;
+        }
+
+        .pricing-card.featured .pricing-header {
+            background: #17a2b8;
+            color: white;
+        }
+
+        .tier-name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .tier-description {
+            font-size: 14px;
+            opacity: 0.8;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .discount-rate {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 1rem 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .pricing-body {
+            padding: 2rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .pricing-cta {
+            background: #17a2b8;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .pricing-cta:hover {
+            background: #138496;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: #28a745;
+            color: white;
+            padding: 0.5rem 2rem;
+            font-size: 12px;
+            font-weight: 600;
+            transform: rotate(45deg);
+        }
+
+        /* Requirements Section */
+        .requirements-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .requirements-section h2 {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 3rem;
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .requirement-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .requirement-item h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .requirement-item p {
+            color: #6c757d;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Application Form */
+        .application-section {
+            padding: 80px 0;
+        }
+
+        .application-section h2 {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 3rem;
+        }
+
+        .application-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #17a2b8;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #17a2b8;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .submit-btn:hover {
+            background: #138496;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: #17a2b8;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .footer-section ul li a:hover {
+            color: #17a2b8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-section h1 {
+                font-size: 42px;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <a href="#">Cost Calculator</a>
+                    <a href="#">Discover Stores</a>
+                    <a href="#">Track Orders</a>
+                </div>
+                <div class="top-bar-right">
+                    <span class="contact-info">Need help? Call: <span class="contact-number">+234-706-900-0063</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">PrintHub</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="quotes.html">Get Quote</a></li>
+                <li><a href="track-order.html">Track Order</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="reseller.html" class="active">Reseller</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href="stores.html">Stores</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="sign-in">Sign In</a>
+                <a href="#" class="create-account">Create Account</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Join Our Reseller Program</h1>
+            <p>Partner with PrintHub and earn up to 40% commission on every sale</p>
+            <div class="hero-cta">
+                <a href="#application" class="cta-btn primary-cta">Apply Now</a>
+                <a href="#pricing" class="cta-btn secondary-cta">View Pricing</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2>Why Partner With Us?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>High Profit Margins</h3>
+                    <p>Earn up to 40% commission on every order with our competitive reseller pricing structure.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🚀</div>
+                    <h3>Fast Turnaround</h3>
+                    <p>Quick production times and reliable delivery ensure your customers are always satisfied.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎨</div>
+                    <h3>Design Support</h3>
+                    <p>Access to our professional design team to help create stunning materials for your clients.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📱</div>
+                    <h3>Online Portal</h3>
+                    <p>Dedicated reseller dashboard to manage orders, track commissions, and access resources.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏆</div>
+                    <h3>Quality Guarantee</h3>
+                    <p>Premium materials and printing quality that will impress your customers every time.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🤝</div>
+                    <h3>Dedicated Support</h3>
+                    <p>Personal account manager and priority customer support for all your business needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Tiers -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <h2>Reseller Pricing Tiers</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="tier-name">Starter</div>
+                        <div class="tier-description">Perfect for new resellers</div>
+                        <div class="discount-rate">15%</div>
+                        <div>Commission Rate</div>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="feature-list">
+                            <li>15% commission on all orders</li>
+                            <li>Basic online portal access</li>
+                            <li>Email support</li>
+                            <li>Standard shipping rates</li>
+                            <li>Monthly payment</li>
+                        </ul>
+                        <button class="pricing-cta">Get Started</button>
+                    </div>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="featured-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <div class="tier-name">Professional</div>
+                        <div class="tier-description">For established businesses</div>
+                        <div class="discount-rate">25%</div>
+                        <div>Commission Rate</div>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="feature-list">
+                            <li>25% commission on all orders</li>
+                            <li>Advanced portal with analytics</li>
+                            <li>Priority phone & email support</li>
+                            <li>Discounted shipping rates</li>
+                            <li>Design consultation included</li>
+                            <li>Weekly payment options</li>
+                        </ul>
+                        <button class="pricing-cta">Choose Professional</button>
+                    </div>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="tier-name">Enterprise</div>
+                        <div class="tier-description">For high-volume partners</div>
+                        <div class="discount-rate">40%</div>
+                        <div>Commission Rate</div>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="feature-list">
+                            <li>40% commission on all orders</li>
+                            <li>Full portal access & white-label</li>
+                            <li>Dedicated account manager</li>
+                            <li>Free shipping on bulk orders</li>
+                            <li>Custom design services</li>
+                            <li>Daily payment processing</li>
+                            <li>Marketing materials provided</li>
+                        </ul>
+                        <button class="pricing-cta">Contact Sales</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section class="requirements-section">
+        <div class="container">
+            <h2>Partnership Requirements</h2>
+            <div class="requirements-grid">
+                <div class="requirement-item">
+                    <h3>Business Registration</h3>
+                    <p>Valid business registration or tax ID number required for partnership approval.</p>
+                </div>
+                <div class="requirement-item">
+                    <h3>Minimum Orders</h3>
+                    <p>Commit to minimum monthly order volume based on your chosen tier level.</p>
+                </div>
+                <div class="requirement-item">
+                    <h3>Quality Standards</h3>
+                    <p>Maintain high customer service standards and represent our brand professionally.</p>
+                </div>
+                <div class="requirement-item">
+                    <h3>Payment Terms</h3>
+                    <p>Agree to our payment terms and maintain good standing with timely payments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="application-section" id="application">
+        <div class="container">
+            <h2>Apply for Partnership</h2>
+            <form class="application-form">
+                <div class="form-group">
+                    <label for="businessName">Business Name</label>
+                    <input type="text" id="businessName" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactName">Contact Person</label>
+                    <input type="text" id="contactName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="businessType">Business Type</label>
+                    <select id="businessType" required>
+                        <option value="">Select Business Type</option>
+                        <option value="printing">Printing Services</option>
+                        <option value="design">Design Agency</option>
+                        <option value="marketing">Marketing Agency</option>
+                        <option value="retail">Retail Business</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="experience">Years in Business</label>
+                    <select id="experience" required>
+                        <option value="">Select Experience</option>
+                        <option value="0-1">0-1 years</option>
+                        <option value="1-3">1-3 years</option>
+                        <option value="3-5">3-5 years</option>
+                        <option value="5+">5+ years</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="expectedVolume">Expected Monthly Volume</label>
+                    <select id="expectedVolume" required>
+                        <option value="">Select Volume</option>
+                        <option value="low">₦50,000 - ₦200,000</option>
+                        <option value="medium">₦200,000 - ₦500,000</option>
+                        <option value="high">₦500,000 - ₦1,000,000</option>
+                        <option value="enterprise">₦1,000,000+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Tell us about your business</label>
+                    <textarea id="message" placeholder="Describe your business, target market, and why you want to partner with PrintHub..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>PrintHub</h3>
+                    <p>Your trusted partner for quality printing services. Fast delivery, competitive prices, and exceptional customer service guaranteed.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="business-cards.html">Business Cards</a></li>
+                        <li><a href="flyers.html">Flyers & Brochures</a></li>
+                        <li><a href="stickers.html">Stickers & Labels</a></li>
+                        <li><a href="mugs.html">Custom Mugs</a></li>
+                        <li><a href="tshirts.html">T-Shirts & Apparel</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="track-order.html">Track Your Order</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PrintHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

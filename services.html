@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - PrintHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .top-bar {
+            background: #f8f9fa;
+            padding: 10px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #e9ecef;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar-left {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .top-bar-left a {
+            color: #6c757d;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .top-bar-left a:hover {
+            color: #17a2b8;
+        }
+
+        .top-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            color: #495057;
+        }
+
+        .contact-number {
+            color: #17a2b8;
+            font-weight: 600;
+        }
+
+        header {
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #495057;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #17a2b8;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .sign-in {
+            color: #17a2b8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .create-account {
+            background: #17a2b8;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: background 0.3s;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #e8f4f8 0%, #f0f8ff 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 20px;
+            color: #6c757d;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Services Grid */
+        .services-section {
+            padding: 80px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border: 1px solid #f8f9fa;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 40px;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .service-card p {
+            color: #6c757d;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            color: #495057;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .service-features li:before {
+            content: "✓";
+            color: #17a2b8;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .service-btn {
+            background: #17a2b8;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .service-btn:hover {
+            background: #138496;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .process-section h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 3rem;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .process-step {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: #17a2b8;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            margin: 0 auto 1rem;
+        }
+
+        .process-step h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .process-step p {
+            color: #6c757d;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 80px 0;
+        }
+
+        .testimonials-section h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 3rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            color: #495057;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #6c757d;
+        }
+
+        .author-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .cta-btn {
+            background: white;
+            color: #17a2b8;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: #17a2b8;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .footer-section ul li a:hover {
+            color: #17a2b8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 36px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <a href="#">Cost Calculator</a>
+                    <a href="#">Discover Stores</a>
+                    <a href="#">Track Orders</a>
+                </div>
+                <div class="top-bar-right">
+                    <span class="contact-info">Need help? Call: <span class="contact-number">+234-706-900-0063</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">PrintHub</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="quotes.html">Get Quote</a></li>
+                <li><a href="track-order.html">Track Order</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="reseller.html">Reseller</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href="stores.html">Stores</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="sign-in">Sign In</a>
+                <a href="#" class="create-account">Create Account</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Comprehensive printing solutions for businesses and individuals</p>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-section">
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🖨️</div>
+                    <h3>Print Production</h3>
+                    <p>High-quality printing services for all your business and personal needs.</p>
+                    <ul class="service-features">
+                        <li>Business Cards & Stationery</li>
+                        <li>Marketing Materials</li>
+                        <li>Large Format Printing</li>
+                        <li>Custom Merchandise</li>
+                        <li>Packaging & Labels</li>
+                    </ul>
+                    <a href="products.html" class="service-btn">View Products</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Design Services</h3>
+                    <p>Professional design solutions to bring your ideas to life.</p>
+                    <ul class="service-features">
+                        <li>Logo & Brand Identity</li>
+                        <li>Marketing Collateral</li>
+                        <li>Packaging Design</li>
+                        <li>Social Media Graphics</li>
+                        <li>Custom Illustrations</li>
+                    </ul>
+                    <a href="design-services.html" class="service-btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚚</div>
+                    <h3>Fulfillment & Delivery</h3>
+                    <p>End-to-end solutions from printing to delivery.</p>
+                    <ul class="service-features">
+                        <li>Nationwide Shipping</li>
+                        <li>Express Delivery Options</li>
+                        <li>Bulk Order Management</li>
+                        <li>Packaging Services</li>
+                        <li>Order Tracking</li>
+                    </ul>
+                    <a href="delivery.html" class="service-btn">Delivery Info</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>Corporate Solutions</h3>
+                    <p>Tailored printing services for businesses of all sizes.</p>
+                    <ul class="service-features">
+                        <li>Corporate Branding</li>
+                        <li>Trade Show Materials</li>
+                        <li>Office Signage</li>
+                        <li>Promotional Products</li>
+                        <li>Bulk Discounts</li>
+                    </ul>
+                    <a href="corporate.html" class="service-btn">Corporate Plans</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎁</div>
+                    <h3>Personalized Gifts</h3>
+                    <p>Custom gifts for special occasions and corporate events.</p>
+                    <ul class="service-features">
+                        <li>Photo Gifts</li>
+                        <li>Custom Mugs & Apparel</li>
+                        <li>Engraved Items</li>
+                        <li>Corporate Gift Sets</li>
+                        <li>Gift Packaging</li>
+                    </ul>
+                    <a href="gifts.html" class="service-btn">Explore Gifts</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔄</div>
+                    <h3>Rush Services</h3>
+                    <p>Expedited printing for urgent deadlines and last-minute needs.</p>
+                    <ul class="service-features">
+                        <li>Same-Day Printing</li>
+                        <li>24-Hour Turnaround</li>
+                        <li>Express Shipping</li>
+                        <li>Priority Production</li>
+                        <li>Emergency Support</li>
+                    </ul>
+                    <a href="rush-services.html" class="service-btn">Rush Options</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <h2>Our Process</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Consultation</h3>
+                    <p>We discuss your needs, specifications, and timeline to understand your project requirements.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Design & Proof</h3>
+                    <p>Our design team creates or optimizes your artwork and provides proofs for your approval.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Production</h3>
+                    <p>Once approved, your project moves to production using our state-of-the-art printing equipment.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Quality Check</h3>
+                    <p>Every item undergoes rigorous quality control to ensure it meets our high standards.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>Delivery</h3>
+                    <p>Your finished products are carefully packaged and delivered to your specified location.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "PrintHub delivered exceptional quality business cards for our company. The attention to detail and customer service was outstanding. We'll definitely be using their services again for all our printing needs."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JO</div>
+                        <div class="author-info">
+                            <h4>John Okafor</h4>
+                            <p>CEO, TechNigeria</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "I needed urgent flyers for an event and PrintHub came through with same-day printing. The quality was excellent and the rush service saved our event. Highly recommended!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AB</div>
+                        <div class="author-info">
+                            <h4>Amina Bello</h4>
+                            <p>Event Manager</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "The design team at PrintHub transformed our basic ideas into stunning marketing materials. Their creativity and professionalism exceeded our expectations. We've received countless compliments on our new brochures."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DO</div>
+                        <div class="author-info">
+                            <h4>David Okonkwo</h4>
+                            <p>Marketing Director</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Contact us today to discuss your printing needs and get a free quote. Our team is ready to help bring your ideas to life with quality printing solutions.</p>
+            <a href="contact.html" class="cta-btn">Get a Quote</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>PrintHub</h3>
+                    <p>Your trusted partner for quality printing services. Fast delivery, competitive prices, and exceptional customer service guaranteed.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="business-cards.html">Business Cards</a></li>
+                        <li><a href="flyers.html">Flyers & Brochures</a></li>
+                        <li><a href="stickers.html">Stickers & Labels</a></li>
+                        <li><a href="mugs.html">Custom Mugs</a></li>
+                        <li><a href="tshirts.html">T-Shirts & Apparel</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Track Your Order</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PrintHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

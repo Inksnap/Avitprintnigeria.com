@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Calculator - PrintHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .top-bar {
+            background: #f8f9fa;
+            padding: 10px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #e9ecef;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar-left {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .top-bar-left a {
+            color: #6c757d;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .top-bar-left a:hover,
+        .top-bar-left a.active {
+            color: #17a2b8;
+        }
+
+        .top-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            color: #495057;
+        }
+
+        .contact-number {
+            color: #17a2b8;
+            font-weight: 600;
+        }
+
+        header {
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #495057;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #17a2b8;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .sign-in {
+            color: #17a2b8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .create-account {
+            background: #17a2b8;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: background 0.3s;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #e8f4f8 0%, #f0f8ff 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 20px;
+            color: #6c757d;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Calculator Layout */
+        .calculator-layout {
+            padding: 80px 0;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        /* Calculator Form */
+        .calculator-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .calculator-form h2 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 2rem;
+        }
+
+        .form-section {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .form-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #495057;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: #17a2b8;
+        }
+
+        .quantity-input {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .quantity-btn {
+            background: #17a2b8;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .quantity-btn:hover {
+            background: #138496;
+        }
+
+        .quantity-display {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .calculate-btn {
+            background: #17a2b8;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+            margin-top: 2rem;
+        }
+
+        .calculate-btn:hover {
+            background: #138496;
+        }
+
+        /* Price Summary */
+        .price-summary {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+        }
+
+        .price-summary h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .price-breakdown {
+            margin-bottom: 2rem;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f8f9fa;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .price-item:last-child {
+            border-bottom: none;
+        }
+
+        .price-label {
+            color: #6c757d;
+        }
+
+        .price-value {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .total-price {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .total-price .price-item {
+            border-bottom: none;
+            font-size: 18px;
+        }
+
+        .total-price .price-label {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .total-price .price-value {
+            color: #17a2b8;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .order-btn {
+            background: #28a745;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .order-btn:hover {
+            background: #218838;
+        }
+
+        .savings-badge {
+            background: #28a745;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        /* Product Preview */
+        .product-preview {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .preview-image {
+            width: 150px;
+            height: 100px;
+            background: #e9ecef;
+            border-radius: 8px;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .preview-specs {
+            font-size: 14px;
+            color: #6c757d;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: #17a2b8;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .footer-section ul li a:hover {
+            color: #17a2b8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 36px;
+            }
+
+            .calculator-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .price-summary {
+                position: static;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <a href="#" class="active">Cost Calculator</a>
+                    <a href="#">Discover Stores</a>
+                    <a href="#">Track Orders</a>
+                </div>
+                <div class="top-bar-right">
+                    <span class="contact-info">Need help? Call: <span class="contact-number">+234-706-900-0063</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">PrintHub</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="quotes.html">Get Quote</a></li>
+                <li><a href="track-order.html">Track Order</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="reseller.html">Reseller</a></li>
+                <li><a href="calculator.html" class="active">Calculator</a></li>
+                <li><a href="stores.html">Stores</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="sign-in">Sign In</a>
+                <a href="#" class="create-account">Create Account</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Cost Calculator</h1>
+            <p>Get instant pricing for your printing needs with our smart calculator</p>
+        </div>
+    </section>
+
+    <!-- Calculator Layout -->
+    <section class="calculator-layout container">
+        <!-- Calculator Form -->
+        <div class="calculator-form">
+            <h2>Configure Your Order</h2>
+            
+            <!-- Product Selection -->
+            <div class="form-section">
+                <h3 class="section-title">Product Selection</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="product">Product Type</label>
+                        <select id="product" onchange="updateCalculation()">
+                            <option value="business-cards">Business Cards</option>
+                            <option value="flyers">Flyers</option>
+                            <option value="brochures">Brochures</option>
+                            <option value="stickers">Stickers</option>
+                            <option value="banners">Banners</option>
+                            <option value="mugs">Custom Mugs</option>
+                            <option value="tshirts">T-Shirts</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="size">Size</label>
+                        <select id="size" onchange="updateCalculation()">
+                            <option value="standard">Standard (90x50mm)</option>
+                            <option value="mini">Mini (85x45mm)</option>
+                            <option value="square">Square (70x70mm)</option>
+                            <option value="folded">Folded (180x50mm)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Specifications -->
+            <div class="form-section">
+                <h3 class="section-title">Specifications</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="paper">Paper Type</label>
+                        <select id="paper" onchange="updateCalculation()">
+                            <option value="standard">Standard (300gsm)</option>
+                            <option value="premium">Premium (400gsm)</option>
+                            <option value="luxury">Luxury (600gsm)</option>
+                            <option value="textured">Textured (350gsm)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="finish">Finish</label>
+                        <select id="finish" onchange="updateCalculation()">
+                            <option value="matte">Matte</option>
+                            <option value="gloss">Gloss</option>
+                            <option value="satin">Satin</option>
+                            <option value="uncoated">Uncoated</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="sides">Printing Sides</label>
+                        <select id="sides" onchange="updateCalculation()">
+                            <option value="single">Single-sided</option>
+                            <option value="double">Double-sided</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="colors">Colors</label>
+                        <select id="colors" onchange="updateCalculation()">
+                            <option value="full-color">Full Color (CMYK)</option>
+                            <option value="black-white">Black & White</option>
+                            <option value="spot-color">Spot Color</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quantity -->
+            <div class="form-section">
+                <h3 class="section-title">Quantity</h3>
+                <div class="form-group">
+                    <label>Number of Pieces</label>
+                    <div class="quantity-input">
+                        <button type="button" class="quantity-btn" onclick="changeQuantity(-1)">-</button>
+                        <span class="quantity-display" id="quantity">100</span>
+                        <button type="button" class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="rush">Rush Order</label>
+                        <select id="rush" onchange="updateCalculation()">
+                            <option value="standard">Standard (5-7 days)</option>
+                            <option value="express">Express (2-3 days) +20%</option>
+                            <option value="same-day">Same Day +50%</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="delivery">Delivery</label>
+                        <select id="delivery" onchange="updateCalculation()">
+                            <option value="pickup">Store Pickup (Free)</option>
+                            <option value="standard">Standard Delivery (₦2,500)</option>
+                            <option value="express">Express Delivery (₦5,000)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <button class="calculate-btn" onclick="updateCalculation()">Update Calculation</button>
+        </div>
+
+        <!-- Price Summary -->
+        <div class="price-summary">
+            <h3>Price Summary</h3>
+            
+            <div class="product-preview">
+                <div class="preview-image">Product Preview</div>
+                <div class="preview-specs" id="previewSpecs">
+                    Business Cards • Standard • 100 pieces
+                </div>
+            </div>
+
+            <div class="savings-badge" id="savingsBadge" style="display: none;">
+                Save ₦2,500 with bulk pricing!
+            </div>
+
+            <div class="price-breakdown">
+                <div class="price-item">
+                    <span class="price-label">Base Price</span>
+                    <span class="price-value" id="basePrice">₦15,000</span>
+                </div>
+                <div class="price-item">
+                    <span class="price-label">Paper Upgrade</span>
+                    <span class="price-value" id="paperUpgrade">₦0</span>
+                </div>
+                <div class="price-item">
+                    <span class="price-label">Finish</span>
+                    <span class="price-value" id="finishPrice">₦0</span>
+                </div>
+                <div class="price-item">
+                    <span class="price-label">Rush Order</span>
+                    <span class="price-value" id="rushPrice">₦0</span>
+                </div>
+                <div class="price-item">
+                    <span class="price-label">Delivery</span>
+                    <span class="price-value" id="deliveryPrice">₦0</span>
+                </div>
+            </div>
+
+            <div class="total-price">
+                <div class="price-item">
+                    <span class="price-label">Total Price</span>
+                    <span class="price-value" id="totalPrice">₦15,000</span>
+                </div>
+            </div>
+
+            <button class="order-btn">Add to Cart</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>PrintHub</h3>
+                    <p>Your trusted partner for quality printing services. Fast delivery, competitive prices, and exceptional customer service guaranteed.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="business-cards.html">Business Cards</a></li>
+                        <li><a href="flyers.html">Flyers & Brochures</a></li>
+                        <li><a href="stickers.html">Stickers & Labels</a></li>
+                        <li><a href="mugs.html">Custom Mugs</a></li>
+                        <li><a href="tshirts.html">T-Shirts & Apparel</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="track-order.html">Track Your Order</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PrintHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentQuantity = 100;
+
+        function changeQuantity(change) {
+            const newQuantity = currentQuantity + change;
+            if (newQuantity >= 1) {
+                currentQuantity = newQuantity;
+                document.getElementById('quantity').textContent = currentQuantity;
+                updateCalculation();
+            }
+        }
+
+        function updateCalculation() {
+            const product = document.getElementById('product').value;
+            const paper = document.getElementById('paper').value;
+            const finish = document.getElementById('finish').value;
+            const sides = document.getElementById('sides').value;
+            const rush = document.getElementById('rush').value;
+            const delivery = document.getElementById('delivery').value;
+
+            // Base pricing logic
+            let basePrice = 0;
+            switch(product) {
+                case 'business-cards':
+                    basePrice = currentQuantity * 0.15;
+                    break;
+                case 'flyers':
+                    basePrice = currentQuantity * 0.08;
+                    break;
+                case 'brochures':
+                    basePrice = currentQuantity * 0.25;
+                    break;
+                case 'stickers':
+                    basePrice = currentQuantity * 0.12;
+                    break;
+                case 'banners':
+                    basePrice = currentQuantity * 2.5;
+                    break;
+                case 'mugs':
+                    basePrice = currentQuantity * 1.8;
+                    break;
+                case 'tshirts':
+                    basePrice = currentQuantity * 3.2;
+                    break;
+            }
+
+            // Paper upgrade pricing
+            let paperUpgrade = 0;
+            if (paper === 'premium') paperUpgrade = basePrice * 0.2;
+            if (paper === 'luxury') paperUpgrade = basePrice * 0.4;
+            if (paper === 'textured') paperUpgrade = basePrice * 0.3;
+
+            // Finish pricing
+            let finishPrice = 0;
+            if (finish === 'gloss') finishPrice = basePrice * 0.1;
+            if (finish === 'satin') finishPrice = basePrice * 0.15;
+
+            // Double-sided pricing
+            if (sides === 'double') basePrice *= 1.5;
+
+            // Rush order pricing
+            let rushPrice = 0;
+            if (rush === 'express') rushPrice = basePrice * 0.2;
+            if (rush === 'same-day') rushPrice = basePrice * 0.5;
+
+            // Delivery pricing
+            let deliveryPrice = 0;
+            if (delivery === 'standard') deliveryPrice = 2500;
+            if (delivery === 'express') deliveryPrice = 5000;
+
+            // Calculate total
+            const total = basePrice + paperUpgrade + finishPrice + rushPrice + deliveryPrice;
+
+            // Update display
+            document.getElementById('basePrice').textContent = '₦' + Math.round(basePrice).toLocaleString();
+            document.getElementById('paperUpgrade').textContent = '₦' + Math.round(paperUpgrade).toLocaleString();
+            document.getElementById('finishPrice').textContent = '₦' + Math.round(finishPrice).toLocaleString();
+            document.getElementById('rushPrice').textContent = '₦' + Math.round(rushPrice).toLocaleString();
+            document.getElementById('deliveryPrice').textContent = '₦' + Math.round(deliveryPrice).toLocaleString();
+            document.getElementById('totalPrice').textContent = '₦' + Math.round(total).toLocaleString();
+
+            // Update preview specs
+            const productName = document.getElementById('product').options[document.getElementById('product').selectedIndex].text;
+            const sizeName = document.getElementById('size').options[document.getElementById('size').selectedIndex].text;
+            document.getElementById('previewSpecs').textContent = `${productName} • ${sizeName} • ${currentQuantity} pieces`;
+
+            // Show savings badge for bulk orders
+            const savingsBadge = document.getElementById('savingsBadge');
+            if (currentQuantity >= 500) {
+                savingsBadge.style.display = 'block';
+            } else {
+                savingsBadge.style.display = 'none';
+            }
+        }
+
+        // Initialize calculation on page load
+        updateCalculation();
+    </script>
+</body>
+</html>

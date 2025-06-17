@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Calendars - PrintHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .top-bar {
+            background: #f8f9fa;
+            padding: 10px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #e9ecef;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar-left {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .top-bar-left a {
+            color: #6c757d;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .top-bar-left a:hover {
+            color: #17a2b8;
+        }
+
+        .top-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            color: #495057;
+        }
+
+        .contact-number {
+            color: #17a2b8;
+            font-weight: 600;
+        }
+
+        header {
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #495057;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #17a2b8;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .sign-in {
+            color: #17a2b8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .create-account {
+            background: #17a2b8;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: background 0.3s;
+        }
+
+        /* Product Hero */
+        .product-hero {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .product-hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+
+        .product-hero p {
+            font-size: 20px;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-price {
+            font-size: 24px;
+            font-weight: 600;
+            background: rgba(255,255,255,0.2);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+        /* Calendar Types */
+        .calendar-types {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .calendar-types h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 3rem;
+        }
+
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .type-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .type-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .type-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+        }
+
+        .type-image.wall {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .type-image.desk {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .type-image.pocket {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .type-info {
+            padding: 2rem;
+        }
+
+        .type-info h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .type-info p {
+            color: #6c757d;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .type-price {
+            font-size: 20px;
+            font-weight: 600;
+            color: #17a2b8;
+            margin-bottom: 1rem;
+        }
+
+        .type-btn {
+            background: #17a2b8;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .type-btn:hover {
+            background: #138496;
+        }
+
+        /* Product Details */
+        .product-details {
+            padding: 80px 0;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .product-info h2 {
+            font-size: 36px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 2rem;
+        }
+
+        .product-info p {
+            font-size: 16px;
+            color: #6c757d;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f8f9fa;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            color: #17a2b8;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .order-form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .order-form h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #495057;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+        }
+
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: #17a2b8;
+        }
+
+        .price-display {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .price-display .total {
+            font-size: 28px;
+            font-weight: 700;
+            color: #17a2b8;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .price-display .unit {
+            font-size: 14px;
+            color: #6c757d;
+            margin-top: 0.5rem;
+        }
+
+        .order-btn {
+            width: 100%;
+            background: #17a2b8;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .order-btn:hover {
+            background: #138496;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: #17a2b8;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .footer-section ul li a:hover {
+            color: #17a2b8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .product-hero h1 {
+                font-size: 36px;
+            }
+
+            .types-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <a href="calculator.html">Cost Calculator</a>
+                    <a href="stores.html">Discover Stores</a>
+                    <a href="track-order.html">Track Orders</a>
+                </div>
+                <div class="top-bar-right">
+                    <span class="contact-info">Need help? Call: <span class="contact-number">+234-706-900-0063</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">PrintHub</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="quotes.html">Get Quote</a></li>
+                <li><a href="track-order.html">Track Order</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="reseller.html">Reseller</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href="stores.html">Stores</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="sign-in">Sign In</a>
+                <a href="#" class="create-account">Create Account</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Product Hero -->
+    <section class="product-hero">
+        <div class="container">
+            <h1>Custom Calendars</h1>
+            <p>Stay organized with personalized calendars for home, office, or promotional use</p>
+            <div class="hero-price">Starting from ₦8,500 each</div>
+        </div>
+    </section>
+
+    <!-- Calendar Types -->
+    <section class="calendar-types">
+        <div class="container">
+            <h2>Calendar Types</h2>
+            <div class="types-grid">
+                <div class="type-card">
+                    <div class="type-image wall">📅</div>
+                    <div class="type-info">
+                        <h3>Wall Calendars</h3>
+                        <p>Large format calendars perfect for offices, homes, and businesses. Available in A3 and A2 sizes with spiral or saddle-stitched binding.</p>
+                        <div class="type-price">From ₦8,500 each</div>
+                        <button class="type-btn">Customize Now</button>
+                    </div>
+                </div>
+                <div class="type-card">
+                    <div class="type-image desk">🗓️</div>
+                    <div class="type-info">
+                        <h3>Desk Calendars</h3>
+                        <p>Compact desktop calendars ideal for personal use or corporate gifts. Sturdy base with high-quality paper and professional finish.</p>
+                        <div class="type-price">From ₦6,200 each</div>
+                        <button class="type-btn">Customize Now</button>
+                    </div>
+                </div>
+                <div class="type-card">
+                    <div class="type-image pocket">📱</div>
+                    <div class="type-info">
+                        <h3>Pocket Calendars</h3>
+                        <p>Portable mini calendars perfect for wallets, purses, or promotional giveaways. Durable and convenient for on-the-go planning.</p>
+                        <div class="type-price">From ₦2,800 each</div>
+                        <button class="type-btn">Customize Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Details -->
+    <section class="product-details">
+        <div class="container">
+            <div class="details-grid">
+                <div class="product-info">
+                    <h2>Premium Quality Calendars</h2>
+                    <p>Our custom calendars are designed to help you stay organized while showcasing your brand or personal style. Printed on high-quality paper with vibrant colors and durable construction.</p>
+                    
+                    <ul class="features-list">
+                        <li>High-resolution full-color printing</li>
+                        <li>Premium paper stock (200-300gsm)</li>
+                        <li>Multiple size and format options</li>
+                        <li>Custom layouts and designs</li>
+                        <li>Spiral binding or saddle-stitched</li>
+                        <li>Matte or glossy finish available</li>
+                        <li>Corporate branding options</li>
+                        <li>Fast turnaround (5-7 business days)</li>
+                        <li>Bulk pricing for large orders</li>
+                        <li>Free design consultation</li>
+                    </ul>
+                </div>
+
+                <div class="order-form">
+                    <h3>Customize Your Calendar</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="type">Calendar Type</label>
+                            <select id="type">
+                                <option value="wall">Wall Calendar</option>
+                                <option value="desk">Desk Calendar</option>
+                                <option value="pocket">Pocket Calendar</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="size">Size</label>
+                            <select id="size">
+                                <option value="a3">A3 (297 x 420mm)</option>
+                                <option value="a2">A2 (420 x 594mm)</option>
+                                <option value="a4">A4 (210 x 297mm)</option>
+                                <option value="a5">A5 (148 x 210mm)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="pages">Number of Pages</label>
+                            <select id="pages">
+                                <option value="12">12 Pages (Monthly)</option>
+                                <option value="24">24 Pages (Bi-weekly)</option>
+                                <option value="52">52 Pages (Weekly)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="binding">Binding</label>
+                            <select id="binding">
+                                <option value="spiral">Spiral Binding</option>
+                                <option value="saddle">Saddle Stitched</option>
+                                <option value="perfect">Perfect Binding</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="finish">Finish</label>
+                            <select id="finish">
+                                <option value="matte">Matte Finish</option>
+                                <option value="glossy">Glossy Finish</option>
+                                <option value="satin">Satin Finish</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="quantity">Quantity</label>
+                            <select id="quantity">
+                                <option value="1">1 calendar</option>
+                                <option value="5">5 calendars</option>
+                                <option value="10">10 calendars</option>
+                                <option value="25">25 calendars</option>
+                                <option value="50">50 calendars</option>
+                                <option value="100">100 calendars</option>
+                            </select>
+                        </div>
+                        
+                        <div class="price-display">
+                            <div class="total">₦8,500</div>
+                            <div class="unit">per calendar</div>
+                        </div>
+                        
+                        <button type="submit" class="order-btn">Order Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="products.html">All Products</a>
+                    <a href="services.html">Services</a>
+                    <a href="quotes.html">Get Quote</a>
+                    <a href="track-order.html">Track Order</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="reseller.html">Reseller Program</a>
+                    <a href="calculator.html">Price Calculator</a>
+                    <a href="stores.html">Our Stores</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PrintHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

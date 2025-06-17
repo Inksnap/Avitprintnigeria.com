@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - PrintHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .top-bar {
+            background: #f8f9fa;
+            padding: 10px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #e9ecef;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar-left {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .top-bar-left a {
+            color: #6c757d;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .top-bar-left a:hover {
+            color: #17a2b8;
+        }
+
+        .top-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            color: #495057;
+        }
+
+        .contact-number {
+            color: #17a2b8;
+            font-weight: 600;
+        }
+
+        header {
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #495057;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #17a2b8;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .sign-in {
+            color: #17a2b8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .create-account {
+            background: #17a2b8;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: background 0.3s;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #e8f4f8 0%, #f0f8ff 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 20px;
+            color: #6c757d;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Blog Layout */
+        .blog-layout {
+            padding: 80px 0;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 3rem;
+        }
+
+        /* Blog Posts */
+        .blog-posts {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .blog-post {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+        }
+
+        .post-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .post-content {
+            padding: 2rem;
+        }
+
+        .post-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 14px;
+            color: #6c757d;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .post-category {
+            background: #e9ecef;
+            padding: 0.2rem 0.8rem;
+            border-radius: 15px;
+            font-weight: 500;
+        }
+
+        .post-date {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .post-content h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .post-content p {
+            color: #6c757d;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .read-more {
+            color: #17a2b8;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar */
+        .blog-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .sidebar-section h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .search-form {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #17a2b8;
+        }
+
+        .search-button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #6c757d;
+            cursor: pointer;
+        }
+
+        .categories-list {
+            list-style: none;
+        }
+
+        .categories-list li {
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .categories-list li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .categories-list a {
+            color: #495057;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .categories-list a:hover {
+            color: #17a2b8;
+        }
+
+        .category-count {
+            background: #e9ecef;
+            padding: 0.1rem 0.5rem;
+            border-radius: 10px;
+            font-size: 12px;
+            color: #6c757d;
+        }
+
+        .popular-posts {
+            list-style: none;
+        }
+
+        .popular-post {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .popular-post:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .popular-post-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+        }
+
+        .popular-post-content h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .popular-post-content h4 a {
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .popular-post-content h4 a:hover {
+            color: #17a2b8;
+        }
+
+        .popular-post-date {
+            font-size: 12px;
+            color: #6c757d;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tags-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: #e9ecef;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 12px;
+            color: #495057;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .tag:hover {
+            background: #17a2b8;
+            color: white;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+
+        .page-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            color: #495057;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .page-link:hover,
+        .page-link.active {
+            background: #17a2b8;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: #17a2b8;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .footer-section ul li a:hover {
+            color: #17a2b8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 36px;
+            }
+
+            .blog-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-sidebar {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <a href="#">Cost Calculator</a>
+                    <a href="#">Discover Stores</a>
+                    <a href="#">Track Orders</a>
+                </div>
+                <div class="top-bar-right">
+                    <span class="contact-info">Need help? Call: <span class="contact-number">+234-706-900-0063</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">PrintHub</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="quotes.html">Get Quote</a></li>
+                <li><a href="track-order.html">Track Order</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="reseller.html">Reseller</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href="stores.html">Stores</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="sign-in">Sign In</a>
+                <a href="#" class="create-account">Create Account</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>PrintHub Blog</h1>
+            <p>Insights, tips, and trends in printing and design</p>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="container">
+        <div class="blog-layout">
+            <!-- Blog Posts -->
+            <div class="blog-posts">
+                <article class="blog-post">
+                    <div class="post-image" style="background-image: url('/placeholder.svg?height=250&width=800')"></div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Design Tips</span>
+                            <span class="post-date">📅 June 10, 2024</span>
+                        </div>
+                        <h2>10 Essential Design Tips for Effective Business Cards</h2>
+                        <p>Your business card is often the first impression potential clients have of your brand. Learn how to make it count with these essential design tips that will help your business card stand out from the crowd and effectively communicate your brand message.</p>
+                        <a href="blog-post.html" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <div class="post-image" style="background-image: url('/placeholder.svg?height=250&width=800')"></div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Printing Technology</span>
+                            <span class="post-date">📅 May 28, 2024</span>
+                        </div>
+                        <h2>Digital vs. Offset Printing: Which Is Right for Your Project?</h2>
+                        <p>Understanding the differences between digital and offset printing can help you make the right choice for your project. This comprehensive guide breaks down the pros and cons of each method, helping you determine which printing technology will deliver the best results for your specific needs.</p>
+                        <a href="blog-post.html" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <div class="post-image" style="background-image: url('/placeholder.svg?height=250&width=800')"></div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Marketing</span>
+                            <span class="post-date">📅 May 15, 2024</span>
+                        </div>
+                        <h2>How Print Materials Can Boost Your Digital Marketing Strategy</h2>
+                        <p>In today's digital world, print materials still play a crucial role in effective marketing strategies. Discover how integrating print materials with your digital marketing efforts can create a cohesive brand experience and drive better results for your business.</p>
+                        <a href="blog-post.html" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <div class="post-image" style="background-image: url('/placeholder.svg?height=250&width=800')"></div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">Sustainability</span>
+                            <span class="post-date">📅 April 22, 2024</span>
+                        </div>
+                        <h2>Eco-Friendly Printing: Sustainable Options for Your Business</h2>
+                        <p>As environmental concerns grow, businesses are looking for ways to reduce their ecological footprint. Learn about sustainable printing options, from recycled papers to vegetable-based inks, that can help your business make environment

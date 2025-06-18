@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stickers & Labels - PrintHub</title>
+    <title>Custom Stickers & Labels - PrintHub</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -143,318 +143,313 @@
             transition: background 0.3s;
         }
 
-        /* Breadcrumb */
-        .breadcrumb {
-            background: #f8f9fa;
-            padding: 1rem 0;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .breadcrumb-content {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 14px;
-        }
-
-        .breadcrumb a {
-            color: #6c757d;
-            text-decoration: none;
-        }
-
-        .breadcrumb a:hover {
-            color: #17a2b8;
-        }
-
-        .breadcrumb-separator {
-            color: #adb5bd;
-        }
-
-        .breadcrumb-current {
-            color: #495057;
-            font-weight: 500;
-        }
-
         /* Product Hero */
         .product-hero {
-            padding: 60px 0;
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            padding: 80px 0;
             color: white;
+            text-align: center;
         }
 
-        .product-hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .product-hero-text h1 {
-            font-size: 42px;
+        .product-hero h1 {
+            font-size: 48px;
             font-weight: 700;
             font-family: 'Playfair Display', serif;
             margin-bottom: 1rem;
         }
 
-        .product-hero-text p {
-            font-size: 18px;
+        .product-hero p {
+            font-size: 20px;
             font-family: 'Inter', sans-serif;
             margin-bottom: 2rem;
-            line-height: 1.7;
             opacity: 0.9;
         }
 
-        .hero-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .hero-feature {
+        .hero-price {
+            font-size: 24px;
+            font-weight: 600;
             background: rgba(255,255,255,0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 500;
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .primary-btn {
-            background: white;
-            color: #00f2fe;
             padding: 15px 30px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
+            border-radius: 50px;
             display: inline-block;
         }
 
-        .primary-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .secondary-btn {
-            background: transparent;
-            color: white;
-            padding: 15px 30px;
-            border: 2px solid white;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .secondary-btn:hover {
-            background: white;
-            color: #00f2fe;
-        }
-
-        .product-hero-image {
-            text-align: center;
-        }
-
-        .product-hero-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        }
-
-        /* Product Options */
-        .product-options {
+        /* Product Details */
+        .product-details {
             padding: 80px 0;
         }
 
-        .product-options h2 {
-            text-align: center;
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .product-info h2 {
             font-size: 36px;
             font-weight: 600;
             color: #2c3e50;
             font-family: 'Playfair Display', serif;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .option-card {
-            background: white;
-            border: 2px solid #e9ecef;
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .option-card:hover,
-        .option-card.selected {
-            border-color: #00f2fe;
-            box-shadow: 0 10px 30px rgba(0, 242, 254, 0.1);
-        }
-
-        .option-card h3 {
-            font-size: 24px;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-
-        .option-card .price {
-            font-size: 32px;
-            font-weight: 700;
-            color: #00f2fe;
-            margin-bottom: 1rem;
-        }
-
-        .option-card .price-unit {
+        .product-info p {
             font-size: 16px;
             color: #6c757d;
-            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 2rem;
+            line-height: 1.8;
         }
 
-        .option-features {
+        .features-list {
             list-style: none;
             margin-bottom: 2rem;
         }
 
-        .option-features li {
-            padding: 0.5rem 0;
-            color: #6c757d;
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f8f9fa;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            color: #17a2b8;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .order-form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .order-form h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #495057;
             font-family: 'Inter', sans-serif;
         }
 
-        .option-features li:before {
-            content: "✓";
-            color: #00f2fe;
-            font-weight: bold;
-            margin-right: 0.5rem;
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s;
         }
 
-        .select-btn {
-            background: #00f2fe;
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: #17a2b8;
+        }
+
+        .submit-btn {
+            background: #17a2b8;
             color: white;
-            padding: 12px 24px;
+            padding: 15px 30px;
             border: none;
             border-radius: 8px;
+            font-size: 18px;
             font-weight: 600;
             cursor: pointer;
             transition: background 0.3s;
             width: 100%;
+            font-family: 'Poppins', sans-serif;
         }
 
-        .select-btn:hover {
-            background: #00d9e6;
+        .submit-btn:hover {
+            background: #138496;
         }
 
-        /* Specifications */
-        .specifications {
+        /* Related Products */
+        .related-products {
             padding: 80px 0;
             background: #f8f9fa;
         }
 
-        .specifications h2 {
+        .related-products .section-title {
             text-align: center;
-            font-size: 36px;
-            font-weight: 600;
-            color: #2c3e50;
-            font-family: 'Playfair Display', serif;
             margin-bottom: 3rem;
         }
 
-        .specs-grid {
+        .related-products .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
-        .spec-item {
+        .product-card {
             background: white;
-            padding: 2rem;
             border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            color: #333;
         }
 
-        .spec-icon {
-            width: 60px;
-            height: 60px;
-            background: #00f2fe;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 24px;
-            color: white;
+        .product-card:hover {
+            transform: translateY(-5px);
         }
 
-        .spec-item h3 {
-            font-size: 18px;
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-card-content {
+            padding: 1.5rem;
+        }
+
+        .product-card h3 {
+            font-size: 20px;
             font-weight: 600;
-            color: #2c3e50;
             margin-bottom: 0.5rem;
+            font-family: 'Poppins', sans-serif;
         }
 
-        .spec-item p {
+        .product-card p {
+            font-size: 15px;
             color: #6c757d;
+            margin-bottom: 1rem;
             font-family: 'Inter', sans-serif;
+        }
+
+        .product-card .price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #17a2b8;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background: linear-gradient(135deg, #17a2b8 0%, #2c3e50 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: white;
+            color: #17a2b8;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            background: #e9ecef;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
         /* Footer */
         footer {
             background: #2c3e50;
             color: white;
-            padding: 4rem 0 2rem;
+            padding: 3rem 0 1rem;
+            font-family: 'Inter', sans-serif;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
+            gap: 2rem;
             margin-bottom: 2rem;
         }
 
         .footer-section h3 {
-            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            font-size: 20px;
             color: #17a2b8;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
         }
 
-        .footer-section ul {
-            list-style: none;
+        .footer-section p {
+            font-size: 15px;
+            color: #bdc3c7;
+            line-height: 1.7;
         }
 
-        .footer-section ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-section ul li a {
+        .footer-section a {
             color: #bdc3c7;
             text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
             transition: color 0.3s;
-            font-family: 'Inter', sans-serif;
+            font-size: 15px;
         }
 
-        .footer-section ul li a:hover {
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
             color: #17a2b8;
         }
 
@@ -463,71 +458,61 @@
             padding-top: 2rem;
             border-top: 1px solid #34495e;
             color: #bdc3c7;
-            font-family: 'Inter', sans-serif;
+            font-size: 14px;
         }
 
-        /* Responsive */
+        /* Responsive Design */
         @media (max-width: 768px) {
+            .top-bar-left {
+                display: none;
+            }
+
             .nav-links {
                 display: none;
             }
 
-            .product-hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .product-hero-text h1 {
+            .product-hero h1 {
                 font-size: 32px;
             }
 
-            .cta-buttons {
-                justify-content: center;
-            }
-
-            .options-grid {
+            .details-grid {
                 grid-template-columns: 1fr;
             }
 
-            .specs-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Top Bar -->
     <div class="top-bar">
-        <div class="container">
-            <div class="top-bar-content">
-                <div class="top-bar-left">
-                    <a href="#">Cost Calculator</a>
-                    <a href="#">Discover Stores</a>
-                    <a href="#">Track Orders</a>
-                </div>
-                <div class="top-bar-right">
-                    <span class="contact-info">Need help? Call: <span class="contact-number">+234-706-900-0063</span></span>
-                </div>
+        <div class="container top-bar-content">
+            <div class="top-bar-left">
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="reseller.html">Reseller Program</a>
+            </div>
+            <div class="top-bar-right">
+                <span class="contact-info">Need help? Call us: <span class="contact-number">+234-706-900-0063</span></span>
             </div>
         </div>
     </div>
 
-    <!-- Header -->
     <header>
         <nav class="container">
-            <a href="index.html" class="logo">PrintHub</a>
+            <a href="index.html" class="logo">printhub</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="quotes.html">Get Quote</a></li>
                 <li><a href="track-order.html">Track Order</a></li>
                 <li><a href="blog.html">Blog</a></li>
-                <li><a href="reseller.html">Reseller</a></li>
                 <li><a href="calculator.html">Calculator</a></li>
                 <li><a href="stores.html">Stores</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="about.html">About Us</a></li>
             </ul>
             <div class="nav-actions">
                 <a href="#" class="sign-in">Sign In</a>
@@ -536,171 +521,224 @@
         </nav>
     </header>
 
-    <!-- Breadcrumb -->
-    <section class="breadcrumb">
-        <div class="container">
-            <div class="breadcrumb-content">
-                <a href="index.html">Home</a>
-                <span class="breadcrumb-separator">></span>
-                <a href="products.html">Products</a>
-                <span class="breadcrumb-separator">></span>
-                <span class="breadcrumb-current">Stickers & Labels</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Product Hero -->
     <section class="product-hero">
         <div class="container">
-            <div class="product-hero-content">
-                <div class="product-hero-text">
-                    <h1>Stickers & Labels</h1>
-                    <p>Custom stickers and labels for branding, packaging, and promotional use. Available in any shape, size, and finish to meet your specific needs.</p>
-                    
-                    <div class="hero-features">
-                        <div class="hero-feature">Any Shape</div>
-                        <div class="hero-feature">Waterproof</div>
-                        <div class="hero-feature">Durable Vinyl</div>
-                        <div class="hero-feature">Custom Sizes</div>
-                    </div>
-
-                    <div class="cta-buttons">
-                        <a href="#options" class="primary-btn">Order Now</a>
-                        <a href="#" class="secondary-btn">Get Quote</a>
-                    </div>
-                </div>
-                <div class="product-hero-image">
-                    <img src="/placeholder.svg?height=400&width=500" alt="Custom Stickers and Labels" />
-                </div>
-            </div>
+            <h1>Custom Stickers & Labels</h1>
+            <p>Durable vinyl stickers and labels for branding, packaging, and promotional use. Available in any shape, size, and finish.</p>
+            <div class="hero-price">Starting from ₦17,000 per 100 stickers</div>
         </div>
     </section>
 
-    <!-- Product Options -->
-    <section class="product-options" id="options">
+    <section class="product-details">
         <div class="container">
-            <h2>Choose Your Sticker Type</h2>
-            <div class="options-grid">
-                <div class="option-card">
-                    <h3>Round Stickers</h3>
-                    <div class="price">₦17,000 <span class="price-unit">per 100</span></div>
-                    <ul class="option-features">
-                        <li>3.5" Diameter</li>
-                        <li>Premium Vinyl Material</li>
-                        <li>Waterproof & Durable</li>
-                        <li>Full Color Printing</li>
-                        <li>2-3 Business Days</li>
-                    </ul>
-                    <button class="select-btn">Select Round</button>
+            <div class="details-grid">
+                <div class="product-images">
+                    <img id="mainImage" src="/placeholder.svg?height=400&width=500" alt="Custom Stickers & Labels" style="width: 100%; height: 400px; object-fit: cover; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <div class="thumbnail-gallery" style="display: flex; gap: 1rem; justify-content: center;">
+                        <img src="/placeholder.svg?height=100&width=100" alt="Round Stickers" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
+                        <img src="/placeholder.svg?height=100&width=100" alt="Custom Shape Stickers" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
+                        <img src="/placeholder.svg?height=100&width=100" alt="Product Labels" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
+                    </div>
                 </div>
-                <div class="option-card selected">
-                    <h3>Custom Shape Stickers</h3>
-                    <div class="price">₦22,500 <span class="price-unit">per 100</span></div>
-                    <ul class="option-features">
-                        <li>Any Custom Shape</li>
-                        <li>Die-Cut Precision</li>
-                        <li>Premium Vinyl</li>
-                        <li>UV Resistant</li>
-                        <li>3-5 Business Days</li>
+                <div class="product-info">
+                    <h2>Key Features & Benefits</h2>
+                    <p>Our custom stickers and labels are perfect for branding, product packaging, and promotional campaigns. Made with premium vinyl materials for durability and vibrant colors.</p>
+                    <ul class="features-list">
+                        <li>Premium vinyl material for durability</li>
+                        <li>Waterproof and weather-resistant</li>
+                        <li>Full-color printing with vibrant results</li>
+                        <li>Any custom shape or size available</li>
+                        <li>Strong adhesive for permanent application</li>
+                        <li>UV-resistant inks that won't fade</li>
+                        <li>Fast turnaround time (2-4 business days)</li>
+                        <li>Bulk pricing for large quantities</li>
                     </ul>
-                    <button class="select-btn">Select Custom</button>
-                </div>
-                <div class="option-card">
-                    <h3>Product Labels</h3>
-                    <div class="price">₦15,500 <span class="price-unit">per 100</span></div>
-                    <ul class="option-features">
-                        <li>Rectangle Labels</li>
-                        <li>Strong Adhesive</li>
-                        <li>Food Safe Options</li>
-                        <li>Multiple Sizes</li>
-                        <li>1-3 Business Days</li>
+                    <h3>Customization Options</h3>
+                    <p>Create the perfect stickers and labels with our range of options:</p>
+                    <ul class="features-list">
+                        <li><strong>Shapes:</strong> Round, Square, Rectangle, or Custom Die-Cut</li>
+                        <li><strong>Materials:</strong> Vinyl, Paper, Clear, Holographic</li>
+                        <li><strong>Finish:</strong> Matte, Gloss, Clear Laminate</li>
+                        <li><strong>Adhesive:</strong> Permanent, Removable, or Extra Strong</li>
+                        <li><strong>Sizes:</strong> From 1" to 12" in any dimension</li>
                     </ul>
-                    <button class="select-btn">Select Labels</button>
+                    <div class="order-form">
+                        <h3>Get a Custom Quote for Stickers & Labels</h3>
+                        <form id="stickerQuoteForm">
+                            <div class="form-group">
+                                <label for="stickerType">Sticker Type</label>
+                                <select id="stickerType" name="stickerType">
+                                    <option value="round">Round Stickers</option>
+                                    <option value="square">Square Stickers</option>
+                                    <option value="rectangle">Rectangle Labels</option>
+                                    <option value="custom">Custom Die-Cut Shape</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="stickerSize">Size</label>
+                                <select id="stickerSize" name="stickerSize">
+                                    <option value="2inch">2" diameter/width</option>
+                                    <option value="3inch">3" diameter/width</option>
+                                    <option value="4inch">4" diameter/width</option>
+                                    <option value="custom">Custom Size</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="stickerQuantity">Quantity</label>
+                                <select id="stickerQuantity" name="stickerQuantity">
+                                    <option value="50">50 stickers</option>
+                                    <option value="100">100 stickers</option>
+                                    <option value="250">250 stickers</option>
+                                    <option value="500">500 stickers</option>
+                                    <option value="1000">1,000 stickers</option>
+                                    <option value="2500">2,500 stickers</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="material">Material</label>
+                                <select id="material" name="material">
+                                    <option value="vinyl">Premium Vinyl</option>
+                                    <option value="paper">Paper (Indoor Use)</option>
+                                    <option value="clear">Clear Vinyl</option>
+                                    <option value="holographic">Holographic</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="finish">Finish</label>
+                                <select id="finish" name="finish">
+                                    <option value="matte">Matte Finish</option>
+                                    <option value="gloss">Gloss Finish</option>
+                                    <option value="laminate">Clear Laminate</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="designUpload">Upload Your Design (Optional)</label>
+                                <input type="file" id="designUpload" name="designUpload" accept=".pdf,.ai,.psd,.jpg,.png">
+                            </div>
+                            <div class="form-group">
+                                <label for="deliveryDate">Preferred Delivery Date</label>
+                                <input type="date" id="deliveryDate" name="deliveryDate">
+                            </div>
+                            <button type="submit" class="submit-btn">Request Quote</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Specifications -->
-    <section class="specifications">
+    <section class="related-products">
         <div class="container">
-            <h2>Specifications & Features</h2>
-            <div class="specs-grid">
-                <div class="spec-item">
-                    <div class="spec-icon">🎯</div>
-                    <h3>Custom Shapes</h3>
-                    <p>Any shape you can imagine - circles, squares, or completely custom designs</p>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-icon">💧</div>
-                    <h3>Waterproof</h3>
-                    <p>Weather-resistant vinyl that withstands rain, sun, and outdoor conditions</p>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-icon">🎨</div>
-                    <h3>Full Color</h3>
-                    <p>Vibrant CMYK printing with optional white ink for dark materials</p>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-icon">🔧</div>
-                    <h3>Strong Adhesive</h3>
-                    <p>Permanent or removable adhesive options for different applications</p>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-icon">📏</div>
-                    <h3>Multiple Sizes</h3>
-                    <p>From small labels to large decals - any size to fit your needs</p>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-icon">⚡</div>
-                    <h3>Fast Production</h3>
-                    <p>Quick turnaround times with same-day rush options available</p>
-                </div>
+            <div class="section-title">
+                <h2>Other Branding Products You Might Like</h2>
+            </div>
+            <div class="product-grid">
+                <a href="business-cards.html" class="product-card">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Business Cards">
+                    <div class="product-card-content">
+                        <h3>Business Cards</h3>
+                        <p>Professional business cards for networking.</p>
+                        <div class="price">From ₦15,100</div>
+                    </div>
+                </a>
+                <a href="flyers.html" class="product-card">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Flyers">
+                    <div class="product-card-content">
+                        <h3>Flyers & Brochures</h3>
+                        <p>Eye-catching marketing materials.</p>
+                        <div class="price">From ₦25,800</div>
+                    </div>
+                </a>
+                <a href="banners.html" class="product-card">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Banners">
+                    <div class="product-card-content">
+                        <h3>Banners & Signage</h3>
+                        <p>Large format printing for events.</p>
+                        <div class="price">From ₦35,000</div>
+                    </div>
+                </a>
+                <a href="mugs.html" class="product-card">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Custom Mugs">
+                    <div class="product-card-content">
+                        <h3>Custom Mugs</h3>
+                        <p>Personalized mugs for gifts and promotion.</p>
+                        <div class="price">From ₦4,800</div>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Print Your Custom Stickers?</h2>
+            <p>Get a custom quote today and let PrintHub create durable, vibrant stickers that perfectly represent your brand.</p>
+            <a href="quotes.html" class="cta-button">Request Free Quote</a>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>PrintHub</h3>
-                    <p>Your trusted partner for quality printing services. Fast delivery, competitive prices, and exceptional customer service guaranteed.</p>
+                    <h3>PrintHub Nigeria</h3>
+                    <p>Your trusted partner for all printing needs. Quality prints, competitive prices, fast delivery.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
                 <div class="footer-section">
-                    <h3>Products</h3>
-                    <ul>
-                        <li><a href="business-cards.html">Business Cards</a></li>
-                        <li><a href="flyers.html">Flyers & Brochures</a></li>
-                        <li><a href="stickers.html">Stickers & Labels</a></li>
-                        <li><a href="mugs.html">Custom Mugs</a></li>
-                        <li><a href="tshirts.html">T-Shirts & Apparel</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Blog</a></li>
-                    </ul>
+                    <h3>Quick Links</h3>
+                    <a href="products.html">All Products</a>
+                    <a href="services.html">Services</a>
+                    <a href="quotes.html">Get Quote</a>
+                    <a href="track-order.html">Track Order</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="reseller.html">Reseller Program</a>
+                    <a href="calculator.html">Price Calculator</a>
+                    <a href="stores.html">Our Stores</a>
                 </div>
                 <div class="footer-section">
                     <h3>Support</h3>
-                    <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Track Your Order</a></li>
-                        <li><a href="#">Returns & Refunds</a></li>
-                        <li><a href="#">FAQ</a></li>
-                    </ul>
+                    <a href="faq.html">FAQ</a>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="#">Help Center</a>
+                    <a href="#">Returns</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Disclaimer</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 PrintHub. All rights reserved.</p>
+                <p>&copy; 2024 PrintHub Nigeria. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('stickerQuoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Your custom quote request for Stickers & Labels has been submitted! We will get back to you shortly.');
+            this.reset();
+        });
+
+        function updateMainImage(src) {
+            const mainImage = document.getElementById('mainImage');
+            mainImage.style.opacity = '0';
+            setTimeout(() => {
+                mainImage.src = src;
+                mainImage.style.opacity = '1';
+            }, 100);
+        }
+
+        const mainImage = document.getElementById('mainImage');
+        mainImage.style.transition = 'opacity 0.3s ease';
+    </script>
 </body>
 </html>

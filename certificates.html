@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Certificates - PrintHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .top-bar {
+            background: #f8f9fa;
+            padding: 10px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #e9ecef;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar-left {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .top-bar-left a {
+            color: #6c757d;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .top-bar-left a:hover {
+            color: #17a2b8;
+        }
+
+        .top-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            color: #495057;
+        }
+
+        .contact-number {
+            color: #17a2b8;
+            font-weight: 600;
+        }
+
+        header {
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #495057;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #17a2b8;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .sign-in {
+            color: #17a2b8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .create-account {
+            background: #17a2b8;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: background 0.3s;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: #f8f9fa;
+            padding: 1rem 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .breadcrumb-content {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 14px;
+        }
+
+        .breadcrumb a {
+            color: #6c757d;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: #17a2b8;
+        }
+
+        .breadcrumb-separator {
+            color: #adb5bd;
+        }
+
+        .breadcrumb-current {
+            color: #495057;
+            font-weight: 500;
+        }
+
+        /* Product Hero */
+        .product-hero {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .product-hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .product-hero-text h1 {
+            font-size: 42px;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+
+        .product-hero-text p {
+            font-size: 18px;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        .hero-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-feature {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .primary-btn {
+            background: white;
+            color: #667eea;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,255,255,0.3);
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: white;
+            padding: 15px 30px;
+            border: 2px solid white;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .secondary-btn:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        .product-hero-image {
+            text-align: center;
+        }
+
+        .product-hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        /* Product Options */
+        .product-options {
+            padding: 80px 0;
+        }
+
+        .product-options h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 3rem;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .option-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .option-card:hover,
+        .option-card.selected {
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .option-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .option-card .price {
+            font-size: 32px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .option-card .price-unit {
+            font-size: 16px;
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        .option-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .option-features li {
+            padding: 0.5rem 0;
+            color: #6c757d;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .option-features li:before {
+            content: "✓";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .select-btn {
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .select-btn:hover {
+            background: #5a67d8;
+        }
+
+        /* Specifications */
+        .specifications {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .specifications h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 3rem;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .spec-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .spec-icon {
+            width: 60px;
+            height: 60px;
+            background: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 24px;
+            color: white;
+        }
+
+        .spec-item h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .spec-item p {
+            color: #6c757d;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: #17a2b8;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .footer-section ul li a:hover {
+            color: #17a2b8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .product-hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .product-hero-text h1 {
+                font-size: 32px;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .specs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <a href="calculator.html">Cost Calculator</a>
+                    <a href="stores.html">Discover Stores</a>
+                    <a href="track-order.html">Track Orders</a>
+                </div>
+                <div class="top-bar-right">
+                    <span class="contact-info">Need help? Call: <span class="contact-number">+234-706-900-0063</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">printhub</a>
+            <ul class="nav-links">
+                <li><a href="products.html" class="active">All Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#">Marketplace</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="sign-in">Sign In</a>
+                <a href="#" class="create-account">Create Account</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-content">
+                <a href="index.html">Home</a>
+                <span class="breadcrumb-separator">></span>
+                <a href="products.html">Products</a>
+                <span class="breadcrumb-separator">></span>
+                <span class="breadcrumb-current">Custom Certificates</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Hero -->
+    <section class="product-hero">
+        <div class="container">
+            <div class="product-hero-content">
+                <div class="product-hero-text">
+                    <h1>Custom Certificates</h1>
+                    <p>Professional certificates for awards, achievements, training completion, and recognition. High-quality printing with elegant designs and premium paper options.</p>
+                    
+                    <div class="hero-features">
+                        <div class="hero-feature">Award Certificates</div>
+                        <div class="hero-feature">Training Certificates</div>
+                        <div class="hero-feature">Premium Paper</div>
+                        <div class="hero-feature">Custom Design</div>
+                    </div>
+
+                    <div class="cta-buttons">
+                        <a href="#options" class="primary-btn">Order Now</a>
+                        <a href="#" class="secondary-btn">Get Quote</a>
+                    </div>
+                </div>
+                <div class="product-hero-image">
+                    <img src="/placeholder.svg?height=400&width=500" alt="Custom Certificates" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Options -->
+    <section class="product-options" id="options">
+        <div class="container">
+            <h2>Choose Your Certificate Type</h2>
+            <div class="options-grid">
+                <div class="option-card selected">
+                    <h3>Award Certificates</h3>
+                    <div class="price">₦12,500 <span class="price-unit">per 25</span></div>
+                    <ul class="option-features">
+                        <li>8.5" x 11" premium cardstock</li>
+                        <li>Elegant border designs</li>
+                        <li>Gold foil accents available</li>
+                        <li>Personalized text</li>
+                        <li>3-5 Business Days</li>
+                    </ul>
+                    <button class="select-btn">Select Award</button>
+                </div>
+                <div class="option-card">
+                    <h3>Training Certificates</h3>
+                    <div class="price">₦10,800 <span class="price-unit">per 25</span></div>
+                    <ul class="option-features">
+                        <li>Professional layout</li>
+                        <li>Company logo integration</li>
+                        <li>Course completion details</li>
+                        <li>Security features available</li>
+                        <li>2-4 Business Days</li>
+                    </ul>
+                    <button class="select-btn">Select Training</button>
+                </div>
+                <div class="option-card">
+                    <h3>Achievement Certificates</h3>
+                    <div class="price">₦11,500 <span class="price-unit">per 25</span></div>
+                    <ul class="option-features">
+                        <li>Custom achievement text</li>
+                        <li>Colorful design options</li>
+                        <li>Perfect for schools</li>
+                        <li>Bulk pricing available</li>
+                        <li>3-4 Business Days</li>
+                    </ul>
+                    <button class="select-btn">Select Achievement</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specifications -->
+    <section class="specifications">
+        <div class="container">
+            <h2>Specifications & Features</h2>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <div class="spec-icon">📜</div>
+                    <h3>Premium Paper</h3>
+                    <p>High-quality cardstock from 250gsm to 350gsm</p>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-icon">🎨</div>
+                    <h3>Custom Design</h3>
+                    <p>Professional templates and custom design services</p>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-icon">✨</div>
+                    <h3>Premium Finishes</h3>
+                    <p>Gold foil, embossing, and special security features</p>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-icon">📏</div>
+                    <h3>Standard Sizes</h3>
+                    <p>8.5x11", 11x14", and custom sizes available</p>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-icon">🔒</div>
+                    <h3>Security Features</h3>
+                    <p>Watermarks, security paper, and anti-fraud elements</p>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-icon">🚚</div>
+                    <h3>Fast Delivery</h3>
+                    <p>2-5 business days with rush options available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>PrintHub</h3>
+                    <p>Your trusted partner for quality printing services. Fast delivery, competitive prices, and exceptional customer service guaranteed.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="business-cards.html">Business Cards</a></li>
+                        <li><a href="certificates.html">Custom Certificates</a></li>
+                        <li><a href="invitations.html">Custom Invitations</a></li>
+                        <li><a href="posters.html">Custom Posters</a></li>
+                        <li><a href="banners.html">Banners & Signage</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Track Your Order</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PrintHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

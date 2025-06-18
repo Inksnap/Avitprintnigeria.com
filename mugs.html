@@ -177,55 +177,52 @@
 
         /* Product Hero */
         .product-hero {
-            padding: 60px 0;
             background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            padding: 80px 0;
             color: white;
         }
 
-        .product-hero-content {
+        .hero-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
         }
 
-        .product-hero-text h1 {
-            font-size: 42px;
+        .hero-text h1 {
+            font-size: 48px;
             font-weight: 700;
             font-family: 'Playfair Display', serif;
             margin-bottom: 1rem;
+            line-height: 1.2;
         }
 
-        .product-hero-text p {
+        .hero-text p {
             font-size: 18px;
             font-family: 'Inter', sans-serif;
             margin-bottom: 2rem;
-            line-height: 1.7;
             opacity: 0.9;
+            line-height: 1.6;
         }
 
-        .hero-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
+        .hero-price {
+            font-size: 32px;
+            font-weight: 700;
             margin-bottom: 2rem;
         }
 
-        .hero-feature {
-            background: rgba(255,255,255,0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 500;
-            border: 2px solid rgba(255,255,255,0.3);
+        .hero-price .from {
+            font-size: 18px;
+            font-weight: 400;
+            opacity: 0.8;
         }
 
-        .cta-buttons {
+        .hero-buttons {
             display: flex;
             gap: 1rem;
         }
 
-        .primary-btn {
+        .btn-primary {
             background: white;
             color: #38f9d7;
             padding: 15px 30px;
@@ -239,12 +236,12 @@
             display: inline-block;
         }
 
-        .primary-btn:hover {
+        .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        .secondary-btn {
+        .btn-secondary {
             background: transparent;
             color: white;
             padding: 15px 30px;
@@ -258,119 +255,300 @@
             display: inline-block;
         }
 
-        .secondary-btn:hover {
+        .btn-secondary:hover {
             background: white;
             color: #38f9d7;
         }
 
-        .product-hero-image {
+        .hero-image {
             text-align: center;
         }
 
-        .product-hero-image img {
+        .hero-image img {
             max-width: 100%;
             height: auto;
             border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
 
-        /* Product Options */
-        .product-options {
+        /* Product Gallery */
+        .product-gallery {
             padding: 80px 0;
         }
 
-        .product-options h2 {
-            text-align: center;
+        .gallery-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .gallery-images {
+            position: sticky;
+            top: 120px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnail-images {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .thumbnail.active {
+            border-color: #38f9d7;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info h2 {
             font-size: 36px;
             font-weight: 600;
             color: #2c3e50;
             font-family: 'Playfair Display', serif;
-            margin-bottom: 3rem;
-        }
-
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .option-card {
-            background: white;
-            border: 2px solid #e9ecef;
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .option-card:hover,
-        .option-card.selected {
-            border-color: #38f9d7;
-            box-shadow: 0 10px 30px rgba(56, 249, 215, 0.1);
-        }
-
-        .option-card h3 {
-            font-size: 24px;
-            font-weight: 600;
-            color: #2c3e50;
             margin-bottom: 1rem;
         }
 
-        .option-card .price {
-            font-size: 32px;
-            font-weight: 700;
-            color: #38f9d7;
-            margin-bottom: 1rem;
-        }
-
-        .option-card .price-unit {
-            font-size: 16px;
-            color: #6c757d;
-            font-weight: 500;
-        }
-
-        .option-features {
-            list-style: none;
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             margin-bottom: 2rem;
         }
 
-        .option-features li {
-            padding: 0.5rem 0;
+        .stars {
+            color: #ffc107;
+            font-size: 18px;
+        }
+
+        .rating-text {
             color: #6c757d;
             font-family: 'Inter', sans-serif;
         }
 
-        .option-features li:before {
+        .product-description {
+            font-size: 16px;
+            color: #6c757d;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            font-family: 'Inter', sans-serif;
+            color: #495057;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list li:before {
             content: "✓";
             color: #38f9d7;
             font-weight: bold;
-            margin-right: 0.5rem;
+            margin-right: 10px;
+            font-size: 16px;
         }
 
-        .select-btn {
+        .specifications {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .specifications h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e9ecef;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .spec-label {
+            font-weight: 500;
+            color: #495057;
+        }
+
+        .spec-value {
+            color: #6c757d;
+        }
+
+        /* Quote Form */
+        .quote-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .quote-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .quote-info h2 {
+            font-size: 36px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 2rem;
+        }
+
+        .quote-info p {
+            font-size: 16px;
+            color: #6c757d;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .quote-benefits {
+            list-style: none;
+        }
+
+        .quote-benefits li {
+            padding: 10px 0;
+            font-family: 'Inter', sans-serif;
+            color: #495057;
+            display: flex;
+            align-items: center;
+        }
+
+        .quote-benefits li:before {
+            content: "✓";
+            color: #38f9d7;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .quote-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .quote-form h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #495057;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group select,
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group select:focus,
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #38f9d7;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .quote-btn {
+            width: 100%;
             background: #38f9d7;
             color: white;
-            padding: 12px 24px;
             border: none;
+            padding: 15px;
             border-radius: 8px;
+            font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             transition: background 0.3s;
-            width: 100%;
+            font-family: 'Inter', sans-serif;
         }
 
-        .select-btn:hover {
+        .quote-btn:hover {
             background: #2de0c2;
         }
 
-        /* Specifications */
-        .specifications {
+        /* Related Products */
+        .related-products {
             padding: 80px 0;
-            background: #f8f9fa;
         }
 
-        .specifications h2 {
+        .related-products h2 {
             text-align: center;
             font-size: 36px;
             font-weight: 600;
@@ -379,43 +557,103 @@
             margin-bottom: 3rem;
         }
 
-        .specs-grid {
+        .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
-        .spec-item {
+        .product-card {
             background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
         }
 
-        .spec-icon {
-            width: 60px;
-            height: 60px;
-            background: #38f9d7;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 24px;
-            color: white;
+        .product-card:hover {
+            transform: translateY(-5px);
         }
 
-        .spec-item h3 {
+        .product-card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-card-content {
+            padding: 1.5rem;
+        }
+
+        .product-card h3 {
             font-size: 18px;
             font-weight: 600;
             color: #2c3e50;
             margin-bottom: 0.5rem;
         }
 
-        .spec-item p {
+        .product-card p {
             color: #6c757d;
             font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            margin-bottom: 1rem;
+        }
+
+        .product-card-price {
+            font-size: 16px;
+            font-weight: 600;
+            color: #38f9d7;
+            margin-bottom: 1rem;
+        }
+
+        .product-card-btn {
+            width: 100%;
+            background: #38f9d7;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .product-card-btn:hover {
+            background: #2de0c2;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
         }
 
         /* Footer */
@@ -472,25 +710,33 @@
                 display: none;
             }
 
-            .product-hero-content {
+            .hero-content,
+            .gallery-content,
+            .quote-content {
                 grid-template-columns: 1fr;
-                text-align: center;
+                gap: 2rem;
             }
 
-            .product-hero-text h1 {
-                font-size: 32px;
+            .hero-text h1 {
+                font-size: 36px;
             }
 
+            .hero-buttons,
             .cta-buttons {
-                justify-content: center;
+                flex-direction: column;
+                align-items: center;
             }
 
-            .options-grid {
+            .form-row {
                 grid-template-columns: 1fr;
             }
 
-            .specs-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .spec-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -501,9 +747,9 @@
         <div class="container">
             <div class="top-bar-content">
                 <div class="top-bar-left">
-                    <a href="#">Cost Calculator</a>
-                    <a href="#">Discover Stores</a>
-                    <a href="#">Track Orders</a>
+                    <a href="calculator.html">Cost Calculator</a>
+                    <a href="stores.html">Discover Stores</a>
+                    <a href="track-order.html">Track Orders</a>
                 </div>
                 <div class="top-bar-right">
                     <span class="contact-info">Need help? Call: <span class="contact-number">+234-706-900-0063</span></span>
@@ -515,19 +761,12 @@
     <!-- Header -->
     <header>
         <nav class="container">
-            <a href="index.html" class="logo">PrintHub</a>
+            <a href="index.html" class="logo">printhub</a>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="quotes.html">Get Quote</a></li>
-                <li><a href="track-order.html">Track Order</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="reseller.html">Reseller</a></li>
-                <li><a href="calculator.html">Calculator</a></li>
-                <li><a href="stores.html">Stores</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="products.html" class="active">All Products</a></li>
                 <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#">Marketplace</a></li>
             </ul>
             <div class="nav-actions">
                 <a href="#" class="sign-in">Sign In</a>
@@ -552,110 +791,256 @@
     <!-- Product Hero -->
     <section class="product-hero">
         <div class="container">
-            <div class="product-hero-content">
-                <div class="product-hero-text">
+            <div class="hero-content">
+                <div class="hero-text">
                     <h1>Custom Mugs</h1>
                     <p>Personalized mugs perfect for gifts, promotional items, or everyday use. High-quality ceramic mugs with vibrant, long-lasting prints that won't fade or peel.</p>
-                    
-                    <div class="hero-features">
-                        <div class="hero-feature">Dishwasher Safe</div>
-                        <div class="hero-feature">Microwave Safe</div>
-                        <div class="hero-feature">Vibrant Colors</div>
-                        <div class="hero-feature">Gift Ready</div>
+                    <div class="hero-price">
+                        <span class="from">From</span> ₦4,800 <small>per piece</small>
                     </div>
-
-                    <div class="cta-buttons">
-                        <a href="#options" class="primary-btn">Order Now</a>
-                        <a href="#" class="secondary-btn">Get Quote</a>
+                    <div class="hero-buttons">
+                        <a href="#quote" class="btn-primary">Get Custom Quote</a>
+                        <a href="#gallery" class="btn-secondary">View Gallery</a>
                     </div>
                 </div>
-                <div class="product-hero-image">
+                <div class="hero-image">
                     <img src="/placeholder.svg?height=400&width=500" alt="Custom Printed Mugs" />
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Product Options -->
-    <section class="product-options" id="options">
+    <!-- Product Gallery -->
+    <section class="product-gallery" id="gallery">
         <div class="container">
-            <h2>Choose Your Mug Type</h2>
-            <div class="options-grid">
-                <div class="option-card">
-                    <h3>Standard Mugs</h3>
-                    <div class="price">₦4,800 <span class="price-unit">per piece</span></div>
-                    <ul class="option-features">
-                        <li>11oz Ceramic Mug</li>
-                        <li>Full Color Printing</li>
-                        <li>Dishwasher Safe</li>
-                        <li>Microwave Safe</li>
-                        <li>3-5 Business Days</li>
-                    </ul>
-                    <button class="select-btn">Select Standard</button>
+            <div class="gallery-content">
+                <div class="gallery-images">
+                    <div class="main-image">
+                        <img src="/placeholder.svg?height=400&width=500" alt="Custom Mug Main" id="mainImage" />
+                    </div>
+                    <div class="thumbnail-images">
+                        <div class="thumbnail active" onclick="changeImage('/placeholder.svg?height=400&width=500', this)">
+                            <img src="/placeholder.svg?height=80&width=80" alt="Standard Mug" />
+                        </div>
+                        <div class="thumbnail" onclick="changeImage('/placeholder.svg?height=400&width=500', this)">
+                            <img src="/placeholder.svg?height=80&width=80" alt="Premium Mug" />
+                        </div>
+                        <div class="thumbnail" onclick="changeImage('/placeholder.svg?height=400&width=500', this)">
+                            <img src="/placeholder.svg?height=80&width=80" alt="Travel Mug" />
+                        </div>
+                        <div class="thumbnail" onclick="changeImage('/placeholder.svg?height=400&width=500', this)">
+                            <img src="/placeholder.svg?height=80&width=80" alt="Magic Mug" />
+                        </div>
+                    </div>
                 </div>
-                <div class="option-card selected">
-                    <h3>Premium Mugs</h3>
-                    <div class="price">₦6,500 <span class="price-unit">per piece</span></div>
-                    <ul class="option-features">
-                        <li>15oz Large Ceramic</li>
-                        <li>360° Full Wrap Print</li>
-                        <li>Premium Coating</li>
-                        <li>Gift Box Included</li>
-                        <li>2-4 Business Days</li>
+
+                <div class="product-info">
+                    <h2>Premium Custom Mugs</h2>
+                    <div class="product-rating">
+                        <div class="stars">★★★★★</div>
+                        <span class="rating-text">(4.9/5 from 2,847 reviews)</span>
+                    </div>
+                    
+                    <p class="product-description">
+                        Our custom mugs are crafted from high-quality ceramic and printed using advanced sublimation technology. Perfect for corporate gifts, promotional items, or personal use. Each mug is dishwasher and microwave safe, ensuring your design stays vibrant wash after wash.
+                    </p>
+
+                    <ul class="features-list">
+                        <li>Premium ceramic construction</li>
+                        <li>Vibrant, fade-resistant printing</li>
+                        <li>Dishwasher and microwave safe</li>
+                        <li>Multiple sizes available (11oz, 15oz, 20oz)</li>
+                        <li>Full-color 360° printing</li>
+                        <li>Gift box packaging available</li>
+                        <li>Fast 2-4 day production</li>
+                        <li>Bulk discounts available</li>
                     </ul>
-                    <button class="select-btn">Select Premium</button>
-                </div>
-                <div class="option-card">
-                    <h3>Travel Mugs</h3>
-                    <div class="price">₦8,500 <span class="price-unit">per piece</span></div>
-                    <ul class="option-features">
-                        <li>16oz Stainless Steel</li>
-                        <li>Double Wall Insulated</li>
-                        <li>Leak-Proof Lid</li>
-                        <li>Temperature Control</li>
-                        <li>3-5 Business Days</li>
-                    </ul>
-                    <button class="select-btn">Select Travel</button>
+
+                    <div class="specifications">
+                        <h3>Specifications</h3>
+                        <div class="spec-grid">
+                            <div class="spec-item">
+                                <span class="spec-label">Material</span>
+                                <span class="spec-value">Premium Ceramic</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Sizes</span>
+                                <span class="spec-value">11oz, 15oz, 20oz</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Print Area</span>
+                                <span class="spec-value">360° Full Wrap</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Colors</span>
+                                <span class="spec-value">Full Color CMYK</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Finish</span>
+                                <span class="spec-value">Glossy</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Turnaround</span>
+                                <span class="spec-value">2-4 Business Days</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Specifications -->
-    <section class="specifications">
+    <!-- Quote Section -->
+    <section class="quote-section" id="quote">
         <div class="container">
-            <h2>Specifications & Features</h2>
-            <div class="specs-grid">
-                <div class="spec-item">
-                    <div class="spec-icon">☕</div>
-                    <h3>Premium Ceramic</h3>
-                    <p>High-quality ceramic material that's durable and long-lasting</p>
+            <div class="quote-content">
+                <div class="quote-info">
+                    <h2>Get Your Custom Quote</h2>
+                    <p>Ready to create your perfect custom mugs? Fill out our quick quote form and we'll provide you with competitive pricing and expert guidance for your project.</p>
+                    
+                    <ul class="quote-benefits">
+                        <li>Free design consultation</li>
+                        <li>No setup fees on orders over 50 pieces</li>
+                        <li>Bulk pricing discounts</li>
+                        <li>Fast turnaround times</li>
+                        <li>Quality guarantee</li>
+                        <li>Free shipping on orders over ₦50,000</li>
+                    </ul>
                 </div>
-                <div class="spec-item">
-                    <div class="spec-icon">🎨</div>
-                    <h3>Vibrant Printing</h3>
-                    <p>Full-color sublimation printing for bright, fade-resistant designs</p>
+
+                <div class="quote-form">
+                    <h3>Request Quote</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="mug-type">Mug Type</label>
+                            <select id="mug-type" required>
+                                <option value="">Select mug type</option>
+                                <option value="standard">Standard Ceramic (11oz)</option>
+                                <option value="large">Large Ceramic (15oz)</option>
+                                <option value="jumbo">Jumbo Ceramic (20oz)</option>
+                                <option value="travel">Travel Mug (16oz)</option>
+                                <option value="magic">Magic Color-Changing</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="quantity">Quantity</label>
+                                <select id="quantity" required>
+                                    <option value="">Select quantity</option>
+                                    <option value="1-24">1-24 pieces</option>
+                                    <option value="25-49">25-49 pieces</option>
+                                    <option value="50-99">50-99 pieces</option>
+                                    <option value="100-249">100-249 pieces</option>
+                                    <option value="250-499">250-499 pieces</option>
+                                    <option value="500+">500+ pieces</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="colors">Print Colors</label>
+                                <select id="colors" required>
+                                    <option value="">Select colors</option>
+                                    <option value="full-color">Full Color</option>
+                                    <option value="1-color">1 Color</option>
+                                    <option value="2-color">2 Colors</option>
+                                    <option value="3-color">3 Colors</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="design-service">Design Service</label>
+                            <select id="design-service">
+                                <option value="have-design">I have my own design</option>
+                                <option value="need-design">I need design help</option>
+                                <option value="full-service">Full design service needed</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="deadline">Needed By</label>
+                                <input type="date" id="deadline">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Project Details</label>
+                            <textarea id="message" placeholder="Tell us about your project, design ideas, or any special requirements..."></textarea>
+                        </div>
+
+                        <button type="submit" class="quote-btn">Get My Quote</button>
+                    </form>
                 </div>
-                <div class="spec-item">
-                    <div class="spec-icon">🍽️</div>
-                    <h3>Dishwasher Safe</h3>
-                    <p>Easy to clean and maintain - safe for dishwasher use</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-products">
+        <div class="container">
+            <h2>You Might Also Like</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-card-image">
+                        <img src="/placeholder.svg?height=200&width=280" alt="Custom T-Shirts" />
+                    </div>
+                    <div class="product-card-content">
+                        <h3>Custom T-Shirts</h3>
+                        <p>Premium quality custom printed t-shirts for events, teams, and businesses.</p>
+                        <div class="product-card-price">From ₦6,500</div>
+                        <button class="product-card-btn">View Details</button>
+                    </div>
                 </div>
-                <div class="spec-item">
-                    <div class="spec-icon">📱</div>
-                    <h3>Microwave Safe</h3>
-                    <p>Heat your beverages safely in the microwave</p>
+                <div class="product-card">
+                    <div class="product-card-image">
+                        <img src="/placeholder.svg?height=200&width=280" alt="Water Bottles" />
+                    </div>
+                    <div class="product-card-content">
+                        <h3>Custom Water Bottles</h3>
+                        <p>Eco-friendly custom water bottles perfect for corporate gifts and events.</p>
+                        <div class="product-card-price">From ₦8,200</div>
+                        <button class="product-card-btn">View Details</button>
+                    </div>
                 </div>
-                <div class="spec-item">
-                    <div class="spec-icon">🎁</div>
-                    <h3>Gift Ready</h3>
-                    <p>Perfect for gifts with optional gift box packaging</p>
+                <div class="product-card">
+                    <div class="product-card-image">
+                        <img src="/placeholder.svg?height=200&width=280" alt="Keychains" />
+                    </div>
+                    <div class="product-card-content">
+                        <h3>Custom Keychains</h3>
+                        <p>Durable custom keychains in various materials and styles for promotional use.</p>
+                        <div class="product-card-price">From ₦1,800</div>
+                        <button class="product-card-btn">View Details</button>
+                    </div>
                 </div>
-                <div class="spec-item">
-                    <div class="spec-icon">⚡</div>
-                    <h3>Fast Production</h3>
-                    <p>Quick turnaround times for urgent orders</p>
-                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Join thousands of satisfied customers who trust PrintHub for their custom printing needs.</p>
+            <div class="cta-buttons">
+                <a href="#quote" class="btn-primary">Get Quote Now</a>
+                <a href="contact.html" class="btn-secondary">Contact Us</a>
             </div>
         </div>
     </section>
@@ -684,23 +1069,17 @@
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="contact.html">Contact</a></li>
                         <li><a href="#">Careers</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <a href="products.html">All Products</a>
-                    <a href="services.html">Services</a>
-                    <a href="quotes.html">Get Quote</a>
-                    <a href="track-order.html">Track Order</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="reseller.html">Reseller Program</a>
-                    <a href="calculator.html">Price Calculator</a>
-                    <a href="stores.html">Our Stores</a>
-                </div>
-                <div class="footer-section">
                     <h3>Support</h3>
-                    <a href="faq.html">FAQ</a>
+                    <ul>
+                        <li><a href="faq.html">Help Center</a></li>
+                        <li><a href="track-order.html">Track Your Order</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                        <li><a href="contact.html">Contact Support</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -708,5 +1087,19 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        function changeImage(src, thumbnail) {
+            document.getElementById('mainImage').src = src;
+            
+            // Remove active class from all thumbnails
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            
+            // Add active class to clicked thumbnail
+            thumbnail.classList.add('active');
+        }
+    </script>
 </body>
 </html>

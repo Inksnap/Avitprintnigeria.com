@@ -353,11 +353,15 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             transition: all 0.3s;
             border: 1px solid #f8f9fa;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .product-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+            text-decoration: none;
         }
 
         .product-image {
@@ -709,6 +713,7 @@
         <nav class="container">
             <a href="index.html" class="logo">PrintHub</a>
             <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
                 <li><a href="products.html">Products</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="quotes.html">Get Quote</a></li>
@@ -756,58 +761,66 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Popular Products</h2>
-                <a href="#" class="see-all">See All Products</a>
+                <a href="products.html" class="see-all">See All Products</a>
             </div>
             <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image business-cards">Business Cards</div>
+                <a href="business-cards.html" class="product-card">
+                    <div class="product-image">
+                        <img src="images/business-cards.jpeg" alt="Business Cards" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
                     <div class="product-info">
                         <h4>Two-sided Business Cards</h4>
                         <div class="price-info">
                             <div class="starting-at">Starting at</div>
                             <div class="price">₦15,100 <span class="price-unit">per 100</span></div>
                         </div>
-                        <button class="product-btn">Browse Two-sided Business Cards</button>
+                        <div class="product-btn">Browse Two-sided Business Cards</div>
                     </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image flyers">A5 Flyers</div>
+                </a>
+                <a href="flyers.html" class="product-card">
+                    <div class="product-image">
+                        <img src="images/business-flyers.jpeg" alt="A5 Flyers" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
                     <div class="product-info">
                         <h4>A5 flyers (Single Sided)</h4>
                         <div class="price-info">
                             <div class="starting-at">Starting at</div>
                             <div class="price">₦25,800 <span class="price-unit">per 100</span></div>
                         </div>
-                        <button class="product-btn">Browse A5 flyers (S...</button>
+                        <div class="product-btn">Browse A5 flyers</div>
                     </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image stickers">Round Stickers</div>
+                </a>
+                <a href="stickers.html" class="product-card">
+                    <div class="product-image">
+                        <img src="images/stickers.jpeg" alt="Round Stickers" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
                     <div class="product-info">
                         <h4>Round Stickers (3.5" Diameter)</h4>
                         <div class="price-info">
                             <div class="starting-at">Starting at</div>
                             <div class="price">₦17,000 <span class="price-unit">per 100</span></div>
                         </div>
-                        <button class="product-btn">Browse Round Stickers (3.5"...</button>
+                        <div class="product-btn">Browse Round Stickers</div>
                     </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image mugs">Simple Mugs</div>
+                </a>
+                <a href="mugs.html" class="product-card">
+                    <div class="product-image">
+                        <img src="images/mugs.jpeg" alt="Simple Mugs" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
                     <div class="product-info">
                         <h4>Simple Mugs</h4>
                         <div class="price-info">
                             <div class="starting-at">Starting at</div>
                             <div class="price">₦4,800 <span class="price-unit">per 1</span></div>
                         </div>
-                        <button class="product-btn">Browse Simple Mugs</button>
+                        <div class="product-btn">Browse Simple Mugs</div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Creative Branding Section - Pzielng Style -->
+    <!-- Creative Branding Section  -->
     <section class="creative-branding">
         <div class="container">
             <div class="branding-content">
@@ -908,40 +921,36 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>PrintHub</h3>
-                    <p>Your trusted partner for quality printing services. Fast delivery, competitive prices, and exceptional customer service guaranteed.</p>
+                    <h3>PrintHub Nigeria</h3>
+                    <p>Your trusted partner for all printing needs. Quality prints, competitive prices, fast delivery.</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Products</h3>
-                    <ul>
-                        <li><a href="#">Business Cards</a></li>
-                        <li><a href="#">Flyers & Brochures</a></li>
-                        <li><a href="#">Stickers & Labels</a></li>
-                        <li><a href="#">Custom Mugs</a></li>
-                        <li><a href="#">T-Shirts & Apparel</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="#">Design Services</a></li>
-                        <li><a href="#">Bulk Orders</a></li>
-                        <li><a href="#">Rush Printing</a></li>
-                        <li><a href="#">Corporate Solutions</a></li>
-                    </ul>
+                    <h3>Quick Links</h3>
+                    <a href="products.html">All Products</a>
+                    <a href="services.html">Services</a>
+                    <a href="quotes.html">Get Quote</a>
+                    <a href="track-order.html">Track Order</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="reseller.html">Reseller Program</a>
+                    <a href="calculator.html">Price Calculator</a>
+                    <a href="stores.html">Our Stores</a>
                 </div>
                 <div class="footer-section">
                     <h3>Support</h3>
-                    <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Track Your Order</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Returns & Refunds</a></li>
-                    </ul>
+                    <a href="faq.html">FAQ</a>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="#">Help Center</a>
+                    <a href="#">Returns</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Disclaimer</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 PrintHub. All rights reserved.</p>
+                <p>&copy; 2024 PrintHub Nigeria. All rights reserved.</p>
             </div>
         </div>
     </footer>

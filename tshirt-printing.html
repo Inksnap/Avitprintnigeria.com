@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom T-Shirts & Apparel - PrintHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .top-bar {
+            background: #f8f9fa;
+            padding: 10px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #e9ecef;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar-left {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .top-bar-left a {
+            color: #6c757d;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .top-bar-left a:hover {
+            color: #17a2b8;
+        }
+
+        .top-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            color: #495057;
+        }
+
+        .contact-number {
+            color: #17a2b8;
+            font-weight: 600;
+        }
+
+        header {
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #495057;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #17a2b8;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .sign-in {
+            color: #17a2b8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .create-account {
+            background: #17a2b8;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: background 0.3s;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: #f8f9fa;
+            padding: 1rem 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .breadcrumb-content {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 14px;
+        }
+
+        .breadcrumb a {
+            color: #6c757d;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: #17a2b8;
+        }
+
+        .breadcrumb-separator {
+            color: #adb5bd;
+        }
+
+        .breadcrumb-current {
+            color: #495057;
+            font-weight: 500;
+        }
+
+        /* Product Hero */
+        .product-hero {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            padding: 80px 0;
+            color: white;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .hero-price {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .hero-price .from {
+            font-size: 18px;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #fa709a;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 15px 30px;
+            border: 2px solid white;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #fa709a;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        /* Product Gallery */
+        .product-gallery {
+            padding: 80px 0;
+        }
+
+        .gallery-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .gallery-images {
+            position: sticky;
+            top: 120px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnail-images {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .thumbnail.active {
+            border-color: #fa709a;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info h2 {
+            font-size: 36px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 18px;
+        }
+
+        .rating-text {
+            color: #6c757d;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .product-description {
+            font-size: 16px;
+            color: #6c757d;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            font-family: 'Inter', sans-serif;
+            color: #495057;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            color: #fa709a;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .specifications {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .specifications h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e9ecef;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .spec-label {
+            font-weight: 500;
+            color: #495057;
+        }
+
+        .spec-value {
+            color: #6c757d;
+        }
+
+        /* Quote Form */
+        .quote-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .quote-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .quote-info h2 {
+            font-size: 36px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 2rem;
+        }
+
+        .quote-info p {
+            font-size: 16px;
+            color: #6c757d;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .quote-benefits {
+            list-style: none;
+        }
+
+        .quote-benefits li {
+            padding: 10px 0;
+            font-family: 'Inter', sans-serif;
+            color: #495057;
+            display: flex;
+            align-items: center;
+        }
+
+        .quote-benefits li:before {
+            content: "✓";
+            color: #fa709a;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .quote-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .quote-form h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #495057;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group select,
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group select:focus,
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #fa709a;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .quote-btn {
+            width: 100%;
+            background: #fa709a;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .quote-btn:hover {
+            background: #e85d87;
+        }
+
+        /* Related Products */
+        .related-products {
+            padding: 80px 0;
+        }
+
+        .related-products h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 3rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-card-content {
+            padding: 1.5rem;
+        }
+
+        .product-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card p {
+            color: #6c757d;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            margin-bottom: 1rem;
+        }
+
+        .product-card-price {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fa709a;
+            margin-bottom: 1rem;
+        }
+
+        .product-card-btn {
+            width: 100%;
+            background: #fa709a;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .product-card-btn:hover {
+            background: #e85d87;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: #17a2b8;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .footer-section ul li a:hover {
+            color: #17a2b8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content,
+            .gallery-content,
+            .quote-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .hero-buttons,
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .spec-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <a href="calculator.html">Cost Calculator</a>
+                    <a href="stores.html">Discover Stores</a>
+                    <a href="track-order.html">Track Orders</a>
+                </div>
+                <div class="top-bar-right">
+                    <span class="contact-info">Need help? Call: <span class="contact-number">+234-706-900-0063</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Inksnap</a>
+            <ul class="nav-links">
+                <li><a href="products.html" class="active">All Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#">Marketplace</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="sign-in">Sign In</a>
+                <a href="#" class="create-account">Create Account</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-content">
+                <a href="index.html">Home</a>
+                <span class="breadcrumb-separator">></span>
+                <a href="products.html">Products</a>
+                <span class="breadcrumb-separator">></span>
+                <span class="breadcrumb-current">T-Shirts & Apparel</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Hero -->
+    <section class="product-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Custom T-Shirts & Apparel</h1>
+                    <p>Premium quality custom printed t-shirts and apparel for events, teams, businesses, and personal use. High-quality garments with vibrant, durable prints that last wash after wash.</p>
+                    <div class="hero-price">
+                        <span class="from">From</span> ₦6,500 <small>per piece</small>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#quote" class="btn-primary">Get Custom Quote</a>
+                        <a href="#gallery" class="btn-secondary">View Gallery</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="/placeholder.svg?height=400&width=500" alt="Custom T-Shirts and Apparel" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Gallery -->
+    <section class="product-gallery" id="gallery">
+        <div class="container">
+            <div class="gallery-content">
+                <div class="gallery-images">
+                    <div class="main-image">
+                        <img src="/placeholder.svg?height=400&width=500" alt="Custom T-Shirt Main" id="mainImage" />
+                    </div>
+                    <div class="thumbnail-images">
+                        <div class="thumbnail active" onclick="changeImage('/placeholder.svg?height=400&width=500', this)">
+                            <img src="/placeholder.svg?height=80&width=80" alt="Basic T-Shirt" />
+                        </div>
+                        <div class="thumbnail" onclick="changeImage('/placeholder.svg?height=400&width=500', this)">
+                            <img src="/placeholder.svg?height=80&width=80" alt="Premium T-Shirt" />
+                        </div>
+                        <div class="thumbnail" onclick="changeImage('/placeholder.svg?height=400&width=500', this)">
+                            <img src="/placeholder.svg?height=80&width=80" alt="Polo Shirt" />
+                        </div>
+                        <div class="thumbnail" onclick="changeImage('/placeholder.svg?height=400&width=500', this)">
+                            <img src="/placeholder.svg?height=80&width=80" alt="Hoodie" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-info">
+                    <h2>Premium Custom T-Shirts</h2>
+                    <div class="product-rating">
+                        <div class="stars">★★★★★</div>
+                        <span class="rating-text">(4.8/5 from 3,421 reviews)</span>
+                    </div>
+                    
+                    <p class="product-description">
+                        Our custom t-shirts are made from premium cotton and cotton blends, ensuring comfort and durability. Perfect for corporate events, team uniforms, promotional campaigns, or personal designs. Each garment is carefully printed using state-of-the-art DTG and screen printing technology.
+                    </p>
+
+                    <ul class="features-list">
+                        <li>Premium cotton and cotton blend fabrics</li>
+                        <li>DTG and screen printing options</li>
+                        <li>All sizes from XS to 5XL available</li>
+                        <li>Wide range of colors and styles</li>
+                        <li>Wash-resistant, fade-proof prints</li>
+                        <li>Eco-friendly printing options</li>
+                        <li>Fast 3-5 day production</li>
+                        <li>Bulk discounts available</li>
+                    </ul>
+
+                    <div class="specifications">
+                        <h3>Specifications</h3>
+                        <div class="spec-grid">
+                            <div class="spec-item">
+                                <span class="spec-label">Material</span>
+                                <span class="spec-value">100% Cotton / Cotton Blend</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Sizes</span>
+                                <span class="spec-value">XS - 5XL</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Print Methods</span>
+                                <span class="spec-value">DTG, Screen Print</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Colors</span>
+                                <span class="spec-value">Full Color CMYK</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Styles</span>
+                                <span class="spec-value">T-Shirt, Polo, Hoodie</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Turnaround</span>
+                                <span class="spec-value">3-5 Business Days</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section" id="quote">
+        <div class="container">
+            <div class="quote-content">
+                <div class="quote-info">
+                    <h2>Get Your Custom Quote</h2>
+                    <p>Ready to create your perfect custom apparel? Fill out our quick quote form and we'll provide you with competitive pricing and expert guidance for your project.</p>
+                    
+                    <ul class="quote-benefits">
+                        <li>Free design consultation</li>
+                        <li>No setup fees on orders over 25 pieces</li>
+                        <li>Volume pricing discounts</li>
+                        <li>Fast turnaround times</li>
+                        <li>Quality guarantee</li>
+                        <li>Free shipping on orders over ₦50,000</li>
+                    </ul>
+                </div>
+
+                <div class="quote-form">
+                    <h3>Request Quote</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="apparel-type">Apparel Type</label>
+                            <select id="apparel-type" required>
+                                <option value="">Select apparel type</option>
+                                <option value="basic-tshirt">Basic T-Shirt</option>
+                                <option value="premium-tshirt">Premium T-Shirt</option>
+                                <option value="polo-shirt">Polo Shirt</option>
+                                <option value="hoodie">Hoodie</option>
+                                <option value="tank-top">Tank Top</option>
+                                <option value="long-sleeve">Long Sleeve</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="quantity">Quantity</label>
+                                <select id="quantity" required>
+                                    <option value="">Select quantity</option>
+                                    <option value="1-11">1-11 pieces</option>
+                                    <option value="12-24">12-24 pieces</option>
+                                    <option value="25-49">25-49 pieces</option>
+                                    <option value="50-99">50-99 pieces</option>
+                                    <option value="100-249">100-249 pieces</option>
+                                    <option value="250+">250+ pieces</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="print-method">Print Method</label>
+                                <select id="print-method" required>
+                                    <option value="">Select method</option>
+                                    <option value="dtg">DTG (Direct to Garment)</option>
+                                    <option value="screen-print">Screen Printing</option>
+                                    <option value="vinyl">Heat Transfer Vinyl</option>
+                                    <option value="embroidery">Embroidery</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="design-service">Design Service</label>
+                            <select id="design-service">
+                                <option value="have-design">I have my own design</option>
+                                <option value="need-design">I need design help</option>
+                                <option value="full-service">Full design service needed</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="deadline">Needed By</label>
+                                <input type="date" id="deadline">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Project Details</label>
+                            <textarea id="message" placeholder="Tell us about your project, design ideas, sizes needed, or any special requirements..."></textarea>
+                        </div>
+
+                        <button type="submit" class="quote-btn">Get My Quote</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-products">
+        <div class="container">
+            <h2>You Might Also Like</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-card-image">
+                        <img src="/placeholder.svg?height=200&width=280" alt="Custom Hoodies" />
+                    </div>
+                    <div class="product-card-content">
+                        <h3>Custom Hoodies</h3>
+                        <p>Comfortable custom hoodies perfect for teams, events, and promotional use.</p>
+                        <div class="product-card-price">From ₦12,500</div>
+                        <button class="product-card-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-card-image">
+                        <img src="/placeholder.svg?height=200&width=280" alt="Custom Caps" />
+                    </div>
+                    <div class="product-card-content">
+                        <h3>Custom Caps</h3>
+                        <p>High-quality embroidered caps and hats for corporate and casual wear.</p>
+                        <div class="product-card-price">From ₦4,200</div>
+                        <button class="product-card-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-card-image">
+                        <img src="/placeholder.svg?height=200&width=280" alt="Custom Bags" />
+                    </div>
+                    <div class="product-card-content">
+                        <h3>Custom Bags</h3>
+                        <p>Durable custom bags and totes perfect for events and promotional campaigns.</p>
+                        <div class="product-card-price">From ₦5,800</div>
+                        <button class="product-card-btn">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Join thousands of satisfied customers who trust PrintHub for their custom printing needs.</p>
+            <div class="cta-buttons">
+                <a href="#quote" class="btn-primary">Get Quote Now</a>
+                <a href="contact.html" class="btn-secondary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>PrintHub</h3>
+                    <p>Your trusted partner for quality printing services. Fast delivery, competitive prices, and exceptional customer service guaranteed.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="business-cards.html">Business Cards</a></li>
+                        <li><a href="flyers.html">Flyers & Brochures</a></li>
+                        <li><a href="stickers.html">Stickers & Labels</a></li>
+                        <li><a href="mugs.html">Custom Mugs</a></li>
+                        <li><a href="tshirts.html">T-Shirts & Apparel</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="faq.html">Help Center</a></li>
+                        <li><a href="track-order.html">Track Your Order</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                        <li><a href="contact.html">Contact Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PrintHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function changeImage(src, thumbnail) {
+            document.getElementById('mainImage').src = src;
+            
+            // Remove active class from all thumbnails
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            
+            // Add active class to clicked thumbnail
+            thumbnail.classList.add('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Printing Company in Lagos Nigeria - PrintHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .top-bar {
+            background: #f8f9fa;
+            padding: 10px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #e9ecef;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar-left {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .top-bar-left a {
+            color: #6c757d;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .top-bar-left a:hover {
+            color: #17a2b8;
+        }
+
+        .top-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            color: #495057;
+        }
+
+        .contact-number {
+            color: #17a2b8;
+            font-weight: 600;
+        }
+
+        header {
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #495057;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #17a2b8;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .sign-in {
+            color: #17a2b8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .create-account {
+            background: #17a2b8;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: background 0.3s;
+        }
+
+        /* Product Hero */
+        .product-hero {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .product-hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+
+        .product-hero p {
+            font-size: 20px;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-price {
+            font-size: 24px;
+            font-weight: 600;
+            background: rgba(255,255,255,0.2);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            color: white;
+        }
+
+        /* Product Details */
+        .product-details {
+            padding: 80px 0;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .product-info h2 {
+            font-size: 36px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 2rem;
+        }
+
+        .product-info p {
+            font-size: 16px;
+            color: #6c757d;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f8f9fa;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            color: #17a2b8;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .order-form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .order-form h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #495057;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group select,
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-group select:focus,
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #17a2b8;
+        }
+
+        .submit-btn {
+            background: #17a2b8;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .submit-btn:hover {
+            background: #138496;
+        }
+
+        /* Related Products */
+        .related-products {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .related-products .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .related-products .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-card-content {
+            padding: 1.5rem;
+        }
+
+        .product-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .product-card p {
+            font-size: 15px;
+            color: #6c757d;
+            margin-bottom: 1rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .product-card .price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #17a2b8;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background: linear-gradient(135deg, #17a2b8 0%, #2c3e50 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: white;
+            color: #17a2b8;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            background: #e9ecef;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 1rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            font-size: 20px;
+            color: #17a2b8;
+        }
+
+        .footer-section p {
+            font-size: 15px;
+            color: #bdc3c7;
+            line-height: 1.7;
+        }
+
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+            font-size: 15px;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #17a2b8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .product-hero h1 {
+                font-size: 40px;
+            }
+
+            .product-details .details-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar-left {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-actions {
+                gap: 1rem;
+            }
+
+            .product-hero {
+                padding: 60px 0;
+            }
+
+            .product-hero h1 {
+                font-size: 32px;
+            }
+
+            .product-hero p {
+                font-size: 16px;
+            }
+
+            .product-details {
+                padding: 50px 0;
+            }
+
+            .product-info h2 {
+                font-size: 28px;
+            }
+
+            .related-products {
+                padding: 50px 0;
+            }
+
+            .related-products .section-title h2 {
+                font-size: 28px;
+            }
+
+            .cta-section {
+                padding: 40px 0;
+            }
+
+            .cta-section h2 {
+                font-size: 28px;
+            }
+
+            .cta-section p {
+                font-size: 16px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-bar-left">
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="reseller.html">Reseller Program</a>
+            </div>
+            <div class="top-bar-right">
+                <span class="contact-info">Need help? Call us: <span class="contact-number">+234 800 PRINT HUB</span></span>
+            </div>
+        </div>
+    </div>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">PrintHub</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="quotes.html">Get Quote</a></li>
+                <li><a href="track-order.html">Track Order</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href="stores.html">Stores</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="sign-in">Sign In</a>
+                <a href="#" class="create-account">Create Account</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="product-hero">
+        <div class="container">
+            <h1>Best Printing Company in Lagos, Nigeria</h1>
+            <p>Leading printing services in Lagos with over 15 years of experience. Quality prints, fast delivery, and competitive prices across Lagos State.</p>
+            <div class="hero-price">Serving Lagos Since 2009</div>
+        </div>
+    </section>
+
+    <section class="product-details">
+        <div class="container">
+            <div class="details-grid">
+                <div class="product-images">
+                    <img id="mainImage" src="images/lagos-printing-company.jpeg" alt="Best Printing Company in Lagos Nigeria" style="width: 100%; height: 400px; object-fit: cover; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <div class="thumbnail-gallery" style="display: flex; gap: 1rem; justify-content: center;">
+                        <img src="images/printing-facility.jpeg" alt="Printing Facility Thumbnail" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
+                        <img src="images/printing-equipment.jpeg" alt="Equipment Thumbnail" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
+                        <img src="images/lagos-office.jpeg" alt="Lagos Office Thumbnail" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h2>Why Choose PrintHub Lagos?</h2>
+                    <p>As Lagos's premier printing company, we've been serving businesses, individuals, and organizations across Lagos State with exceptional printing services. From Victoria Island to Ikeja, Lekki to Surulere, we deliver quality prints on time, every time.</p>
+                    <ul class="features-list">
+                        <li>15+ years of printing experience in Lagos</li>
+                        <li>State-of-the-art printing equipment and technology</li>
+                        <li>Same-day and express printing services available</li>
+                        <li>Free delivery across Lagos Island and Mainland</li>
+                        <li>Competitive pricing with no hidden costs</li>
+                        <li>Professional design and consultation services</li>
+                    </ul>
+                    <h3>Our Lagos Service Areas</h3>
+                    <p>We proudly serve all areas of Lagos State:</p>
+                    <ul class="features-list">
+                        <li><strong>Lagos Island:</strong> Victoria Island, Ikoyi, Lagos Island, Apapa</li>
+                        <li><strong>Lagos Mainland:</strong> Ikeja, Surulere, Yaba, Mushin, Ketu</li>
+                        <li><strong>Lekki Peninsula:</strong> Lekki, Ajah, Sangotedo, Ibeju-Lekki</li>
+                        <li><strong>Other Areas:</strong> Alimosho, Agege, Ifako-Ijaiye, Oshodi-Isolo</li>
+                        <li><strong>Express Delivery:</strong> Same-day delivery within Lagos</li>
+                    </ul>
+                    <div class="order-form">
+                        <h3>Get a Free Quote for Your Printing Project</h3>
+                        <form id="lagosQuoteForm">
+                            <div class="form-group">
+                                <label for="projectType">Project Type</label>
+                                <select id="projectType" name="projectType" required>
+                                    <option value="">Select Project Type</option>
+                                    <option value="business-cards">Business Cards</option>
+                                    <option value="flyers">Flyers & Leaflets</option>
+                                    <option value="brochures">Brochures</option>
+                                    <option value="banners">Banners & Signage</option>
+                                    <option value="letterheads">Letterheads</option>
+                                    <option value="books">Book Printing</option>
+                                    <option value="other">Other (Please Specify)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="quantity">Quantity</label>
+                                <input type="number" id="quantity" name="quantity" placeholder="e.g., 1000" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lagosArea">Lagos Area for Delivery</label>
+                                <select id="lagosArea" name="lagosArea">
+                                    <option value="victoria-island">Victoria Island</option>
+                                    <option value="ikoyi">Ikoyi</option>
+                                    <option value="ikeja">Ikeja</option>
+                                    <option value="lekki">Lekki</option>
+                                    <option value="surulere">Surulere</option>
+                                    <option value="yaba">Yaba</option>
+                                    <option value="other-lagos">Other Lagos Area</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="urgency">Urgency</label>
+                                <select id="urgency" name="urgency">
+                                    <option value="standard">Standard (3-5 days)</option>
+                                    <option value="express">Express (1-2 days)</option>
+                                    <option value="same-day">Same Day (Lagos only)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="projectDetails">Project Details</label>
+                                <textarea id="projectDetails" name="projectDetails" rows="4" placeholder="Please describe your printing requirements..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="designUpload">Upload Your Design (Optional)</label>
+                                <input type="file" id="designUpload" name="designUpload" accept=".pdf,.ai,.psd,.jpg,.png">
+                            </div>
+                            <div class="form-group">
+                                <label for="contactPhone">Phone Number</label>
+                                <input type="tel" id="contactPhone" name="contactPhone" placeholder="e.g., +234 801 234 5678" required>
+                            </div>
+                            <button type="submit" style="background: #17a2b8; color: white; padding: 12px 25px; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: background 0.3s; width: 100%;">Get Free Quote</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="related-products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Printing Services in Lagos</h2>
+            </div>
+            <div class="product-grid">
+                <a href="business-card-printing-lagos.html" class="product-card">
+                    <img src="images/business-cards-lagos.jpg" alt="Business Card Printing Lagos">
+                    <div class="product-card-content">
+                        <h3>Business Card Printing</h3>
+                        <p>Professional business cards printed and delivered in Lagos.</p>
+                        <div class="price">From ₦50 per card</div>
+                    </div>
+                </a>
+                <a href="flyer-printing-lagos.html" class="product-card">
+                    <img src="images/flyers-lagos.jpg" alt="Flyer Printing Lagos">
+                    <div class="product-card-content">
+                        <h3>Flyer Printing Lagos</h3>
+                        <p>High-quality flyers for marketing and promotions.</p>
+                        <div class="price">Starting from ₦15</div>
+                    </div>
+                </a>
+                <a href="banner-printing-lagos.html" class="product-card">
+                    <img src="images/banners-lagos.jpg" alt="Banner Printing Lagos">
+                    <div class="product-card-content">
+                        <h3>Banner Printing Lagos</h3>
+                        <p>Large format banners for events and advertising.</p>
+                        <div class="price">From ₦2,500 per sqm</div>
+                    </div>
+                </a>
+                <a href="book-printing-lagos.html" class="product-card">
+                    <img src="images/books-lagos.jpg" alt="Book Printing Lagos">
+                    <div class="product-card-content">
+                        <h3>Book Printing Lagos</h3>
+                        <p>Professional book printing and binding services.</p>
+                        <div class="price">From ₦500 per book</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Start Your Printing Project in Lagos?</h2>
+            <p>Contact PrintHub today for the best printing services in Lagos. We guarantee quality, competitive prices, and fast delivery across all Lagos areas.</p>
+            <a href="quotes.html" class="cta-button">Get Free Quote Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>PrintHub Nigeria</h3>
+                    <p>Your trusted partner for all printing needs. Quality prints, competitive prices, fast delivery.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="products.html">All Products</a>
+                    <a href="services.html">Services</a>
+                    <a href="quotes.html">Get Quote</a>
+                    <a href="track-order.html">Track Order</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="reseller.html">Reseller Program</a>
+                    <a href="calculator.html">Price Calculator</a>
+                    <a href="stores.html">Our Stores</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <a href="faq.html">FAQ</a>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="#">Help Center</a>
+                    <a href="#">Returns</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Disclaimer</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PrintHub Nigeria. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('lagosQuoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Your quote request has been submitted! Our Lagos team will contact you within 2 hours.');
+            this.reset();
+        });
+
+        function updateMainImage(src) {
+            const mainImage = document.getElementById('mainImage');
+            mainImage.src = src;
+            mainImage.style.opacity = '0';
+            setTimeout(() => {
+                mainImage.style.opacity = '1';
+            }, 100);
+        }
+
+        const mainImage = document.getElementById('mainImage');
+        mainImage.style.transition = 'opacity 0.3s ease';
+    </script>
+</body>
+</html>

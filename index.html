@@ -165,6 +165,77 @@
             font-size: 20px;
             color: #495057;
         }
+        
+        /* Mega Menu Dropdown Styles */
+        .nav-links li.dropdown {
+            position: relative;
+        }
+
+        .dropdown a {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #fff;
+            min-width: 850px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 1001;
+            border-radius: 8px;
+            padding: 2rem;
+            border-top: 3px solid #17a2b8;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            top: 100%;
+        }
+
+        .mega-menu {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .menu-column {
+            flex: 1;
+        }
+
+        .menu-column h3 {
+            font-size: 16px;
+            color: #2c3e50;
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 0.8rem;
+        }
+
+        .menu-column a {
+            color: #495057;
+            padding: 9px 0;
+            text-decoration: none;
+            display: block;
+            font-size: 15px;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            transition: color 0.2s ease;
+        }
+
+        .menu-column a:hover {
+            color: #17a2b8;
+        }
 
         /* Hero Section - Combined Style */
         .hero {
@@ -305,8 +376,8 @@
             height: auto;
         }
 
-        /* Popular Products Section - Printivo Style */
-        .popular-products {
+        /* Featured Products Section */
+        .featured-products {
             padding: 80px 0;
             background: #fff;
         }
@@ -319,13 +390,13 @@
         }
 
         .section-title {
-            font-size: 36px;
-            color: #495057;
+            font-size: 24px;
+            color: #2c3e50;
             font-weight: 600;
             font-family: 'Playfair Display', serif;
         }
 
-        .see-all {
+        .section-link {
             color: #17a2b8;
             text-decoration: none;
             font-weight: 600;
@@ -334,7 +405,7 @@
             transition: color 0.3s;
         }
 
-        .see-all:hover {
+        .section-link:hover {
             color: #138496;
         }
 
@@ -359,68 +430,29 @@
         .product-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 12px 40px rgba(0,0,0,0.15);
-            text-decoration: none;
         }
 
         .product-image {
             height: 180px;
             background-size: cover;
             background-position: center;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-            font-size: 18px;
-        }
-
-        .product-image.business-cards {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .product-image.flyers {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-
-        .product-image.stickers {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-        }
-
-        .product-image.mugs {
-            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
         }
 
         .product-info {
             padding: 1.5rem;
         }
 
-        .product-info h4 {
+        .product-title {
             font-size: 18px;
             margin-bottom: 1rem;
             color: #495057;
             font-weight: 600;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .price-info {
-            margin-bottom: 1.5rem;
-        }
-
-        .starting-at {
-            font-size: 12px;
-            color: #6c757d;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-            font-family: 'Inter', sans-serif;
         }
 
         .price {
-            font-size: 24px;
+            font-size: 18px;
             font-weight: 700;
-            color: #495057;
-            font-family: 'Poppins', sans-serif;
+            color: #2c3e50;
         }
 
         .price-unit {
@@ -428,25 +460,7 @@
             color: #6c757d;
             font-weight: 500;
         }
-
-        .product-btn {
-            background: #17a2b8;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-            width: 100%;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-        }
-
-        .product-btn:hover {
-            background: #138496;
-        }
-
+        
         /* Creative Branding Section - Pzielng Style */
         .creative-branding {
             padding: 80px 0;
@@ -521,7 +535,7 @@
             height: auto;
             border-radius: 15px;
         }
-
+        
         /* Features Section - Combined Style */
         .features {
             padding: 80px 0;
@@ -572,7 +586,7 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
         }
-
+        
         /* Best Selling Section - Pzielng Style */
         .best-selling {
             padding: 80px 0;
@@ -609,7 +623,7 @@
             font-weight: 600;
             font-family: 'Poppins', sans-serif;
         }
-
+        
         .footer-section p {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
@@ -653,14 +667,13 @@
             .nav-links {
                 display: none;
             }
-
-            .hero-content,
-            .branding-content {
+            
+            .hero-content, .branding-content {
                 grid-template-columns: 1fr;
                 text-align: center;
                 gap: 3rem;
             }
-
+            
             .hero-text h1 {
                 font-size: 42px;
             }
@@ -668,17 +681,17 @@
             .branding-text h2 {
                 font-size: 36px;
             }
-
+            
             .section-header {
                 flex-direction: column;
                 gap: 1rem;
                 text-align: center;
             }
-
+            
             .products-grid {
                 grid-template-columns: 1fr;
             }
-
+            
             .features-grid {
                 grid-template-columns: 1fr;
             }
@@ -688,20 +701,14 @@
 <body>
     <!-- Top Bar - Printivo Style -->
     <div class="top-bar">
-        <div class="container">
-            <div class="top-bar-content">
-                <div class="top-bar-left">
-                    <a href="#">Cost Calculator</a>
-                    <a href="#">Discover Stores</a>
-                    <a href="#">Track Orders</a>
-                </div>
-                <div class="top-bar-right">
-                    <span class="contact-info">Need help? Call: <span class="contact-number">+234-706-900-0063</span> or <span class="contact-number">+234-903-500-0505</span></span>
-                    <span class="whatsapp-icon">📱</span>
-                    <select class="country-selector">
-                        <option>🇳🇬 Nigeria</option>
-                    </select>
-                </div>
+        <div class="container top-bar-content">
+            <div class="top-bar-left">
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="reseller.html">Reseller Program</a>
+            </div>
+            <div class="top-bar-right">
+                <span class="contact-info">Need help? Call us: <span class="contact-number">+234 800 PRINT HUB</span></span>
             </div>
         </div>
     </div>
@@ -713,17 +720,48 @@
                 <img src="images/logo.png" alt="Inksnap Logo" style="height:40px;">
             </a>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li class="dropdown">
+                    <a href="products.html">All Products <span style="font-size: 12px;">&#9662;</span></a>
+                    <div class="dropdown-content">
+                        <div class="mega-menu">
+                            <div class="menu-column">
+                                <h3>Corporate Branding</h3>
+                                <a href="business-cards.html">Business Cards</a>
+                                <a href="brochure-printing.html">Flyers & Brochures</a>
+                                <a href="letterhead-printing.html">Letterheads</a>
+                                <a href="pen-branding-printing.html">Branded Pens</a>
+                                <a href="vehicle-branding.html">Vehicle Branding</a>
+                                <a href="standard-id-card-printing.html">ID Cards & Lanyards</a>
+                            </div>
+                            <div class="menu-column">
+                                <h3>Apparel</h3>
+                                <a href="tshirt-printing.html">T-Shirts</a>
+                                <a href="polo-shirt-printing.html">Polo Shirts</a>
+                                <a href="monogram-printing.html">Monogram & Embroidery</a>
+                                <a href="face-cap-printing.html">Face Caps</a>
+                            </div>
+                            <div class="menu-column">
+                                <h3>Gifts & Souvenirs</h3>
+                                <a href="branded-mug-printing.html">Mugs & Drinkware</a>
+                                <a href="notepad-jotter-printing.html">Notepads & Jotters</a>
+                                <a href="keyholder-printing.html">Key Holders</a>
+                                <a href="tote-bag-printing.html">Tote Bags</a>
+                                <a href="custom-calendar-printing.html">Calendars</a>
+                            </div>
+                             <div class="menu-column">
+                                <h3>Packaging</h3>
+                                <a href="shopping-paper-bag-print.html">Paper Bags</a>
+                                <a href="nylon-shopping-bag-print.html">Nylon Bags</a>
+                                <a href="office-box-package.html">Product Boxes</a>
+                                <a href="label-sticker-printing.html">Stickers & Labels</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="quotes.html">Get Quote</a></li>
-                <li><a href="track-order.html">Track Order</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="reseller.html">Reseller</a></li>
-                <li><a href="calculator.html">Calculator</a></li>
-                <li><a href="stores.html">Stores</a></li>
-                <li><a href="contact.html">Contact</a></li>
                 <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="nav-actions">
                 <a href="#" class="sign-in">Sign In</a>
@@ -733,13 +771,13 @@
         </nav>
     </header>
 
-    <!-- Hero Section - Printivo Style -->
+    <!-- Hero Section - Combined Style -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>Quality Prints</h1>
-                    <p class="subtitle">Shipped to your doorstep </p>
+                    <p class="subtitle">Shipped to your doorstep</p>
                     
                     <div class="search-section">
                         <h3>What would you like to print today?</h3>
@@ -747,6 +785,11 @@
                             <input type="text" class="search-input" placeholder="Search for Business cards, T-shirts, Mugs, etc">
                             <button class="search-btn">🔍</button>
                         </div>
+                    </div>
+
+                    <div class="rating-section">
+                        <div class="stars">★★★★★</div>
+                        <div class="rating-text"><strong>4.8/5</strong> based on 500+ reviews</div>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -756,108 +799,140 @@
         </div>
     </section>
 
-    <!-- Popular Products Section - Printivo Style -->
-    <section class="popular-products">
+    <!-- Featured Products Section -->
+    <section class="featured-products">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Popular Products</h2>
-                <a href="products.html" class="see-all">See All Products</a>
+                <h2 class="section-title">Creative Branding</h2>
+                <a href="products.html" class="section-link">See all products &rarr;</a>
             </div>
             <div class="products-grid">
                 <a href="business-cards.html" class="product-card">
-                    <div class="product-image">
-                        <img src="images/business-cards.jpeg" alt="Business Cards" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
+                    <div class="product-image" style="background-image: url('images/business-card-1.png');"></div>
                     <div class="product-info">
-                        <h4>Two-sided Business Cards</h4>
-                        <div class="price-info">
-                            <div class="starting-at">Starting at</div>
-                            <div class="price">₦15,100 <span class="price-unit">per 100</span></div>
-                        </div>
-                        <div class="product-btn">Browse Two-sided Business Cards</div>
+                        <h3 class="product-title">Two-sided Business Cards</h3>
+                        <div class="price">₦15,100 <span class="price-unit">per 100</span></div>
                     </div>
                 </a>
                 <a href="flyers.html" class="product-card">
-                    <div class="product-image">
-                        <img src="images/business-flyers.jpeg" alt="A5 Flyers" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
+                    <div class="product-image" style="background-image: url('images/flyer1.png');"></div>
                     <div class="product-info">
-                        <h4>A5 flyers (Single Sided)</h4>
-                        <div class="price-info">
-                            <div class="starting-at">Starting at</div>
-                            <div class="price">₦25,800 <span class="price-unit">per 100</span></div>
-                        </div>
-                        <div class="product-btn">Browse A5 flyers</div>
+                        <h3 class="product-title">A5 Flyers</h3>
+                        <div class="price">₦25,800 <span class="price-unit">per 100</span></div>
                     </div>
                 </a>
-                <a href="stickers.html" class="product-card">
-                    <div class="product-image">
-                        <img src="images/stickers.jpeg" alt="Round Stickers" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
+                <a href="roll-up-banner-printing.html" class="product-card">
+                    <div class="product-image" style="background-image: url('images/rollup1.png');"></div>
                     <div class="product-info">
-                        <h4>Round Stickers (3.5" Diameter)</h4>
-                        <div class="price-info">
-                            <div class="starting-at">Starting at</div>
-                            <div class="price">₦17,000 <span class="price-unit">per 100</span></div>
-                        </div>
-                        <div class="product-btn">Browse Round Stickers</div>
+                        <h3 class="product-title">Roll-up Banners</h3>
+                        <div class="price">₦45,000 <span class="price-unit">per piece</span></div>
                     </div>
                 </a>
                 <a href="mugs.html" class="product-card">
-                    <div class="product-image">
-                        <img src="images/mugs.jpeg" alt="Simple Mugs" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
+                    <div class="product-image" style="background-image: url('images/brandedmug.png');"></div>
                     <div class="product-info">
-                        <h4>Simple Mugs</h4>
-                        <div class="price-info">
-                            <div class="starting-at">Starting at</div>
-                            <div class="price">₦4,800 <span class="price-unit">per 1</span></div>
-                        </div>
-                        <div class="product-btn">Browse Simple Mugs</div>
+                        <h3 class="product-title">Branded Mugs</h3>
+                        <div class="price">₦4,800 <span class="price-unit">per piece</span></div>
+                    </div>
+                </a>
+                <a href="tshirts.html" class="product-card">
+                    <div class="product-image" style="background-image: url('images/roundneck1.png');"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Round Neck T-shirts</h3>
+                        <div class="price">₦6,500 <span class="price-unit">per piece</span></div>
+                    </div>
+                </a>
+                <a href="brochures.html" class="product-card">
+                    <div class="product-image" style="background-image: url('images/trifold1.png');"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">A4 Trifold Brochures</h3>
+                        <div class="price">₦32,000 <span class="price-unit">per 100</span></div>
+                    </div>
+                </a>
+                <a href="stickers.html" class="product-card">
+                    <div class="product-image" style="background-image: url('images/labelsticker1.png');"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Stickers</h3>
+                        <div class="price">₦17,000 <span class="price-unit">per 100</span></div>
+                    </div>
+                </a>
+                <a href="invitations.html" class="product-card">
+                    <div class="product-image" style="background-image: url('images/wedding-iv-1.png');"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Wedding Invitations</h3>
+                        <div class="price">₦60,000 <span class="price-unit">per 100</span></div>
+                    </div>
+                </a>
+                <a href="conqueror-letterhead.html" class="product-card">
+                    <div class="product-image" style="background-image: url('images/letterhead.png');"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Conqueror Letterhead</h3>
+                        <div class="price">₦20,000 <span class="price-unit">per set</span></div>
+                    </div>
+                </a>
+                <a href="notepad-jotter-printing.html" class="product-card">
+                    <div class="product-image" style="background-image: url('images/notepad1.png');"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Notepad & Jotter</h3>
+                        <div class="price">₦2,800 <span class="price-unit">per set</span></div>
+                    </div>
+                </a>
+                <a href="nylon-shopping-bag-print.html" class="product-card">
+                    <div class="product-image" style="background-image: url('images/nylon1.png');"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Nylon Shopping Bag</h3>
+                        <div class="price">₦30,000 <span class="price-unit">per set</span></div>
+                    </div>
+                </a>
+                <a href="pen-branding-printing.html" class="product-card">
+                    <div class="product-image" style="background-image: url('images/pen1.png');"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Pen Branding</h3>
+                        <div class="price">₦2,000 <span class="price-unit">per pen</span></div>
                     </div>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Creative Branding Section  -->
+    <!-- Creative Branding Section - Pzielng Style -->
     <section class="creative-branding">
         <div class="container">
             <div class="branding-content">
                 <div class="branding-text">
-                    <h2>Creative Branding</h2>
-                    <p>Everything is good! but our branding creativity & material is the best anywhere!</p>
+                    <h2>Everything is good! but our branding creativity & material is the best anywhere!</h2>
                     <div class="branding-rating">
                         <div class="stars">★★★★★</div>
-                        <span class="rating-value">4.5/5.0</span>
+                        <div class="rating-value">4.5 / 5.0</div>
                     </div>
+                    <p>More than 4000+ satisfied clients</p>
                     <button class="mail-button">Send us a mail</button>
                 </div>
                 <div class="branding-image">
-                    <img src="/placeholder.svg?height=350&width=550" alt="Creative Branding Materials" />
+                    <img src="images/branding-image.jpg" alt="Creative Branding Showcase">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Features Section - Combined Style -->
     <section class="features">
         <div class="container">
             <div class="features-grid">
                 <div class="feature-card">
+                    <div class="feature-icon">✔</div>
+                    <h3>Quality</h3>
+                    <p>You can rest assured of getting 100% quality of the product you ordered as described.</p>
+                </div>
+                <div class="feature-card">
                     <div class="feature-icon">🚚</div>
-                    <h3>Fast delivery to save your time</h3>
-                    <p>Quick turnaround times with reliable shipping directly to your doorstep</p>
+                    <h3>Fast Delivery</h3>
+                    <p>Product(s) are delivered to your doorstep within 2-6 working days.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>You can order now to get your job very quickly</h3>
-                    <p>Streamlined ordering process for immediate service and rapid production</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">😊</div>
-                    <h3>Customer Satisfaction is our greatest priority</h3>
-                    <p>100% satisfaction guarantee on all our printing services and products</p>
+                    <div class="feature-icon">🎧</div>
+                    <h3>Support Team</h3>
+                    <p>You've got an enquiry? Please don't hesitate to contact us.</p>
                 </div>
             </div>
         </div>
@@ -868,50 +943,30 @@
         <div class="container">
             <h2 class="section-title">Best Selling</h2>
             <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image business-cards">Premium Cards</div>
+                <a href="premium-invitation-box-print.html" class="product-card">
+                    <div class="product-image" style="background-image: url('images/giftbox1.png');"></div>
                     <div class="product-info">
-                        <h4>Premium Business Cards</h4>
-                        <div class="price-info">
-                            <div class="starting-at">Starting at</div>
-                            <div class="price">₦18,500 <span class="price-unit">per 100</span></div>
-                        </div>
-                        <button class="product-btn">Browse Premium Cards</button>
+                        <h3 class="product-title">Premium Gift Box</h3>
                     </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image flyers">Custom Banners</div>
+                </a>
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('images/signage.png');"></div>
                     <div class="product-info">
-                        <h4>Custom Banners</h4>
-                        <div class="price-info">
-                            <div class="starting-at">Starting at</div>
-                            <div class="price">₦35,000 <span class="price-unit">per piece</span></div>
-                        </div>
-                        <button class="product-btn">Browse Custom Banners</button>
+                        <h3 class="product-title">Illuminated Signage</h3>
                     </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image stickers">Vinyl Stickers</div>
+                </a>
+                <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('images/sub2.png');"></div>
                     <div class="product-info">
-                        <h4>Vinyl Stickers</h4>
-                        <div class="price-info">
-                            <div class="starting-at">Starting at</div>
-                            <div class="price">₦12,000 <span class="price-unit">per 50</span></div>
-                        </div>
-                        <button class="product-btn">Browse Vinyl Stickers</button>
+                        <h3 class="product-title">Embroidered Face Towel</h3>
                     </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image mugs">Custom T-Shirts</div>
+                </a>
+                 <a href="#" class="product-card">
+                    <div class="product-image" style="background-image: url('images/pic13.png');"></div>
                     <div class="product-info">
-                        <h4>Custom T-Shirts</h4>
-                        <div class="price-info">
-                            <div class="starting-at">Starting at</div>
-                            <div class="price">₦6,500 <span class="price-unit">per piece</span></div>
-                        </div>
-                        <button class="product-btn">Browse Custom T-Shirts</button>
+                        <h3 class="product-title">Clothing Hang Tags</h3>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -921,36 +976,36 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Inksnap Nigeria</h3>
+                    <h3>Inksnap</h3>
                     <p>Your trusted partner for all printing needs. Quality prints, competitive prices, fast delivery.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>
-                    <a href="products.html">All Products</a>
-                    <a href="services.html">Services</a>
-                    <a href="quotes.html">Get Quote</a>
-                    <a href="track-order.html">Track Order</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="reseller.html">Reseller Program</a>
-                    <a href="calculator.html">Price Calculator</a>
-                    <a href="stores.html">Our Stores</a>
+                    <ul>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="quotes.html">Get Quote</a></li>
+                        <li><a href="track-order.html">Track Order</a></li>
+                    </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Support</h3>
-                    <a href="faq.html">FAQ</a>
-                    <a href="contact.html">Contact Us</a>
-                    <a href="#">Help Center</a>
-                    <a href="#">Returns</a>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Help Center</a></li>
+                    </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Legal</h3>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Disclaimer</a>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Inksnap Nigeria. All rights reserved.</p>
+                <p>&copy; 2024 Inksnap. All rights reserved.</p>
             </div>
         </div>
     </footer>

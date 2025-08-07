@@ -1,412 +1,341 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A1 Poster Printing - Inksnap</title>
+    <script src="https://www.googleoptimize.com/optimize.js?id=OPT-W9H7JHQ"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-265902762-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-265902762-1');
+    </script>
+    <title>A0 Poster Printing - PrintHub</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: #333;
             background: #fff;
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .preloader .preloader-item {
+            text-align: center;
+        }
+        
+        .preloader .preloader-item img {
+            height: 60px;
+            width: auto;
+        }
+        
+        .dark-mode-item {
+            display: none;
+        }
+        
+        html[data-bs-theme=dark] .dark-mode-item {
+            display: block;
+        }
+
         /* Header Styles */
-        .top-bar {
-            background: #f8f9fa;
-            padding: 10px 0;
-            font-size: 14px;
-            border-bottom: 1px solid #e9ecef;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .top-bar-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .top-bar-left {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .top-bar-left a {
-            color: #6c757d;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .top-bar-left a:hover {
-            color: #17a2b8;
-        }
-
-        .top-bar-right {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-weight: 500;
-        }
-
-        .contact-info {
-            color: #495057;
-        }
-
-        .contact-number {
-            color: #17a2b8;
-            font-weight: 600;
-        }
-
         header {
             background: #fff;
             box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            border-bottom: 2px solid #e9ecef;
             position: sticky;
             top: 0;
             z-index: 1000;
+            width: 100%;
         }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 0;
+        
+        .navbar-sticky {
+            position: sticky !important;
+            top: 0 !important;
+            z-index: 1000 !important;
+            background: #fff !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08) !important;
         }
-
-        .logo {
+        
+        .header-static {
+            position: sticky !important;
+            top: 0 !important;
+            z-index: 1000 !important;
+        }
+        
+        .navbar-brand {
             font-size: 28px;
             font-weight: 700;
             color: #2c3e50;
-            font-family: 'Poppins', sans-serif;
-            letter-spacing: -0.5px;
             text-decoration: none;
         }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-            font-family: 'Inter', sans-serif;
+        
+        .navbar-brand img {
+            height: 40px;
+            width: auto;
         }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #495057;
-            font-weight: 500;
+        
+        .navbar-nav .nav-link {
+            color: #495057 !important;
+            font-weight: 700 !important;
             font-size: 15px;
+            padding: 0.5rem 1rem;
             transition: color 0.3s;
         }
-
-        .nav-links a:hover,
-        .nav-links a.active {
+        
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: #17a2b8 !important;
+        }
+        
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 1rem 0;
+        }
+        
+        .dropdown-item {
+            color: #495057;
+            padding: 0.5rem 1.5rem;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
             color: #17a2b8;
         }
-
-        .nav-actions {
+        
+        .dropdown-submenu {
+            position: relative;
+        }
+        
+        
+        .theme-toggle-btn {
+            background: none;
+            border: none;
+            color: #495057;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 1.5rem;
-            font-family: 'Inter', sans-serif;
+            justify-content: center;
+        }
+        
+        .theme-toggle-btn:hover {
+            background: rgba(0, 206, 209, 0.1);
+            color: #00CED1;
+        }
+        
+        .theme-toggle-btn .light-icon {
+            display: none;
+        }
+        
+        html[data-bs-theme=dark] .theme-toggle-btn .dark-icon {
+            display: none;
+        }
+        
+        html[data-bs-theme=dark] .theme-toggle-btn .light-icon {
+            display: block;
         }
 
-        .sign-in {
-            color: #17a2b8;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
+        /* Dark Mode Styles */
+        html[data-bs-theme=dark] {
+            color-scheme: dark;
+        }
+        
+        html[data-bs-theme=dark] body {
+            background: #1a1a1a;
+            color: #e0e0e0;
+        }
+        
+        html[data-bs-theme=dark] header {
+            background: #2d2d2d;
+            border-bottom-color: #404040;
+        }
+        
+        html[data-bs-theme=dark] .navbar-nav .nav-link {
+            color: #e0e0e0 !important;
+        }
+        
+        html[data-bs-theme=dark] .navbar-nav .nav-link:hover {
+            color: #00CED1 !important;
+        }
+        
+        html[data-bs-theme=dark] .dropdown-menu {
+            background: #2d2d2d;
+            border-color: #404040;
+        }
+        
+        html[data-bs-theme=dark] .dropdown-item {
+            color: #e0e0e0;
+        }
+        
+        html[data-bs-theme=dark] .dropdown-item:hover {
+            background: #404040;
+            color: #00CED1;
         }
 
-        .create-account {
-            background: #17a2b8;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            transition: background 0.3s;
-        }
-
-        /* Product Hero */
+        /* Product Hero Section */
         .product-hero {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
-            padding: 80px 0;
-            color: #2c3e50;
+            background: linear-gradient(135deg, #e8f4f8 0%, #f0f8ff 50%, #e8f5e8 100%);
+            padding: 60px 0;
             text-align: center;
         }
-
+        
         .product-hero h1 {
             font-size: 48px;
             font-weight: 700;
-            font-family: 'Playfair Display', serif;
             margin-bottom: 1rem;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
         }
-
+        
         .product-hero p {
-            font-size: 20px;
-            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            color: #6c757d;
             margin-bottom: 2rem;
-            opacity: 0.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
-
+        
         .hero-price {
             font-size: 24px;
-            font-weight: 600;
-            background: rgba(255,255,255,0.3);
+            font-weight: 700;
+            color: #17a2b8;
+            background: white;
             padding: 15px 30px;
-            border-radius: 50px;
+            border-radius: 25px;
             display: inline-block;
-            color: #2c3e50;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        /* Product Details */
+        /* Product Details Section */
         .product-details {
             padding: 80px 0;
+            background: #fff;
         }
-
+        
         .details-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: start;
         }
-
+        
+        .product-images {
+            text-align: center;
+        }
+        
         .product-info h2 {
-            font-size: 36px;
-            font-weight: 600;
+            font-size: 32px;
+            margin-bottom: 1.5rem;
             color: #2c3e50;
             font-family: 'Playfair Display', serif;
-            margin-bottom: 2rem;
         }
-
-        .product-info p {
-            font-size: 16px;
-            color: #6c757d;
-            font-family: 'Inter', sans-serif;
-            margin-bottom: 2rem;
-            line-height: 1.8;
+        
+        .product-info h3 {
+            font-size: 24px;
+            margin: 2rem 0 1rem 0;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
         }
-
+        
         .features-list {
             list-style: none;
+            padding: 0;
             margin-bottom: 2rem;
         }
-
+        
         .features-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid #f8f9fa;
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            align-items: center;
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #495057;
         }
-
+        
         .features-list li:before {
             content: "✓";
+            position: absolute;
+            left: 0;
             color: #17a2b8;
             font-weight: bold;
-            margin-right: 10px;
         }
 
+        /* Form Styles */
         .order-form {
             background: #f8f9fa;
             padding: 2rem;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-top: 2rem;
         }
-
-        .order-form h3 {
-            font-size: 24px;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
+        
         .form-group {
             margin-bottom: 1.5rem;
         }
-
+        
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: #495057;
-            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: #2c3e50;
         }
-
-        .form-group select,
-        .form-group input {
+        
+        .form-group input,
+        .form-group select {
             width: 100%;
-            padding: 12px 15px;
+            padding: 12px;
             border: 2px solid #e9ecef;
             border-radius: 8px;
             font-size: 16px;
-            font-family: 'Inter', sans-serif;
             transition: border-color 0.3s;
         }
-
-        .form-group select:focus,
-        .form-group input:focus {
+        
+        .form-group input:focus,
+        .form-group select:focus {
             outline: none;
             border-color: #17a2b8;
-        }
-
-        .submit-btn {
-            background: #17a2b8;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-            width: 100%;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .submit-btn:hover {
-            background: #138496;
-        }
-
-        /* Call to Action */
-        .cta-section {
-            background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-            margin-top: 5rem;
-        }
-
-        .cta-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta-section p {
-            font-size: 18px;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-        }
-
-        .cta-button {
-            background: white;
-            color: #17a2b8;
-            padding: 15px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 18px;
-            transition: all 0.3s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        /* Footer */
-        footer {
-            background: #2c3e50;
-            color: white;
-            padding: 3rem 0 1rem;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 1rem;
-            font-size: 20px;
-        }
-
-        .footer-section p {
-            font-size: 15px;
-            color: #bdc3c7;
-            line-height: 1.7;
-        }
-
-        .footer-section a {
-            color: #bdc3c7;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-            transition: color 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-link {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
-
-        .social-link:hover {
-            color: #17a2b8;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #34495e;
-            color: #bdc3c7;
-            font-size: 14px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .product-hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .details-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .product-image {
-                margin-bottom: 2rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
         }
 
         /* Related Products */
@@ -414,298 +343,494 @@
             padding: 80px 0;
             background: #f8f9fa;
         }
-
-        .related-products .section-title {
+        
+        .section-title {
             text-align: center;
             margin-bottom: 3rem;
         }
-
-        .related-products .section-title h2 {
+        
+        .section-title h2 {
             font-size: 36px;
-            font-weight: 700;
             color: #2c3e50;
             font-family: 'Playfair Display', serif;
         }
-
+        
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
-
+        
         .product-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
             text-decoration: none;
-            color: #333;
+            color: inherit;
         }
-
+        
         .product-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+            text-decoration: none;
+            color: inherit;
         }
-
+        
         .product-card img {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            display: block;
         }
-
+        
         .product-card-content {
             padding: 1.5rem;
         }
-
+        
         .product-card h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            margin-bottom: 1rem;
+            color: #2c3e50;
         }
-
+        
         .product-card p {
-            font-size: 15px;
             color: #6c757d;
             margin-bottom: 1rem;
-            font-family: 'Inter', sans-serif;
         }
-
+        
         .product-card .price {
             font-size: 18px;
             font-weight: 700;
             color: #17a2b8;
-            font-family: 'Poppins', sans-serif;
         }
 
-        /* Call to Action */
+        /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, #17a2b8 0%, #2c3e50 100%);
+            padding: 80px 0;
+            background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
             color: white;
-            padding: 60px 0;
             text-align: center;
         }
-
+        
         .cta-section h2 {
             font-size: 36px;
-            font-weight: 700;
+            margin-bottom: 1rem;
             font-family: 'Playfair Display', serif;
-            margin-bottom: 1.5rem;
         }
-
+        
         .cta-section p {
             font-size: 18px;
-            margin-bottom: 2.5rem;
-            max-width: 800px;
+            margin-bottom: 2rem;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            opacity: 0.9;
         }
-
+        
         .cta-button {
             background: white;
             color: #17a2b8;
             padding: 15px 30px;
-            border-radius: 50px;
+            border-radius: 25px;
             text-decoration: none;
             font-weight: 600;
             font-size: 18px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            display: inline-block;
         }
-
+        
         .cta-button:hover {
-            background: #e9ecef;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            text-decoration: none;
+            color: #17a2b8;
         }
 
         /* Footer */
         footer {
             background: #2c3e50;
             color: white;
-            padding: 3rem 0 1rem;
-            font-family: 'Inter', sans-serif;
+            padding: 4rem 0 2rem;
         }
-
+        
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            gap: 3rem;
             margin-bottom: 2rem;
         }
-
+        
         .footer-section h3 {
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 1rem;
-            font-size: 20px;
+            margin-bottom: 1.5rem;
             color: #17a2b8;
+            font-weight: 600;
         }
-
-        .footer-section p {
-            font-size: 15px;
-            color: #bdc3c7;
-            line-height: 1.7;
-        }
-
+        
         .footer-section a {
             color: #bdc3c7;
             text-decoration: none;
             display: block;
             margin-bottom: 0.5rem;
             transition: color 0.3s;
-            font-size: 15px;
         }
-
+        
         .footer-section a:hover {
-            color: white;
+            color: #17a2b8;
         }
-
+        
         .social-icons {
             display: flex;
             gap: 1rem;
             margin-top: 1rem;
         }
-
+        
         .social-icons a {
-            color: white;
-            font-size: 24px;
-            transition: color 0.3s;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #34495e;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: background 0.3s;
         }
-
+        
         .social-icons a:hover {
-            color: #17a2b8;
+            background: #17a2b8;
         }
-
+        
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
             border-top: 1px solid #34495e;
             color: #bdc3c7;
-            font-size: 14px;
         }
 
         /* Responsive Design */
-        @media (max-width: 992px) {
-            .nav-links {
-                gap: 1.5rem;
+        @media (max-width: 768px) {
+            .details-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
-
+            
             .product-hero h1 {
-                font-size: 40px;
+                font-size: 36px;
             }
-
-            .product-details .details-grid {
+            
+            .product-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        @media (max-width: 768px) {
-            .top-bar-left {
-                display: none;
-            }
+        /* Enhanced dropdown styles for deeper nesting */
+        
 
-            .nav-links {
-                display: none; /* Hide for mobile, use a hamburger menu in real app */
-            }
+        .dropdown-menu {
+            max-height: 400px;
+            overflow-y: auto;
+        }
 
-            .nav-actions {
-                gap: 1rem;
-            }
+        /* Better spacing for nested items */
+        .dropdown-submenu .dropdown-submenu .dropdown-item {
+            padding-left: 2rem;
+            font-size: 13px;
+        }
 
-            .product-hero {
-                padding: 60px 0;
+        /* Mobile dropdown improvements */
+        @media (max-width: 1199.98px) {
+            .navbar-expand-xl .dropdown-submenu .dropdown-submenu .dropdown-menu {
+                padding-left: 2rem;
+                position: static;
+                float: none;
+                width: auto;
+                margin-top: 0;
+                background-color: transparent;
+                border: 0;
+                box-shadow: none;
             }
-
-            .product-hero h1 {
-                font-size: 32px;
+            
+            .navbar-expand-xl .dropdown-submenu .dropdown-submenu .dropdown-item {
+                padding-left: 3rem;
+                color: #6c757d;
             }
+        }
 
-            .product-hero p {
-                font-size: 16px;
+        /* Click-based dropdown styles */
+        .dropdown-submenu .dropdown-menu {
+            display: none;
+            position: static;
+            float: none;
+            width: auto;
+            margin-top: 0;
+            background-color: #f8f9fa;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+            padding-left: 1rem;
+        }
+
+        .dropdown-submenu .dropdown-menu.show {
+            display: block;
+        }
+
+        .dropdown-submenu .dropdown-toggle::after {
+            border-top: 0.3em solid transparent;
+            border-bottom: 0.3em solid transparent;
+            border-left: 0.3em solid;
+            border-right: 0;
+            margin-left: 0.5em;
+            transition: transform 0.2s;
+        }
+
+        .dropdown-submenu .dropdown-menu.show + .dropdown-toggle::after {
+            transform: rotate(90deg);
+        }
+
+        /* Desktop specific styles */
+        @media (min-width: 1200px) {
+            .dropdown-submenu .dropdown-menu {
+                position: absolute;
+                top: 0;
+                left: 100%;
+                margin-top: -1px;
+                background-color: #fff;
+                border: 1px solid rgba(0,0,0,.15);
+                border-radius: 0.375rem;
+                box-shadow: 0 0.5rem 1rem rgba(0,0,0,.175);
+                padding: 0.5rem 0;
             }
-
-            .product-details {
-                padding: 50px 0;
-            }
-
-            .product-info h2 {
-                font-size: 28px;
-            }
-
-            .related-products {
-                padding: 50px 0;
-            }
-
-            .related-products .section-title h2 {
-                font-size: 28px;
-            }
-
-            .cta-section {
-                padding: 40px 0;
-            }
-
-            .cta-section h2 {
-                font-size: 28px;
-            }
-
-            .cta-section p {
-                font-size: 16px;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .social-icons {
-                justify-content: center;
+            
+            .dropdown-submenu .dropdown-submenu .dropdown-menu {
+                left: -100%;
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="top-bar">
-        <div class="container top-bar-content">
-            <div class="top-bar-left">
-                <a href="about.html">About Us</a>
-                <a href="contact.html">Contact</a>
-                <a href="reseller.html">Reseller Program</a>
-            </div>
-            <div class="top-bar-right">
-                <span class="contact-info">Need help? Call us: <span class="contact-number">+234 800 PRINT HUB</span></span>
-            </div>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-item">
+            <img src="images/" class="light-mode-item" alt="Logo">
+            <img src="images/logo.png" class="dark-mode-item" alt="Logo">
         </div>
     </div>
-    <header>
-        <nav class="container">
-            <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="PrintHub Logo" style="height:40px;">
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html" class="active">Products</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="quotes.html">Get Quote</a></li>
-                <li><a href="track-order.html">Track Order</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="calculator.html">Calculator</a></li>
-                <li><a href="stores.html">Stores</a></li>
+
+    <!-- Header -->
+    <header class="navbar-light navbar-sticky header-static">
+        <nav class="navbar navbar-expand-xl">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand" href="index.html">
+                    <img class="navbar-brand-item light-mode-item" src="images/logo.png" alt="Logo">
+                    <img class="navbar-brand-item dark-mode-item" src="images/logo.png" alt="Logo">
+                </a>
+                
+                <!-- Mobile toggle -->
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="text-body h6 d-none d-sm-inline-block">Menu</span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Navigation -->
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav navbar-nav-scroll ms-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="index.html">HOME</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">ALL PRODUCTS</a>
+            <ul class="dropdown-menu">
+                <!-- Corporate Branding -->
+                <li class="dropdown-submenu dropend">
+                    <a class="dropdown-item dropdown-toggle" href="#">Corporate Branding</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="flyer-printing.html">Flyer & Handbill</a></li>
+                        <li class="dropdown-submenu dropstart">
+                            <a class="dropdown-item dropdown-toggle" href="tshirt-printing.html">T-shirts & Embroidery</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="tshirt-printing.html">Custom T-shirt</a></li>
+                                <li><a class="dropdown-item" href="custom-v-neck-t-shirt-printing.html">V-Neck T-shirt</a></li>
+                                <li><a class="dropdown-item" href="polo-tshirt-print.html">Polo T-Shirt</a></li>
+                                <li><a class="dropdown-item" href="button-down-polo-t-shirt-printing.html">Button Down Shirts</a></li>
+                                <li><a class="dropdown-item" href="branded-hoodies.html">Customized Hoodies</a></li>
+                                <li><a class="dropdown-item" href="customized-sweatshirts-printing.html">Customized Sweatshirts</a></li>
+                                <li><a class="dropdown-item" href="custom-branded-versity-jacket-print.html">Varsity Jacket</a></li>
+                                <li><a class="dropdown-item" href="safety-work-vest-reflective-jacket-print.html">Safety Jacket</a></li>
+                                <li><a class="dropdown-item" href="custom-funeral-burial-tshirt-printing.html">Funeral/Burial T-Shirt</a></li>
+                                <li><a class="dropdown-item" href="Monogram-printing.html">Monogram Printing</a></li>
+                                <li><a class="dropdown-item" href="custom-3D-monogram-embroidery-print.html">3D Monogram</a></li>
+                                <li><a class="dropdown-item" href="custom-bath-towel-print.html">Embroidered Bath Towel</a></li>
+                                <li><a class="dropdown-item" href="custom-embroidered-face-towel-print.html">Face Towel</a></li>
+                                <li><a class="dropdown-item" href="custom-Personalized-apron-print.html">Customized Apron</a></li>
+                                <li><a class="dropdown-item" href="classic-artwork-tshirt-print.html">Classic T-shirt</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="dropdown-item" href="custom-branded-helmet-print.html">Safety Helmet</a></li>
+                        <li class="dropdown-submenu dropstart">
+                            <a class="dropdown-item dropdown-toggle" href="#">Office Stationeries</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="pen-branding-printing.html">Branded Pen</a></li>
+                                <li><a class="dropdown-item" href="premium-pen-printing.html">Premium Pen</a></li>
+                                <li><a class="dropdown-item" href="branded-mousepad-printing.html">Mousepad</a></li>
+                                <li><a class="dropdown-item" href="custom-branded-wireless-mouse-print.html">Branded Mouse</a></li>
+                                <li><a class="dropdown-item" href="letterhead-design-and-printing.html">LetterHead</a></li>
+                                <li><a class="dropdown-item" href="custom-business-receipt-invoice-booklet-print.html">Official Receipt</a></li>
+                                <li><a class="dropdown-item" href="custom-memo-blockpad-printing.html">Block Pad</a></li>
+                                <li><a class="dropdown-item" href="office-presentation-file-folder-print.html">File Presentation Folder</a></li>
+                                <li><a class="dropdown-item" href="custom-c4-envelope-printing.html">C4 Envelope</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                
+                <!-- Book & Brochures -->
+                <li class="dropdown-submenu dropend">
+                    <a class="dropdown-item dropdown-toggle" href="#">Book & Brochures</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="brochure-company-profile-printing.html">Brochure & Company Profile</a></li>
+                        <li><a class="dropdown-item" href="brochure-printing.html">Bifold Brochure</a></li>
+                        <li><a class="dropdown-item" href="trifold-brochure-printing.html">Trifold Brochure</a></li>
+                        <li><a class="dropdown-item" href="book-publishing.html">Book Publishing</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Business Cards & Label -->
+                <li class="dropdown-submenu dropend">
+                    <a class="dropdown-item dropdown-toggle" href="#">Business Cards & Label</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="standard-business-card-printing.html">Standard Business Card</a></li>
+                        <li><a class="dropdown-item" href="premium-business-card-printing.html">Premium Business Card</a></li>
+                        <li><a class="dropdown-item" href="pvc-transparent-plastic-business-card-print.html">Plastic Business Card</a></li>
+                        <li><a class="dropdown-item" href="custom-business-customer-thank-you-card-print.html">Customer Thank You Card</a></li>
+                        <li><a class="dropdown-item" href="custom-clothing-hang-tag-label-cards.html">Clothe Hang Tag Cards</a></li>
+                        <li><a class="dropdown-item" href="custom-clothing-woven-label-printing.html">Woven Label</a></li>
+                        <li><a class="dropdown-item" href="custom-event-ticket-print.html">Ticket Card</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Large Format Print -->
+                <li class="dropdown-submenu dropend">
+                    <a class="dropdown-item dropdown-toggle" href="#">Large Format Print</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="roll-up-banner-printing.html">Roll-Up Banner</a></li>
+                        <li><a class="dropdown-item" href="advert-banner-print.html">Advertisement Banner</a></li>
+                        <li><a class="dropdown-item" href="label-sticker-printing.html">Sticker Print</a></li>
+                        <li><a class="dropdown-item" href="delivery-box-branding.html">Courier Box Branding</a></li>
+                        <li><a class="dropdown-item" href="x-banner-print.html">X-Banner</a></li>
+                        <li><a class="dropdown-item" href="vehicle-car-branding.html">Vehicle Branding</a></li>
+                        <li><a class="dropdown-item" href="backdrop-banner-print.html">Pop up Display Banner</a></li>
+                        <li><a class="dropdown-item" href="custom-gazebo-canopy-tent-printing.html">Gazebo Canopy Tent</a></li>
+                        <li><a class="dropdown-item" href="event-backdrop-banner-print-in-lagos-nigeria.html">Event Backdrop Banner</a></li>
+                        <li><a class="dropdown-item" href="wedding-banner-prints.html">Wedding Banner</a></li>
+                        <li><a class="dropdown-item" href="birthday-banner-prints.html">Birthday Banner</a></li>
+                        <li><a class="dropdown-item" href="burial-funeral-banner-printing.html">Burial Banner</a></li>
+                        <li><a class="dropdown-item" href="funeral-burial-roll-up-banner-prints.html">Funeral Roll-Up Banner</a></li>
+                        <li><a class="dropdown-item" href="custom-event-hall-branding.html">Event Branding</a></li>
+                        <li><a class="dropdown-item" href="custom-office-wall-branding.html">Office Branding</a></li>
+                        <li><a class="dropdown-item" href="pvc-bunting-printing.html">Bunting Flags</a></li>
+                        <li><a class="dropdown-item" href="custom-promotional-pvc-dangler-printing.html">PVC Danglers</a></li>
+                        <li><a class="dropdown-item" href="teardrop-flying-banner-print.html">Teardrop Banner</a></li>
+                        <li><a class="dropdown-item" href="lamp-post-banner-sign-print.html">Lamp Post Banner</a></li>
+                        <li><a class="dropdown-item" href="custom-point-of-sale-display-stand-print.html">POS Display Stand</a></li>
+                        <li><a class="dropdown-item" href="custom-promotional-counter-table-printing.html">Counter Table</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Custom ID Card -->
+                <li class="dropdown-submenu dropend">
+                    <a class="dropdown-item dropdown-toggle" href="#">Custom ID Card</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="standard-id-card-printing.html">Standard ID Card</a></li>
+                        <li><a class="dropdown-item" href="lanyard-idcard-rope-print.html">Lanyard/ID Card Rope</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Menu & Program of Event -->
+                <li class="dropdown-submenu dropend">
+                    <a class="dropdown-item dropdown-toggle" href="#">Menu & Program of Event</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="funeral-program-print.html">Funeral Programme</a></li>
+                        <li><a class="dropdown-item" href="custom-landscape-funeral-brochure-printing.html">Landscape Funeral Brochure</a></li>
+                        <li><a class="dropdown-item" href="custom-square-funeral-brochure-print.html">Square Funeral Brochure</a></li>
+                        <li><a class="dropdown-item" href="square-birthday-program-print.html">Square Birthday Brochure</a></li>
+                        <li><a class="dropdown-item" href="menu-card-printing.html">Menu Card</a></li>
+                        <li><a class="dropdown-item" href="custom-table-tent-card-printing.html">Table Tent</a></li>
+                        <li><a class="dropdown-item" href="event-table-tags-tent-cards-printing.html">Table Tag</a></li>
+                        <li><a class="dropdown-item" href="restaurant-and-lounge-menu-book-print.html">Menu Book</a></li>
+                        <li><a class="dropdown-item" href="marriage-wedding-program-of-event-brochure-print.html">Wedding Programs</a></li>
+                        <li><a class="dropdown-item" href="custom-wedding-handfan-print.html">Wedding Handfan</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Certificate & Awards -->
+                <li class="dropdown-submenu dropend">
+                    <a class="dropdown-item dropdown-toggle" href="#">Certificate & Awards</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="custom-certificate-of-completion-print.html">Certificate of Completion</a></li>
+                        <li><a class="dropdown-item" href="commemorative-achievement-medal-print.html">Commemorative Medal</a></li>
+                        <li><a class="dropdown-item" href="custom-wooden-award-plaque-printing.html">Wooden Award Plaque</a></li>
+                        <li><a class="dropdown-item" href="custom-crystal-award-plaque-printing.html">Crystal Award Plaque</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Badge Tag & Lapel Pins -->
+                <li class="dropdown-submenu dropend">
+                    <a class="dropdown-item dropdown-toggle" href="#">Badge Tag & Lapel Pins</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="component-button-badge-print.html">Component Badge</a></li>
+                        <li><a class="dropdown-item" href="custom-magnetic-name-tag-print.html">Custom Name Tag</a></li>
+                        <li><a class="dropdown-item" href="custom-casting-lapel-badge-printing.html">Lapel Pin Badge</a></li>
+                        <li><a class="dropdown-item" href="custom-reusable-name-tag-print.html">Reusable Name Tag</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Posters & Signages -->
+                <li class="dropdown-submenu dropend">
+                    <a class="dropdown-item dropdown-toggle" href="#">Posters & Signages</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="advert-poster-print.html">Posters</a></li>
+                        <li><a class="dropdown-item" href="custom-acrylic-business-social-media-signage.html">Acrylic Social Media Sign</a></li>
+                        <li><a class="dropdown-item" href="custom-indoor-and-outdoor-3d-company-signage-branding.html">3D Company Signage</a></li>
+                        <li><a class="dropdown-item" href="3d-non-illuminated-business-company-signage-in-lagos.html">Non Illuminated Signage</a></li>
+                    </ul>
+                </li>
             </ul>
-            <div class="nav-actions">
-                <a href="#" class="sign-in">Sign In</a>
-                <a href="#" class="create-account">Create Account</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="services.html">SERVICES</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="quotes.html">GET QUOTE</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="track-order.html">TRACK ORDER</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="blog.html">BLOG</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="calculator.html">CALCULATOR</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="stores.html">STORES</a>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link theme-toggle-btn" id="themeToggle">
+                <i class="fas fa-moon dark-icon"></i>
+                <i class="fas fa-sun light-icon"></i>
+            </button>
+        </li>
+    </ul>
+</div>
             </div>
         </nav>
     </header>
 
     <section class="product-hero">
         <div class="container">
-            <h1>A1 Poster Printing</h1>
-            <p>High-quality A1 poster printing for events, marketing, and presentations. Vibrant colors, premium materials, fast delivery.</p>
-            <div class="hero-price">Starting from ₦60,500 per 100</div>
+            <h1>A0 Poster Printing</h1>
+            <p>Large format A0 poster printing (841 x 1189mm) for exhibitions, presentations, advertising, and events. High-quality digital printing on premium papers with vibrant colors and sharp details.</p>
+            <div class="hero-price">Starting from ₦15,500 per poster</div>
         </div>
     </section>
 
@@ -713,110 +838,110 @@
         <div class="container">
             <div class="details-grid">
                 <div class="product-images">
-                    <img id="mainImage" src="/images/a1poster3.png" alt="A1 Poster Printing" style="width: 100%; height: 400px; object-fit: cover; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <img id="mainImage" src="images/a0-poster1.jpg" alt="A0 Poster Printing" style="width: 100%; height: 400px; object-fit: cover; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
                     <div class="thumbnail-gallery" style="display: flex; gap: 1rem; justify-content: center;">
-                        <img src="/images/a1poster2.png" alt="A1 Poster Thumbnail 1" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
-                        <img src="/images/a1poster.png" alt="A1 Poster Thumbnail 2" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
-                        <img src="/images/poster2.png" alt="A1 Poster Thumbnail 3" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
+                        <img src="images/a0-poster2.jpg" alt="A0 Poster Thumbnail 1" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
+                        <img src="images/a0-poster3.jpg" alt="A0 Poster Thumbnail 2" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
+                        <img src="images/a0-poster4.jpg" alt="A0 Poster Thumbnail 3" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
                     </div>
                 </div>
                 <div class="product-info">
                     <h2>Key Features & Benefits</h2>
-                    <p>Our A1 poster printing service delivers exceptional quality and impact for your marketing campaigns, events, and presentations. Perfect for retail displays, conferences, and promotional materials.</p>
+                    <p>Our A0 poster printing service delivers exceptional large format prints perfect for exhibitions, conferences, retail displays, and advertising campaigns. Using advanced digital printing technology and premium materials for outstanding visual impact.</p>
                     <ul class="features-list">
-                        <li>Premium paper stock (135gsm, 150gsm, 170gsm)</li>
-                        <li>Full-color CMYK printing with vibrant results</li>
-                        <li>Various finish options (Matt, Gloss)</li>
-                        <li>Weather-resistant outdoor options available</li>
-                        <li>Same-day printing available for urgent orders</li>
-                        <li>Professional mounting services</li>
+                        <li>Large A0 size: 841 x 1189mm (33.1 x 46.8 inches)</li>
+                        <li>High-resolution digital printing up to 1440dpi</li>
+                        <li>Premium paper stocks and media options</li>
+                        <li>Vibrant colors with excellent color accuracy</li>
+                        <li>Indoor and outdoor printing options</li>
+                        <li>Fast turnaround times available</li>
+                        <li>Starting from ₦15,500 per poster</li>
                     </ul>
-                    <h3>Customization Options</h3>
-                    <p>Create stunning A1 posters with our range of options:</p>
+                    <h3>A0 Poster Specifications & Options</h3>
+                    <p>Choose from various materials and finishing options:</p>
                     <ul class="features-list">
-                        <li><strong>Size: </strong>  Standard A1 (594 x 841 mm)</li>
-                        <li><strong>Paper Type:</strong> Photo Paper, Art Paper, Canvas, Vinyl</li>
-                        <li><strong>Finish:</strong> Matt, Gloss, Satin, UV Protection</li>
-                        <li><strong>Mounting:</strong> Foam Board, Aluminum Composite, Wooden Frame</li>
-                        <li><strong>Quantity:</strong> From 1 to 1,000+ copies</li>
+                        <li><strong>Standard Size:</strong> A0 (841 x 1189mm)</li>
+                        <li><strong>Materials:</strong> Photo paper, poster paper, canvas, vinyl, fabric</li>
+                        <li><strong>Finishes:</strong> Matte, gloss, satin, laminated</li>
+                        <li><strong>Applications:</strong> Indoor displays, outdoor advertising, exhibitions</li>
+                        <li><strong>Mounting:</strong> Foam board, aluminum composite, frame options</li>
                     </ul>
-
-                    <div class="price-table" style="margin-bottom: 2rem;">
-                        <h3 style="font-family: 'Playfair Display', serif; color: #2c3e50; margin-bottom: 1rem;">A1 Poster Printing Prices (per 100 copies)</h4>
-                        <table style="width: 100%; border-collapse: collapse;">
-                            <thead style="background: #f8f9fa;">
-                                <tr>
-                                    <th style="padding: 12px; border: 1px solid #ddd; text-align: left;">Paper Type</th>
-                                    <th style="padding: 12px; border: 1px solid #ddd; text-align: left;">Price (₦)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">135gsm Matte</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">₦60,500</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">150gsm Matte</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">₦77,000</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">170gsm Matte</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">₦88,000</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">200gsm Matte</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">₦100,500</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">250gsm Matte</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">₦110,000</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">300gsm Matte</td>
-                                    <td style="padding: 12px; border: 1px solid #ddd;">₦130,000</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
                     <div class="order-form">
-                        <h3>Get a Custom Quote for A1 Posters</h3>
-                        <form id="posterQuoteForm">
+                        <h3>Get a Custom Quote for A0 Poster Printing</h3>
+                        <form id="a0PosterQuoteForm">
                             <div class="form-group">
                                 <label for="posterQuantity">Quantity</label>
-                                <input type="number" id="posterQuantity" name="posterQuantity" placeholder="e.g., 50" required>
+                                <input type="number" id="posterQuantity" name="posterQuantity" placeholder="e.g., 10" required>
                             </div>
                             <div class="form-group">
-                                <label for="paperType">Paper Type</label>
+                                <label for="paperType">Paper/Material Type</label>
                                 <select id="paperType" name="paperType">
-                                    <option value="200gsm-photo">200gsm Photo Paper</option>
-                                    <option value="250gsm-art">250gsm Art Paper</option>
-                                    <option value="300gsm-premium">300gsm Premium Paper</option>
-                                    <option value="canvas">Canvas Material</option>
+                                    <option value="photo-paper">Premium Photo Paper</option>
+                                    <option value="poster-paper">Standard Poster Paper</option>
+                                    <option value="canvas">Canvas</option>
                                     <option value="vinyl">Vinyl (Outdoor)</option>
+                                    <option value="fabric">Fabric</option>
+                                    <option value="synthetic">Synthetic Paper</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="paperWeight">Paper Weight/Thickness</label>
+                                <select id="paperWeight" name="paperWeight">
+                                    <option value="150gsm">150gsm (Standard)</option>
+                                    <option value="200gsm">200gsm (Premium)</option>
+                                    <option value="250gsm">250gsm (Heavy)</option>
+                                    <option value="300gsm">300gsm (Ultra Heavy)</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="finishType">Finish Type</label>
                                 <select id="finishType" name="finishType">
-                                    <option value="matt">Matt Finish</option>
+                                    <option value="matte">Matte Finish</option>
                                     <option value="gloss">Gloss Finish</option>
                                     <option value="satin">Satin Finish</option>
-                                    <option value="uv-protection">UV Protection</option>
+                                    <option value="laminated-matte">Laminated Matte</option>
+                                    <option value="laminated-gloss">Laminated Gloss</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="mountingOption">Mounting Option (Optional)</label>
+                                <label for="colorType">Color Type</label>
+                                <select id="colorType" name="colorType">
+                                    <option value="full-color">Full Color (CMYK)</option>
+                                    <option value="black-white">Black & White</option>
+                                    <option value="spot-color">Spot Color</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="usageType">Usage Type</label>
+                                <select id="usageType" name="usageType">
+                                    <option value="indoor">Indoor Display</option>
+                                    <option value="outdoor">Outdoor Display</option>
+                                    <option value="exhibition">Exhibition/Trade Show</option>
+                                    <option value="retail">Retail Display</option>
+                                    <option value="presentation">Presentation</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="mountingOption">Mounting Options</label>
                                 <select id="mountingOption" name="mountingOption">
-                                    <option value="none"> No Mounting</option>
-                                    <option value="foam-board"> Foam Board</option>
-                                    <option value="aluminum">Aluminum Composite</option>
-                                    <option value="wooden-frame">Wooden Frame</option>
+                                    <option value="none">No Mounting</option>
+                                    <option value="foam-board">Foam Board Mounting</option>
+                                    <option value="aluminum-composite">Aluminum Composite</option>
+                                    <option value="frame">Frame Mounting</option>
+                                    <option value="standee">Roll-up Standee</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="designUpload">Upload Your Design (Optional)</label>
-                                <input type="file" id="designUpload" name="designUpload" accept=".pdf,.ai,.psd,.jpg,.png">
+                                <label for="turnaroundTime">Turnaround Time</label>
+                                <select id="turnaroundTime" name="turnaroundTime">
+                                    <option value="standard">Standard (3-5 days)</option>
+                                    <option value="express">Express (1-2 days)</option>
+                                    <option value="same-day">Same Day (Rush)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="designUpload">Upload Your Design</label>
+                                <input type="file" id="designUpload" name="designUpload" accept=".pdf,.ai,.psd,.jpg,.png,.tiff">
                             </div>
                             <div class="form-group">
                                 <label for="deliveryDate">Preferred Delivery Date</label>
@@ -833,39 +958,39 @@
     <section class="related-products">
         <div class="container">
             <div class="section-title">
-                <h2>Other Large Format Prints You Might Like</h2>
+                <h2>Large Format Printing You Might Like</h2>
             </div>
             <div class="product-grid">
-                <a href="a0-poster-print.html" class="product-card">
-                    <img src="/placeholder.svg?height=200&width=280" alt="A0 Poster Printing">
-                    <div class="product-card-content">
-                        <h3>A0 Poster Printing</h3>
-                        <p>Extra large format posters for maximum impact.</p>
-                        <div class="price">From ₦5,500</div>
-                    </div>
-                </a>
                 <a href="a2-poster-print.html" class="product-card">
-                    <img src="/placeholder.svg?height=200&width=280" alt="A2 Poster Printing">
+                    <img src="images/a2-poster1.jpg" alt="A2 Poster Printing">
                     <div class="product-card-content">
                         <h3>A2 Poster Printing</h3>
-                        <p>Medium format posters perfect for indoor displays.</p>
-                        <div class="price">Starting from ₦2,200</div>
+                        <p>Medium format A2 posters for displays and presentations.</p>
+                        <div class="price">From ₦8,500</div>
                     </div>
                 </a>
                 <a href="banner-printing.html" class="product-card">
-                    <img src="/placeholder.svg?height=200&width=280" alt="Banner Printing">
+                    <img src="images/banner1.jpg" alt="Banner Printing">
                     <div class="product-card-content">
                         <h3>Banner Printing</h3>
-                        <p>Custom banners for events and promotions.</p>
-                        <div class="price">From ₦4,000</div>
+                        <p>Custom banners for events and advertising.</p>
+                        <div class="price">Starting from ₦12,000</div>
                     </div>
                 </a>
-                <a href="canvas-prints.html" class="product-card">
-                    <img src="/placeholder.svg?height=200&width=280" alt="Canvas Prints">
+                <a href="roll-up-banner.html" class="product-card">
+                    <img src="images/rollup-banner1.jpg" alt="Roll-up Banner">
                     <div class="product-card-content">
-                        <h3>Canvas Prints</h3>
-                        <p>High-quality canvas prints for art and photography.</p>
-                        <div class="price">From ₦6,500</div>
+                        <h3>Roll-up Banners</h3>
+                        <p>Portable roll-up banners for exhibitions.</p>
+                        <div class="price">From ₦25,000</div>
+                    </div>
+                </a>
+                <a href="canvas-printing.html" class="product-card">
+                    <img src="images/canvas1.jpg" alt="Canvas Printing">
+                    <div class="product-card-content">
+                        <h3>Canvas Printing</h3>
+                        <p>High-quality canvas prints for art and decor.</p>
+                        <div class="price">From ₦18,000</div>
                     </div>
                 </a>
             </div>
@@ -874,8 +999,8 @@
 
     <section class="cta-section">
         <div class="container">
-            <h2>Ready to Print Your A1 Posters?</h2>
-            <p>Get a custom quote today and let Inksnap create stunning, high-quality posters that make your message stand out.</p>
+            <h2>Ready to Create Stunning A0 Posters?</h2>
+            <p>Get a custom quote today and let Inksnap produce high-impact A0 posters that command attention and deliver your message with exceptional quality and vibrant colors.</p>
             <a href="quotes.html" class="cta-button">Request Free Quote</a>
         </div>
     </section>
@@ -924,27 +1049,112 @@
         </div>
     </footer>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
-        document.getElementById('posterQuoteForm').addEventListener('submit', function(e) {
+        // Preloader functionality
+        window.addEventListener('load', function() {
+            const preloader = document.querySelector('.preloader');
+            if (preloader) {
+                preloader.style.display = 'none';
+            }
+        });
+
+        // Form submission
+        document.getElementById('a0PosterQuoteForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Your custom quote request for A1 Posters has been submitted! We will get back to you shortly.');
+            alert('Your custom quote request for A0 Poster Printing has been submitted! We will get back to you shortly.');
             this.reset();
         });
 
-        // Function to update main image
+        // Image gallery functionality
         function updateMainImage(src) {
             const mainImage = document.getElementById('mainImage');
-            mainImage.src = src;
-            // Add a fade effect
             mainImage.style.opacity = '0';
             setTimeout(() => {
+                mainImage.src = src;
                 mainImage.style.opacity = '1';
             }, 100);
         }
 
-        // Add transition effect to main image
-        const mainImage = document.getElementById('mainImage');
-        mainImage.style.transition = 'opacity 0.3s ease';
+        // Initialize Bootstrap dropdowns and theme toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize dropdowns
+            var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+            var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+                return new bootstrap.Dropdown(dropdownToggleEl);
+            });
+
+            // Handle nested dropdown clicks (remove hover functionality)
+            const dropdownToggles = document.querySelectorAll('.dropdown-submenu .dropdown-toggle');
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const parent = this.closest('.dropdown-submenu');
+                    const submenu = parent.querySelector('.dropdown-menu');
+                    
+                    // Close other open submenus at the same level
+                    const siblings = parent.parentElement.querySelectorAll('.dropdown-submenu .dropdown-menu.show');
+                    siblings.forEach(sibling => {
+                        if (sibling !== submenu) {
+                            sibling.classList.remove('show');
+                        }
+                    });
+                    
+                    // Toggle current submenu
+                    if (submenu) {
+                        submenu.classList.toggle('show');
+                    }
+                });
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.dropdown')) {
+                    const openDropdowns = document.querySelectorAll('.dropdown-menu.show');
+                    openDropdowns.forEach(dropdown => {
+                        dropdown.classList.remove('show');
+                    });
+                }
+            });
+
+            // Dark mode toggle functionality
+            const themeToggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-bs-theme', currentTheme);
+
+            function updateToggleButton() {
+                const isDark = html.getAttribute('data-bs-theme') === 'dark';
+                const darkIcon = themeToggle.querySelector('.dark-icon');
+                const lightIcon = themeToggle.querySelector('.light-icon');
+                
+                if (isDark) {
+                    darkIcon.style.display = 'none';
+                    lightIcon.style.display = 'block';
+                } else {
+                    darkIcon.style.display = 'block';
+                    lightIcon.style.display = 'none';
+                }
+            }
+
+            updateToggleButton();
+
+            function toggleTheme() {
+                const currentTheme = html.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateToggleButton();
+            }
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', toggleTheme);
+            }
+        });
     </script>
 </body>
 </html>

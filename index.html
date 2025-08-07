@@ -1,12 +1,28 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inksnap - Quality Prints Shipped to Your Doorstep</title>
+    
+   
+    
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&amp;family=Rubik:wght@400;500;700&amp;display=swap" rel="stylesheet">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="assets/css/header.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -93,9 +109,29 @@
         header {
             background: #fff;
             box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            border-bottom: 2px solid #e9ecef;
             position: sticky;
             top: 0;
             z-index: 1000;
+            width: 100%;
+            left: 0;
+            right: 0;
+        }
+
+        /* Ensure navbar-sticky class works properly */
+        .navbar-sticky {
+            position: sticky !important;
+            top: 0 !important;
+            z-index: 1000 !important;
+            background: #fff !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08) !important;
+        }
+
+        /* Make sure the header stays on top */
+        .header-static {
+            position: sticky !important;
+            top: 0 !important;
+            z-index: 1000 !important;
         }
 
         nav {
@@ -123,13 +159,45 @@
         .nav-links a {
             text-decoration: none;
             color: #495057;
-            font-weight: 500;
+            font-weight: 700;
             font-size: 15px;
             transition: color 0.3s;
         }
 
+        /* Make Bootstrap navigation links bold */
+        .navbar-nav .nav-link {
+            font-weight: 700 !important;
+            font-size: 15px;
+            color: #495057 !important;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #00CED1 !important;
+        }
+
+        .navbar-nav .nav-link.active {
+            color: #00CED1 !important;
+        }
+
         .nav-links a:hover {
-            color: #17a2b8;
+            color: #00CED1;
+        }
+
+        /* Make Bootstrap navigation links bold */
+        .navbar-nav .nav-link {
+            font-weight: 700 !important;
+            font-size: 15px;
+            color: #495057 !important;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #17a2b8 !important;
+        }
+
+        .navbar-nav .nav-link.active {
+            color: #17a2b8 !important;
         }
 
         .nav-actions {
@@ -140,14 +208,14 @@
         }
 
         .sign-in {
-            color: #17a2b8;
+            color: #00CED1;
             text-decoration: none;
             font-weight: 600;
             font-size: 15px;
         }
 
         .create-account {
-            background: #17a2b8;
+            background: #00CED1;
             color: white;
             padding: 10px 20px;
             border-radius: 6px;
@@ -158,7 +226,7 @@
         }
 
         .create-account:hover {
-            background: #138496;
+            background: #008B8B;
         }
 
         .cart-icon {
@@ -189,7 +257,7 @@
             z-index: 1001;
             border-radius: 8px;
             padding: 2rem;
-            border-top: 3px solid #17a2b8;
+            border-top: 3px solid #00CED1;
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
@@ -234,7 +302,7 @@
         }
 
         .menu-column a:hover {
-            color: #17a2b8;
+            color: #00CED1;
         }
 
         /* Hero Section - Combined Style */
@@ -302,8 +370,8 @@
         }
 
         .search-input:focus {
-            border-color: #17a2b8;
-            box-shadow: 0 4px 20px rgba(23, 162, 184, 0.1);
+            border-color: #00CED1;
+            box-shadow: 0 4px 20px rgba(0, 206, 209, 0.1);
         }
 
         .search-input::placeholder {
@@ -315,7 +383,7 @@
             right: 8px;
             top: 50%;
             transform: translateY(-50%);
-            background: #17a2b8;
+            background: #00CED1;
             color: white;
             border: none;
             padding: 12px 15px;
@@ -326,7 +394,7 @@
         }
 
         .search-btn:hover {
-            background: #138496;
+            background: #008B8B;
         }
 
         .rating-section {
@@ -336,7 +404,7 @@
         }
 
         .stars {
-            color: #17a2b8;
+            color: #00CED1;
             font-size: 20px;
             letter-spacing: 2px;
         }
@@ -461,7 +529,7 @@
             font-weight: 500;
         }
         
-        /* Creative Branding Section - Pzielng Style */
+        /* Creative Branding Section -  Style */
         .creative-branding {
             padding: 80px 0;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -587,7 +655,7 @@
             line-height: 1.6;
         }
         
-        /* Best Selling Section - Pzielng Style */
+        /* Best Selling Section -  Style */
         .best-selling {
             padding: 80px 0;
             background: #f8f9fa;
@@ -696,79 +764,482 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* PZIEL Style Header CSS */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .preloader .preloader-item {
+            text-align: center;
+        }
+
+        .preloader .preloader-item img {
+            height: 60px;
+            width: auto;
+        }
+
+        .dark-mode-item {
+            display: none;
+        }
+
+        html[data-bs-theme=dark] .dark-mode-item {
+            display: block;
+        }
+
+        /* Dark Mode Toggle Button */
+        .theme-toggle-btn {
+            background: none;
+            border: none;
+            color: #495057;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle-btn:hover {
+            background: rgba(0, 206, 209, 0.1);
+            color: #00CED1;
+        }
+
+        .theme-toggle-btn .light-icon {
+            display: none;
+        }
+
+        html[data-bs-theme=dark] .theme-toggle-btn .dark-icon {
+            display: none;
+        }
+
+        html[data-bs-theme=dark] .theme-toggle-btn .light-icon {
+            display: block;
+        }
+
+        /* Dark Mode Styles */
+        html[data-bs-theme=dark] {
+            color-scheme: dark;
+        }
+
+        html[data-bs-theme=dark] body {
+            background: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        html[data-bs-theme=dark] header {
+            background: #2d2d2d;
+            border-bottom-color: #404040;
+        }
+
+        html[data-bs-theme=dark] .navbar-nav .nav-link {
+            color: #e0e0e0 !important;
+        }
+
+        html[data-bs-theme=dark] .navbar-nav .nav-link:hover {
+            color: #00CED1 !important;
+        }
+
+        html[data-bs-theme=dark] .dropdown-menu {
+            background: #2d2d2d;
+            border-color: #404040;
+        }
+
+        html[data-bs-theme=dark] .dropdown-item {
+            color: #e0e0e0;
+        }
+
+        html[data-bs-theme=dark] .dropdown-item:hover {
+            background: #404040;
+            color: #00CED1;
+        }
+
+        html[data-bs-theme=dark] .hero {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+        }
+
+        html[data-bs-theme=dark] .product-card {
+            background: #2d2d2d;
+            border-color: #404040;
+        }
+
+        html[data-bs-theme=dark] .product-card:hover {
+            box-shadow: 0 8px 25px rgba(0, 206, 209, 0.2);
+        }
+
+        html[data-bs-theme=dark] .section-title {
+            color: #e0e0e0;
+        }
+
+        html[data-bs-theme=dark] .search-input {
+            background: #2d2d2d;
+            border-color: #404040;
+            color: #e0e0e0;
+        }
+
+        html[data-bs-theme=dark] .search-input::placeholder {
+            color: #888;
+        }
+
+        html[data-bs-theme=dark] .light-mode-item {
+            display: none;
+        }
+
+        .navbar-light {
+            background: #fff !important;
+        }
+
+        .navbar-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-static {
+            position: static;
+        }
+
+        .navbar-brand {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .navbar-brand img {
+            height: 40px;
+            width: auto;
+        }
+
+        .navbar-nav .nav-link {
+            color: #495057 !important;
+            font-weight: 500;
+            font-size: 15px;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: #17a2b8 !important;
+        }
+
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 1rem 0;
+        }
+
+        .dropdown-item {
+            color: #495057;
+            padding: 0.5rem 1.5rem;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+            color: #17a2b8;
+        }
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+        }
+
+        .dropend .dropdown-toggle::after {
+            border-top: 0.3em solid transparent;
+            border-bottom: 0.3em solid transparent;
+            border-left: 0.3em solid;
+            border-right: 0;
+            margin-left: 0.5em;
+        }
+
+        .dropstart .dropdown-toggle::before {
+            border-top: 0.3em solid transparent;
+            border-bottom: 0.3em solid transparent;
+            border-right: 0.3em solid;
+            border-left: 0;
+            margin-right: 0.5em;
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 0.25rem 0.75rem;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* Dark mode styles */
+        [data-bs-theme=dark] .navbar-light {
+            background: #0f0f10 !important;
+        }
+
+        [data-bs-theme=dark] .navbar-nav .nav-link {
+            color: #ffffff !important;
+        }
+
+        [data-bs-theme=dark] .dropdown-menu {
+            background: #191a1f;
+            border: 1px solid #29292e;
+        }
+
+        [data-bs-theme=dark] .dropdown-item {
+            color: #ffffff;
+        }
+
+        [data-bs-theme=dark] .dropdown-item:hover {
+            background-color: #29292e;
+            color: #17a2b8;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 1199.98px) {
+            .navbar-expand-xl .navbar-collapse {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #fff;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                padding: 1rem;
+            }
+
+            .navbar-expand-xl .navbar-nav .dropdown-menu {
+                border: none;
+                box-shadow: none;
+                padding-left: 1rem;
+            }
+
+            .navbar-expand-xl .dropdown-submenu .dropdown-menu {
+                padding-left: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Top Bar - Printivo Style -->
-    <div class="top-bar">
-        <div class="container top-bar-content">
-            <div class="top-bar-left">
-                <a href="about.html">About Us</a>
-                <a href="contact.html">Contact</a>
-                <a href="reseller.html">Reseller Program</a>
-            </div>
-            <div class="top-bar-right">
-                <span class="contact-info">Need help? Call us: <span class="contact-number">+234 800 PRINT HUB</span></span>
-            </div>
+
+
+    <!-- Pre loader -->
+    <div class="preloader">
+        <div class="preloader-item animate__animated "><img src="assets/logo/logo.png" class="light-mode-item" oncontextmenu="return false;" alt="Logo" title="Logo">
+            <img src="assets/logo/logo.png" class="dark-mode-item" oncontextmenu="return false;" alt="Logo" title="Logo">
         </div>
     </div>
+    <header class="navbar-light navbar-sticky header-static">
+        <!-- Logo Nav START -->
+        <nav class="navbar navbar-expand-xl">
+            <div class="container">
+                <!-- Logo START -->
+                <a class="navbar-brand" href="index.html">
+                    <img class="navbar-brand-item light-mode-item" src="assets/images/header/logo.png" oncontextmenu="return false;" alt="Logo">
+                    <img class="navbar-brand-item dark-mode-item" src="assets/images/header/logo.png" oncontextmenu="return false;" alt="Logo">
+                </a>
+                <!-- Logo END -->
 
-    <!-- Header - Printivo Style -->
-    <header>
-        <nav class="container">
-            <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="Inksnap Logo" style="height:40px;">
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li class="dropdown">
-                    <a href="products.html">All Products <span style="font-size: 12px;">&#9662;</span></a>
-                    <div class="dropdown-content">
-                        <div class="mega-menu">
-                            <div class="menu-column">
-                                <h3>Corporate Branding</h3>
-                                <a href="business-cards.html">Business Cards</a>
-                                <a href="brochure-printing.html">Flyers & Brochures</a>
-                                <a href="letterhead-printing.html">Letterheads</a>
-                                <a href="pen-branding-printing.html">Branded Pens</a>
-                                <a href="vehicle-branding.html">Vehicle Branding</a>
-                                <a href="standard-id-card-printing.html">ID Cards & Lanyards</a>
-                            </div>
-                            <div class="menu-column">
-                                <h3>Apparel</h3>
-                                <a href="tshirt-printing.html">T-Shirts</a>
-                                <a href="polo-shirt-printing.html">Polo Shirts</a>
-                                <a href="monogram-printing.html">Monogram & Embroidery</a>
-                                <a href="face-cap-printing.html">Face Caps</a>
-                            </div>
-                            <div class="menu-column">
-                                <h3>Gifts & Souvenirs</h3>
-                                <a href="branded-mug-printing.html">Mugs & Drinkware</a>
-                                <a href="notepad-jotter-printing.html">Notepads & Jotters</a>
-                                <a href="keyholder-printing.html">Key Holders</a>
-                                <a href="tote-bag-printing.html">Tote Bags</a>
-                                <a href="custom-calendar-printing.html">Calendars</a>
-                            </div>
-                             <div class="menu-column">
-                                <h3>Packaging</h3>
-                                <a href="shopping-paper-bag-print.html">Paper Bags</a>
-                                <a href="nylon-shopping-bag-print.html">Nylon Bags</a>
-                                <a href="office-box-package.html">Product Boxes</a>
-                                <a href="label-sticker-printing.html">Stickers & Labels</a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a href="#" class="sign-in">Sign In</a>
-                <a href="#" class="create-account">Create Account</a>
-                <span class="cart-icon">🛒</span>
+                <!-- Responsive navbar toggler -->
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="text-body h6 d-none d-sm-inline-block">Menu</span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Main navbar START -->
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav navbar-nav-scroll ms-auto">
+
+                        <!-- Nav item 1 Demos -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link active" href="index.html" id="homeMenu" aria-expanded="false">HOME</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ALL PRODUCTS</a>
+                            <ul class="dropdown-menu" aria-labelledby="pagesMenu">
+                                <!-- Dropdown submenu -->
+                                <li class="dropdown-submenu dropend">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Corporate Branding</a>
+                                    <ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
+                                        <li class="dropdown-submenu dropstart">
+                                            <a class="dropdown-item" href="flyer-printing">Flyer & Handbill</a>
+                                        </li>
+                                        <li class="dropdown-submenu dropstart">
+                                            <a class="dropdown-item dropdown-toggle" href="tshirt-printing">T-shirts & Embroidery</a>
+                                            <ul class="dropdown-menu" data-bs-popper="none">
+                                                <li> <a class="dropdown-item" href="tshirt-printing">Custom T-shirt</a> </li>
+                                                <li> <a class="dropdown-item" href="custom-v-neck-t-shirt-printing">V-Neck T-shirt</a> </li>
+                                                <li> <a class="dropdown-item" href="polo-tshirt-print">Polo T-Shirt</a></li>
+                                                <li> <a class="dropdown-item" href="button-down-polo-t-shirt-printing">Button Down Shirts</a></li>
+                                                <li> <a class="dropdown-item" href="branded-hoodies">Customized Hoodies</a></li>
+                                                <li> <a class="dropdown-item" href="customized-sweatshirts-printing">Customized Sweatshirts</a></li>
+                                                <li> <a class="dropdown-item" href="customized-branded-versity-jacket-print">Varsity Jacket</a></li>
+                                                <li> <a class="dropdown-item" href="safety-work-vest-reflective-jacket-print">Safety Jacket</a></li>
+                                                <li> <a class="dropdown-item" href="custom-funeral-burial-tshirt-printing">Funeral/Burial T-Shirt</a></li>
+                                                <li> <a class="dropdown-item" href="Monogram-printing">Monogram Printing</a> </li>
+                                                <li> <a class="dropdown-item" href="custom-3D-monogram-embroidery-print">3D Monogram</a> </li>
+                                                <li> <a class="dropdown-item" href="custom-bath-towel-print">Embroidered Bath Towel</a> </li>
+                                                <li> <a class="dropdown-item" href="custom-embroidered-face-towel-print">Face Towel</a> </li>
+                                                <li> <a class="dropdown-item" href="custom-Personalized-apron-print">Customized Apron</a> </li>
+                                                <li> <a class="dropdown-item" href="classic-artwork-tshirt-print">Classic T-shirt</a> </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown-submenu dropstart">
+                                            <a class="dropdown-item" href="custom-branded-helmet-print">Safety Helmet</a>
+                                        </li>
+                                        <li class="dropdown-submenu dropstart">
+                                            <a class="dropdown-item dropdown-toggle" href="#">Office Stationeries</a>
+                                            <ul class="dropdown-menu" data-bs-popper="none">
+                                                <li> <a class="dropdown-item" href="pen-branding-printing">Branded Pen</a> </li>
+                                                <li> <a class="dropdown-item" href="premium-pen-printing">Premium Pen</a> </li>
+                                                <li> <a class="dropdown-item" href="branded-mousepad-printing">Mousepad</a> </li>
+                                                <li> <a class="dropdown-item" href="custom-branded-wireless-mouse-print">Branded Mouse</a> </li>
+                                                <li> <a class="dropdown-item" href="letterhead-design-and-printing">LetterHead</a> </li>
+                                                <li> <a class="dropdown-item" href="custom-business-receipt-invoice-booklet-print">Official Receipt</a> </li>
+                                                <li> <a class="dropdown-item" href="custom-memo-blockpad-printing">Block Pad</a> </li>
+                                                <li> <a class="dropdown-item" href="office-presentation-file-folder-print">File Presentation Folder</a> </li>
+                                                <li> <a class="dropdown-item" href="custom-c4-envelope-printing">C4 Envelope</a> </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu dropstart">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Book & Brochures</a>
+                                    <ul class="dropdown-menu" data-bs-popper="none">
+                                        <li> <a class="dropdown-item" href="brochure-company-profile-printing">Brochure & Company Profile</a> </li>
+                                        <li> <a class="dropdown-item" href="brochure-printing">Bifold Brochure </a> </li>
+                                        <li> <a class="dropdown-item" href="trifold-brochure-printing">Trifold Brochure</a> </li>
+                                        <li> <a class="dropdown-item" href="book-publishing">Book Publishing</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu dropstart">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Business Cards & Label</a>
+                                    <ul class="dropdown-menu" data-bs-popper="none">
+                                        <li> <a class="dropdown-item" href="standard-business-card-printing">Standard Business Card</a> </li>
+                                        <li> <a class="dropdown-item" href="premium-business-card-printing">Premium Business Card</a> </li>
+                                        <li> <a class="dropdown-item" href="pvc-transparent-plastic-business-card-print">Plastic Business Card</a> </li>
+                                        <li><a class="dropdown-item" href="custom-business-customer-thank-you-card-print">Customer Thank You Card</a></li>
+                                        <li><a class="dropdown-item" href="custom-clothing-hang-tag-label-cards">Clothe Hang Tag Cards</a></li>
+                                        <li><a class="dropdown-item" href="custom-clothing-woven-label-printing">Woven Label</a></li>
+                                        <li><a class="dropdown-item" href="custom-event-ticket-print">Ticket Card</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu dropstart">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Large Format Print</a>
+                                    <ul class="dropdown-menu" data-bs-popper="none">
+                                        <li> <a class="dropdown-item" href="roll-up-banner-printing">Roll-Up Banner</a> </li>
+                                        <li> <a class="dropdown-item" href="advert-banner-print">Advertisement Banner</a> </li>
+                                        <li><a class="dropdown-item" href="label-sticker-printing">Sticker Print</a></li>
+                                        <li><a class="dropdown-item" href="delivery-box-branding">Courier Box Branding</a></li>
+                                        <li><a class="dropdown-item" href="x-banner-print">X-Banner</a></li>
+                                        <li> <a class="dropdown-item" href="vehicle-car-branding">Vehicle Branding</a> </li>
+                                        <li> <a class="dropdown-item" href="backdrop-banner-print">Pop up Display Banner</a> </li>
+                                        <li> <a class="dropdown-item" href="custom-gazebo-canopy-tent-printing">Gazebo Canopy Tent</a> </li>
+                                        <li> <a class="dropdown-item" href="event-backdrop-banner-print-in-lagos-nigeria">Event Backdrop Banner</a> </li>
+                                        <li> <a class="dropdown-item" href="wedding-banner-prints">Wedding Banner</a> </li>
+                                        <li> <a class="dropdown-item" href="birthday-banner-prints">Birthday Banner</a> </li>
+                                        <li> <a class="dropdown-item" href="burial-funeral-banner-printing">Burial Banner</a> </li>
+                                        <li> <a class="dropdown-item" href="funeral-burial-roll-up-banner-prints">Funeral Roll-Up Banner</a> </li>
+                                        <li> <a class="dropdown-item" href="custom-event-hall-branding">Event Branding</a> </li>
+                                        <li> <a class="dropdown-item" href="custom-office-wall-branding">Office Branding</a> </li>
+                                        <li> <a class="dropdown-item" href="pvc-bunting-printing">Bunting Flags</a> </li>
+                                        <li> <a class="dropdown-item" href="custom-promotional-pvc-dangler-printing">PVC Danglers</a> </li>
+                                        <li> <a class="dropdown-item" href="teardrop-flying-banner-print">Teardrop Banner</a> </li>
+                                        <li> <a class="dropdown-item" href="lamp-post-banner-sign-print">Lamp Post Banner</a> </li>
+                                        <li> <a class="dropdown-item" href="custom-point-of-sale-display-stand-print">POS Display Stand</a> </li>
+                                        <li> <a class="dropdown-item" href="custom-promotional-counter-table-printing">Counter Table</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu dropstart">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Custom ID Card</a>
+                                    <ul class="dropdown-menu" data-bs-popper="none">
+                                        <li> <a class="dropdown-item" href="standard-id-card-printing">Standard ID Card</a> </li>
+                                        <li> <a class="dropdown-item" href="lanyard-idcard-rope-print">Lanyard/ID Card Rope</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu dropstart">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Menu & Program of Event</a>
+                                    <ul class="dropdown-menu" data-bs-popper="none">
+                                        <li> <a class="dropdown-item" href="funeral-program-print">Funeral Programme</a> </li>
+                                        <li> <a class="dropdown-item" href="custom-landscape-funeral-brochure-printing">Landscape Funeral Brochure</a> </li>
+                                        <li> <a class="dropdown-item" href="custom-square-funeral-brochure-print">Square Funeral Brochure</a> </li>
+                                        <li> <a class="dropdown-item" href="square-birthday-program-print">Square Birthday Brochure</a> </li>
+                                        <li> <a class="dropdown-item" href="menu-card-printing">Menu Card</a> </li>
+                                        <li><a class="dropdown-item" href="custom-table-tent-card-printing">Table Tent</a></li>
+                                        <li> <a class="dropdown-item" href="event-table-tags-tent-cards-printing">Table Tag</a> </li>
+                                        <li> <a class="dropdown-item" href="restaurant-and-lounge-menu-book-print">Menu Book</a> </li>
+                                        <li> <a class="dropdown-item" href="marriage-wedding-program-of-event-brochure-print">Wedding Programs</a> </li>
+                                        <li> <a class="dropdown-item" href="custom-wedding-handfan-print">Wedding Handfan</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu dropstart">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Certificate & Awards</a>
+                                    <ul class="dropdown-menu" data-bs-popper="none">
+                                        <li> <a class="dropdown-item" href="custom-certificate-of-completion-print">Certificate of Completion</a> </li>
+                                        <li><a class="dropdown-item" href="commemorative-achievement-medal-print">Commemorative Medal</a></li>
+                                        <li><a class="dropdown-item" href="custom-wooden-award-plaque-printing">Wooden Award Plaque</a></li>
+                                        <li><a class="dropdown-item" href="custom-crystal-award-plaque-printing">Crystal Award Plaque</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu dropstart">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Badge Tag & Lapel Pins</a>
+                                    <ul class="dropdown-menu" data-bs-popper="none">
+                                        <li> <a class="dropdown-item" href="component-button-badge-print">Component Badge</a> </li>
+                                        <li> <a class="dropdown-item" href="custom-magnetic-name-tag-print">Custom Name Tag</a> </li>
+                                        <li> <a class="dropdown-item" href="custom-casting-lapel-badge-printing">Lapel Pin Badge</a> </li>
+                                        <li> <a class="dropdown-item" href="custom-reusable-name-tag-print">Reusable Name Tag</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu dropstart">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Posters & Signages</a>
+                                    <ul class="dropdown-menu" data-bs-popper="none">
+                                        <li> <a class="dropdown-item" href="advert-poster-print">Posters</a> </li>
+                                        <li> <a class="dropdown-item" href="custom-acrylic-business-social-media-signage">Acrylic Social Media Sign</a> </li>
+                                        <li><a class="dropdown-item" href="custom-indoor-and-outdoor-3d-company-signage-branding">3D Company Signage</a></li>
+                                        <li><a class="dropdown-item" href="3d-non-illuminated-business-company-signage-in-lagos">Non Illuminated Signage</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Nav item 4 link-->
+                        <li class="nav-item"> <a class="nav-link" href="about-us.html">ABOUT US</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="contact.html">CONTACT</a></li>
+                        
+                        <!-- Dark Mode Toggle -->
+                        <li class="nav-item">
+                            <button class="nav-link theme-toggle-btn" id="themeToggle" aria-label="Toggle dark mode">
+                                <i class="fas fa-moon dark-icon"></i>
+                                <i class="fas fa-sun light-icon"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Main navbar END -->
             </div>
         </nav>
+        <!-- Logo Nav END -->
     </header>
 
     <!-- Hero Section - Combined Style -->
@@ -895,7 +1366,7 @@
         </div>
     </section>
 
-    <!-- Creative Branding Section - Pzielng Style -->
+    <!-- Creative Branding Section -  Style -->
     <section class="creative-branding">
         <div class="container">
             <div class="branding-content">
@@ -938,7 +1409,7 @@
         </div>
     </section>
 
-    <!-- Best Selling Section - Pzielng Style -->
+    <!-- Best Selling Section -  Style -->
     <section class="best-selling">
         <div class="container">
             <h2 class="section-title">Best Selling</h2>
@@ -1009,5 +1480,106 @@
             </div>
         </div>
     </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript for dropdowns and preloader -->
+    <script>
+        // Preloader functionality
+        window.addEventListener('load', function() {
+            const preloader = document.querySelector('.preloader');
+            if (preloader) {
+                preloader.style.display = 'none';
+            }
+        });
+
+        // Initialize Bootstrap dropdowns
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize all dropdowns
+            var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+            var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+                return new bootstrap.Dropdown(dropdownToggleEl);
+            });
+
+            // Handle nested dropdown hover functionality
+            const dropdownSubmenus = document.querySelectorAll('.dropdown-submenu');
+            
+            dropdownSubmenus.forEach(submenu => {
+                const dropdownToggle = submenu.querySelector('.dropdown-toggle');
+                const dropdownMenu = submenu.querySelector('.dropdown-menu');
+                
+                if (dropdownToggle && dropdownMenu) {
+                    // Show submenu on hover
+                    submenu.addEventListener('mouseenter', function() {
+                        dropdownMenu.classList.add('show');
+                    });
+                    
+                    // Hide submenu when mouse leaves
+                    submenu.addEventListener('mouseleave', function() {
+                        dropdownMenu.classList.remove('show');
+                    });
+                }
+            });
+
+            // Handle mobile dropdown toggles
+            const mobileDropdownToggles = document.querySelectorAll('.navbar-nav .dropdown-toggle');
+            mobileDropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    if (window.innerWidth < 1200) { // Only on mobile
+                        e.preventDefault();
+                        const parent = this.closest('.dropdown-submenu');
+                        const submenu = parent.querySelector('.dropdown-menu');
+                        
+                        if (submenu) {
+                            submenu.classList.toggle('show');
+                        }
+                    }
+                });
+            });
+
+            // Dark Mode Toggle Functionality
+            const themeToggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            
+            // Check for saved theme preference or default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-bs-theme', currentTheme);
+            
+            // Update toggle button state
+            function updateToggleButton() {
+                const isDark = html.getAttribute('data-bs-theme') === 'dark';
+                const darkIcon = themeToggle.querySelector('.dark-icon');
+                const lightIcon = themeToggle.querySelector('.light-icon');
+                
+                if (isDark) {
+                    darkIcon.style.display = 'none';
+                    lightIcon.style.display = 'block';
+                } else {
+                    darkIcon.style.display = 'block';
+                    lightIcon.style.display = 'none';
+                }
+            }
+            
+            // Initialize toggle button state
+            updateToggleButton();
+            
+            // Toggle theme function
+            function toggleTheme() {
+                const currentTheme = html.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                html.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateToggleButton();
+            }
+            
+            // Add click event listener to toggle button
+            if (themeToggle) {
+                themeToggle.addEventListener('click', toggleTheme);
+            }
+        });
+    </script>
 </body>
 </html>
+

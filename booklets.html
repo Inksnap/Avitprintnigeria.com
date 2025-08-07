@@ -7,419 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #fff;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header Styles */
-        .top-bar {
-            background: #f8f9fa;
-            padding: 10px 0;
-            font-size: 14px;
-            border-bottom: 1px solid #e9ecef;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .top-bar-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .top-bar-left {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .top-bar-left a {
-            color: #6c757d;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .top-bar-left a:hover {
-            color: #17a2b8;
-        }
-
-        .top-bar-right {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-weight: 500;
-        }
-
-        .contact-info {
-            color: #495057;
-        }
-
-        .contact-number {
-            color: #17a2b8;
-            font-weight: 600;
-        }
-
-        header {
-            background: #fff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 0;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: #2c3e50;
-            font-family: 'Poppins', sans-serif;
-            letter-spacing: -0.5px;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #495057;
-            font-weight: 500;
-            font-size: 15px;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: #17a2b8;
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .sign-in {
-            color: #17a2b8;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-        }
-
-        .create-account {
-            background: #17a2b8;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            transition: background 0.3s;
-        }
-
-        /* Product Hero */
-        .product-hero {
-            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-            padding: 80px 0;
-            color: #2c3e50;
-            text-align: center;
-        }
-
-        .product-hero h1 {
-            font-size: 48px;
-            font-weight: 700;
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 1rem;
-        }
-
-        .product-hero p {
-            font-size: 20px;
-            font-family: 'Inter', sans-serif;
-            margin-bottom: 2rem;
-            opacity: 0.8;
-        }
-
-        .hero-price {
-            font-size: 24px;
-            font-weight: 600;
-            background: rgba(255,255,255,0.3);
-            padding: 15px 30px;
-            border-radius: 50px;
-            display: inline-block;
-            color: #2c3e50;
-        }
-
-        /* Product Details */
-        .product-details {
-            padding: 80px 0;
-        }
-
-        .details-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .product-info h2 {
-            font-size: 36px;
-            font-weight: 600;
-            color: #2c3e50;
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 2rem;
-        }
-
-        .product-info p {
-            font-size: 16px;
-            color: #6c757d;
-            font-family: 'Inter', sans-serif;
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .features-list {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .features-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid #f8f9fa;
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            align-items: center;
-        }
-
-        .features-list li:before {
-            content: "✓";
-            color: #17a2b8;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-
-        .order-form {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .order-form h3 {
-            font-size: 24px;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: #495057;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .form-group select,
-        .form-group input {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-        }
-
-        .form-group select:focus,
-        .form-group input:focus {
-            outline: none;
-            border-color: #17a2b8;
-        }
-
-        .price-display {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .price-display .total {
-            font-size: 28px;
-            font-weight: 700;
-            color: #17a2b8;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .price-display .unit {
-            font-size: 14px;
-            color: #6c757d;
-            margin-top: 0.5rem;
-        }
-
-        .order-btn {
-            width: 100%;
-            background: #17a2b8;
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .order-btn:hover {
-            background: #138496;
-        }
-
-        /* Use Cases */
-        .use-cases {
-            background: #f8f9fa;
-            padding: 80px 0;
-        }
-
-        .use-cases h2 {
-            text-align: center;
-            font-size: 36px;
-            font-weight: 600;
-            color: #2c3e50;
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 3rem;
-        }
-
-        .cases-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .case-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .case-icon {
-            font-size: 48px;
-            margin-bottom: 1rem;
-        }
-
-        .case-card h3 {
-            font-size: 20px;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-
-        .case-card p {
-            color: #6c757d;
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-        }
-
-        /* Footer */
-        footer {
-            background: #2c3e50;
-            color: white;
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1.5rem;
-            color: #17a2b8;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-section ul li a {
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .footer-section ul li a:hover {
-            color: #17a2b8;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #34495e;
-            color: #bdc3c7;
-            font-family: 'Inter', sans-serif;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .details-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .product-hero h1 {
-                font-size: 36px;
-            }
-
-            .cases-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Top Bar -->
@@ -441,7 +29,9 @@
     <!-- Header -->
     <header>
         <nav class="container">
-            <a href="index.html" class="logo">PrintHub</a>
+           <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Inksnap Logo" style="height:40px;">
+            </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="products.html">Products</a></li>
@@ -456,11 +46,345 @@
                 <li><a href="about.html">About Us</a></li>
             </ul>
             <div class="nav-actions">
-                <a href="#" class="sign-in">Sign In</a>
-                <a href="#" class="create-account">Create Account</a>
+                <!-- Removed Sign In and Create Account from here -->
             </div>
+            <div class="hamburger" id="openSidebarBtn"><i class="fas fa-bars"></i></div>
         </nav>
     </header>
+
+    <!-- Sidebar and overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar" id="sidebarMenu">
+        <div class="close-btn" id="closeSidebarBtn"><i class="fas fa-times"></i></div>
+        <nav class="sidebar-links">
+            <a href="index.html" class="sidebar-link">Home</a>
+            <div class="dropdown" id="productsDropdown">
+                <button class="dropdown-toggle sidebar-link" id="productsDropdownToggle">
+                    Products <span class="arrow">&#9654;</span>
+                </button>
+                <div class="dropdown-menu" id="productsDropdownMenu">
+                    <div class="sidebar-category-dropdown" id="catCorporate">
+                        <button class="sidebar-category-toggle">Corporate Branding <span class="arrow">&#9654;</span></button>
+                        <div class="sidebar-category-menu">
+                            <a href="business-cards.html">Business Cards</a>
+                            <a href="brochure-printing.html">Flyers & Brochures</a>
+                            <a href="letterhead-printing.html">Letterheads</a>
+                            <a href="pen-branding-printing.html">Branded Pens</a>
+                            <a href="vehicle-branding.html">Vehicle Branding</a>
+                            <a href="standard-id-card-printing.html">ID Cards & Lanyards</a>
+                        </div>
+                    </div>
+                    <div class="sidebar-category-dropdown" id="catApparel">
+                        <button class="sidebar-category-toggle">Apparel <span class="arrow">&#9654;</span></button>
+                        <div class="sidebar-category-menu">
+                            <a href="tshirt-printing.html">T-Shirts</a>
+                            <a href="polo-shirt-printing.html">Polo Shirts</a>
+                            <a href="monogram-printing.html">Monogram & Embroidery</a>
+                            <a href="face-cap-printing.html">Face Caps</a>
+                        </div>
+                    </div>
+                    <div class="sidebar-category-dropdown" id="catGifts">
+                        <button class="sidebar-category-toggle">Gifts & Souvenirs <span class="arrow">&#9654;</span></button>
+                        <div class="sidebar-category-menu">
+                            <a href="branded-mug-printing.html">Mugs & Drinkware</a>
+                            <a href="notepad-jotter-printing.html">Notepads & Jotters</a>
+                            <a href="keyholder-printing.html">Key Holders</a>
+                            <a href="tote-bag-printing.html">Tote Bags</a>
+                            <a href="custom-calendar-printing.html">Calendars</a>
+                        </div>
+                    </div>
+                    <div class="sidebar-category-dropdown" id="catPackaging">
+                        <button class="sidebar-category-toggle">Packaging <span class="arrow">&#9654;</span></button>
+                        <div class="sidebar-category-menu">
+                            <a href="shopping-paper-bag-print.html">Paper Bags</a>
+                            <a href="nylon-shopping-bag-print.html">Nylon Bags</a>
+                            <a href="office-box-package.html">Product Boxes</a>
+                            <a href="label-sticker-printing.html">Stickers & Labels</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="services.html" class="sidebar-link">Services</a>
+            <a href="quotes.html" class="sidebar-link">Get Quote</a>
+            <a href="track-order.html" class="sidebar-link">Track Order</a>
+            <a href="blog.html" class="sidebar-link">Blog</a>
+            <a href="calculator.html" class="sidebar-link">Calculator</a>
+            <a href="stores.html" class="sidebar-link">Stores</a>
+            <a href="contact.html" class="sidebar-link">Contact</a>
+            <a href="about.html" class="sidebar-link">About Us</a>
+        </nav>
+        <div class="sidebar-actions">
+            <a href="#" class="sign-in">Sign In</a>
+            <a href="#" class="create-account">Create Account</a>
+        </div>
+    </aside>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Sidebar styles */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(30, 41, 59, 0.18);
+            z-index: 1000;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -340px;
+            width: 320px;
+            height: 100%;
+            background: #fff;
+            box-shadow: -4px 0 24px 0 rgba(30,41,59,0.10);
+            border-top-left-radius: 16px;
+            border-bottom-left-radius: 16px;
+            z-index: 1001;
+            transition: right 0.35s cubic-bezier(.77,0,.18,1);
+            padding: 2rem 1.5rem 1.5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .sidebar.open {
+            right: 0;
+        }
+        .sidebar .close-btn {
+            align-self: flex-end;
+            font-size: 1.7rem;
+            cursor: pointer;
+            margin-bottom: 2rem;
+            color: #222;
+            background: none;
+            border: none;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.18s;
+        }
+        .sidebar .close-btn:hover {
+            background: #f3f7fa;
+        }
+        .sidebar .sidebar-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+            align-items: flex-end;
+            margin-bottom: 1.2rem;
+        }
+        .sidebar .sidebar-link {
+            text-align: right;
+            width: 100%;
+            color: #222;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.32rem 0.2rem;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: background 0.16s, color 0.16s;
+        }
+        .sidebar .sidebar-link:hover {
+            color: #17a2b8;
+            background: #f3f7fa;
+        }
+        .sidebar .dropdown {
+            width: 100%;
+        }
+        .sidebar .dropdown-toggle {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #222;
+            cursor: pointer;
+            padding: 0.2rem 0;
+            outline: none;
+            transition: color 0.2s;
+        }
+        .sidebar .dropdown-toggle .arrow {
+            margin-left: 0.5rem;
+            transition: transform 0.2s;
+        }
+        .sidebar .dropdown.open .dropdown-toggle .arrow {
+            transform: rotate(90deg);
+        }
+        .sidebar .dropdown-menu {
+            display: none;
+            flex-direction: column;
+            align-items: flex-end;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+            padding-right: 0.5rem;
+        }
+        .sidebar .dropdown.open .dropdown-menu {
+            display: flex;
+        }
+        .sidebar .dropdown-menu a {
+            font-size: 0.97rem;
+            color: #444;
+            text-decoration: none;
+            padding: 0.18rem 0.2rem;
+            text-align: right;
+            width: 100%;
+            border-radius: 6px;
+            transition: background 0.16s, color 0.16s;
+        }
+        .sidebar .dropdown-menu a:hover {
+            color: #17a2b8;
+            background: #f3f7fa;
+        }
+        .sidebar .sidebar-actions {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            align-items: flex-end;
+        }
+        .sidebar .sidebar-actions a {
+            background: #17a2b8;
+            color: #fff;
+            padding: 12px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.18s, box-shadow 0.18s;
+            width: 100%;
+            box-shadow: 0 2px 8px rgba(23,162,184,0.08);
+        }
+        .sidebar .sidebar-actions a.create-account {
+            width: 120%;
+            max-width: 260px;
+            margin-right: -10%;
+            font-size: 1.08em;
+            letter-spacing: 0.01em;
+        }
+        .sidebar .sidebar-actions a:hover {
+            background: #138496;
+            box-shadow: 0 4px 16px rgba(23,162,184,0.13);
+        }
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+            margin-left: 1.5rem;
+        }
+        @media (max-width: 900px) {
+            .nav-links, .nav-actions {
+                display: none !important;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+        .sidebar-category-dropdown {
+            width: 100%;
+            margin-bottom: 1.1em;
+            background: none;
+            border-radius: 8px;
+            box-shadow: none;
+            padding: 0.2em 0 0.2em 0;
+            transition: none;
+            border-top: 1px solid #f3f7fa;
+        }
+        .sidebar-category-dropdown.open {
+            box-shadow: none;
+        }
+        .sidebar-category-toggle {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: right;
+            color: inherit;
+            cursor: pointer;
+            padding: 0.32em 0.2em;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font: inherit;
+            border-radius: 8px;
+            transition: background 0.16s, color 0.16s;
+        }
+        .sidebar-category-toggle:hover {
+            background: #f3f7fa;
+            color: #17a2b8;
+        }
+        .sidebar-category-toggle .arrow {
+            margin-left: 0.5em;
+            transition: transform 0.2s;
+        }
+        .sidebar-category-dropdown.open .sidebar-category-toggle .arrow {
+            transform: rotate(90deg);
+        }
+        .sidebar-category-menu {
+            display: none;
+            flex-direction: column;
+            align-items: flex-end;
+            margin-top: 0.2em;
+            padding-bottom: 0.2em;
+        }
+        .sidebar-category-dropdown.open .sidebar-category-menu {
+            display: flex;
+        }
+        .sidebar-category-menu a {
+            font-size: 0.97rem;
+            color: #444;
+            text-decoration: none;
+            padding: 0.18rem 0.2rem;
+            text-align: right;
+            width: 100%;
+            border-radius: 6px;
+            transition: background 0.16s, color 0.16s;
+        }
+        .sidebar-category-menu a:hover {
+            color: #17a2b8;
+            background: #f3f7fa;
+        }
+    </style>
+    <script>
+        // Sidebar logic
+        const openSidebarBtn = document.getElementById('openSidebarBtn');
+        const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        openSidebarBtn.addEventListener('click', function() {
+            sidebarMenu.classList.add('open');
+            sidebarOverlay.style.display = 'block';
+        });
+        closeSidebarBtn.addEventListener('click', function() {
+            sidebarMenu.classList.remove('open');
+            sidebarOverlay.style.display = 'none';
+        });
+        sidebarOverlay.addEventListener('click', function() {
+            sidebarMenu.classList.remove('open');
+            sidebarOverlay.style.display = 'none';
+        });
+
+        // Dropdown logic for Products
+        const productsDropdown = document.getElementById('productsDropdown');
+        const productsDropdownToggle = document.getElementById('productsDropdownToggle');
+        const productsDropdownMenu = document.getElementById('productsDropdownMenu');
+        productsDropdownToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            productsDropdown.classList.toggle('open');
+        });
+
+        // Sidebar category dropdown logic
+        document.querySelectorAll('.sidebar-category-toggle').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                var parent = btn.parentElement;
+                parent.classList.toggle('open');
+            });
+        });
+    </script>
 
     <!-- Product Hero -->
     <section class="product-hero">

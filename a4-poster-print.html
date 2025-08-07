@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A3 Wall Calendar Printing - Inksnap</title>
+    <title>A4 Poster Printing - Inksnap</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,6 +20,19 @@
     <link rel="stylesheet" href="styles.css">
     
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+        
         /* New Header Styles */
         .container {
             max-width: 1200px;
@@ -27,257 +40,7 @@
             padding: 0 20px;
         }
 
-        /* Preloader */
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #fff;
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .preloader .preloader-item {
-            text-align: center;
-        }
-        
-        .preloader .preloader-item img {
-            height: 60px;
-            width: auto;
-        }
-        
-        .dark-mode-item {
-            display: none;
-        }
-        
-        html[data-bs-theme=dark] .dark-mode-item {
-            display: block;
-        }
-
-        html[data-bs-theme=dark] .light-mode-item {
-            display: none;
-        }
-
-        /* Header Styles */
-        header {
-            background: #fff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-            border-bottom: 2px solid #e9ecef;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            width: 100%;
-        }
-        
-        .navbar-sticky {
-            position: sticky !important;
-            top: 0 !important;
-            z-index: 1000 !important;
-            background: #fff !important;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.08) !important;
-        }
-        
-        .header-static {
-            position: sticky !important;
-            top: 0 !important;
-            z-index: 1000 !important;
-        }
-        
-        .navbar-brand {
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-        
-        .navbar-brand img {
-            height: 40px;
-            width: auto;
-        }
-        
-        .navbar-nav .nav-link {
-            color: #495057 !important;
-            font-weight: 700 !important;
-            font-size: 15px;
-            padding: 0.5rem 1rem;
-            transition: color 0.3s;
-        }
-        
-        .navbar-nav .nav-link:hover,
-        .navbar-nav .nav-link.active {
-            color: #17a2b8 !important;
-        }
-        
-        .dropdown-menu {
-            border: none;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            padding: 1rem 0;
-        }
-        
-        .dropdown-item {
-            color: #495057;
-            padding: 0.5rem 1.5rem;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-        
-        .dropdown-item:hover {
-            background-color: #f8f9fa;
-            color: #17a2b8;
-        }
-        
-        .dropdown-submenu {
-            position: relative;
-        }
-        
-        .theme-toggle-btn {
-            background: none;
-            border: none;
-            color: #495057;
-            font-size: 18px;
-            cursor: pointer;
-            padding: 8px 12px;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .theme-toggle-btn:hover {
-            background: rgba(0, 206, 209, 0.1);
-            color: #00CED1;
-        }
-        
-        .theme-toggle-btn .light-icon {
-            display: none;
-        }
-        
-        html[data-bs-theme=dark] .theme-toggle-btn .dark-icon {
-            display: none;
-        }
-        
-        html[data-bs-theme=dark] .theme-toggle-btn .light-icon {
-            display: block;
-        }
-
-        /* Dark Mode Styles */
-        html[data-bs-theme=dark] {
-            color-scheme: dark;
-        }
-        
-        html[data-bs-theme=dark] body {
-            background: #1a1a1a;
-            color: #e0e0e0;
-        }
-        
-        html[data-bs-theme=dark] header {
-            background: #2d2d2d;
-            border-bottom-color: #404040;
-        }
-        
-        html[data-bs-theme=dark] .navbar-nav .nav-link {
-            color: #e0e0e0 !important;
-        }
-        
-        html[data-bs-theme=dark] .navbar-nav .nav-link:hover {
-            color: #00CED1 !important;
-        }
-        
-        html[data-bs-theme=dark] .dropdown-menu {
-            background: #2d2d2d;
-            border-color: #404040;
-        }
-        
-        html[data-bs-theme=dark] .dropdown-item {
-            color: #e0e0e0;
-        }
-        
-        html[data-bs-theme=dark] .dropdown-item:hover {
-            background: #404040;
-            color: #00CED1;
-        }
-
-        /* Click-based dropdown styles */
-        .dropdown-submenu .dropdown-menu {
-            display: none;
-            position: static;
-            float: none;
-            width: auto;
-            margin-top: 0;
-            background-color: #f8f9fa;
-            border: 0;
-            border-radius: 0;
-            box-shadow: none;
-            padding-left: 1rem;
-        }
-
-        .dropdown-submenu .dropdown-menu.show {
-            display: block;
-        }
-
-        .dropdown-submenu .dropdown-toggle::after {
-            border-top: 0.3em solid transparent;
-            border-bottom: 0.3em solid transparent;
-            border-left: 0.3em solid;
-            border-right: 0;
-            margin-left: 0.5em;
-            transition: transform 0.2s;
-        }
-
-        .dropdown-submenu .dropdown-menu.show + .dropdown-toggle::after {
-            transform: rotate(90deg);
-        }
-
-        /* Desktop specific styles */
-        @media (min-width: 1200px) {
-            .dropdown-submenu .dropdown-menu {
-                position: absolute;
-                top: 0;
-                left: 100%;
-                margin-top: -1px;
-                background-color: #fff;
-                border: 1px solid rgba(0,0,0,.15);
-                border-radius: 0.375rem;
-                box-shadow: 0 0.5rem 1rem rgba(0,0,0,.175);
-                padding: 0.5rem 0;
-            }
-            
-            .dropdown-submenu .dropdown-submenu .dropdown-menu {
-                left: -100%;
-            }
-        }
-
-        /* Better spacing for nested items */
-        .dropdown-submenu .dropdown-submenu .dropdown-item {
-            padding-left: 2rem;
-            font-size: 13px;
-        }
-
-        /* Mobile dropdown improvements */
-        @media (max-width: 1199.98px) {
-            .navbar-expand-xl .dropdown-submenu .dropdown-submenu .dropdown-menu {
-                padding-left: 2rem;
-                position: static;
-                float: none;
-                width: auto;
-                margin-top: 0;
-                background-color: transparent;
-                border: 0;
-                box-shadow: none;
-            }
-            
-            .navbar-expand-xl .dropdown-submenu .dropdown-submenu .dropdown-item {
-                padding-left: 3rem;
-                color: #6c757d;
-            }
-        }
-    </style>
+      </style>
 </head>
 <body>
     <!-- Preloader -->
@@ -501,9 +264,9 @@
 
     <section class="product-hero">
         <div class="container">
-            <h1>A3 Wall Calendar Printing</h1>
-            <p>Compact A3 wall calendars perfect for small offices, homes, and personal use. High-quality printing with professional binding and custom designs.</p>
-            <div class="hero-price">₦205,200 for 50 (7 pages) | ₦320,350 for 50 (13 pages)</div>
+            <h1>A4 Poster Printing</h1>
+            <p>Small format A4 poster printing (210 x 297mm) perfect for notices, announcements, and small displays. Cost-effective printing solution with excellent quality for everyday business and personal needs.</p>
+            <div class="hero-price">Starting from ₦2,500 per poster</div>
         </div>
     </section>
 
@@ -511,78 +274,96 @@
         <div class="container">
             <div class="details-grid">
                 <div class="product-images">
-                    <img id="mainImage" src="images/wallcalender1.png" alt="A3 Wall Calendar Printing" style="width: 100%; height: 400px; object-fit: cover; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <img id="mainImage" src="images/a4-poster1.jpg" alt="A4 Poster Printing" style="width: 100%; height: 400px; object-fit: cover; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
                     <div class="thumbnail-gallery" style="display: flex; gap: 1rem; justify-content: center;">
-                        <img src="images/wallcalender2.png" alt="A3 Calendar Thumbnail 1" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
-                        <img src="images/wallcalender3.png" alt="A3 Calendar Thumbnail 2" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
-                        <img src="images/wallcalender1.png" alt="A3 Calendar Thumbnail 3" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
+                        <img src="images/a4-poster2.jpg" alt="A4 Poster Thumbnail 1" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
+                        <img src="images/a4-poster3.jpg" alt="A4 Poster Thumbnail 2" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
+                        <img src="images/a4-poster4.jpg" alt="A4 Poster Thumbnail 3" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
                     </div>
                 </div>
                 <div class="product-info">
                     <h2>Key Features & Benefits</h2>
-                    <p>Our A3 wall calendar printing service offers the perfect size for smaller spaces while maintaining excellent readability and visual appeal. Ideal for home offices, small businesses, and personal use with custom layouts and branding.</p>
-                    <p><strong>Price:</strong> 7 pages A3 wall calendar price starting at <strong>₦205,200.00</strong> for 50 copies. 13 pages A3 wall calendar printing price starting at <strong>₦320,350.00</strong> for 50 copies.</p>
+                    <p>Our A4 poster printing service provides the most economical solution for small format displays. Perfect for office notices, announcements, small promotional materials, and personal projects where budget-friendly quality printing is essential.</p>
                     <ul class="features-list">
-                        <li>Quality 200gsm coated paper for durability</li>
-                        <li>Full-color printing with sharp image reproduction</li>
-                        <li>Professional wire-o or spiral binding</li>
-                        <li>Compact size perfect for smaller wall spaces</li>
-                        <li>12-month or custom date ranges available</li>
-                        <li>Reinforced hanging holes for secure mounting</li>
+                        <li>Standard A4 size: 210 x 297mm (8.3 x 11.7 inches)</li>
+                        <li>High-quality digital printing up to 1200dpi</li>
+                        <li>Most cost-effective poster printing option</li>
+                        <li>Quick turnaround for urgent needs</li>
+                        <li>Perfect for notices and announcements</li>
+                        <li>Bulk pricing available for large quantities</li>
+                        <li>Starting from ₦2,500 per poster</li>
                     </ul>
-                    <h3>Customization Options</h3>
-                    <p>Create personalized A3 wall calendars with our flexible options:</p>
+                    <h3>A4 Poster Specifications & Options</h3>
+                    <p>Choose from various materials and finishing options:</p>
                     <ul class="features-list">
-                        <li><strong>Size:</strong> A3 (297 x 420 mm) when open</li>
-                        <li><strong>Paper Type:</strong> 200gsm Coated, 250gsm Art Paper</li>
-                        <li><strong>Binding:</strong> Wire-O, Spiral, Twin Loop</li>
-                        <li><strong>Pages:</strong> 13 pages (cover + 12 months) or custom</li>
-                        <li><strong>Finish:</strong> Matt or Gloss Lamination</li>
-                        <li><strong>Quantity:</strong> From 50 to 10,000+ calendars</li>
+                        <li><strong>Standard Size:</strong> A4 (210 x 297mm)</li>
+                        <li><strong>Materials:</strong> Standard paper, photo paper, cardstock</li>
+                        <li><strong>Finishes:</strong> Matte, gloss options</li>
+                        <li><strong>Applications:</strong> Notices, announcements, small displays</li>
+                        <li><strong>Mounting:</strong> Basic mounting options available</li>
                     </ul>
                     <div class="order-form">
-                        <h3>Get a Custom Quote for A3 Wall Calendars</h3>
-                        <form id="calendarQuoteForm">
+                        <h3>Get a Custom Quote for A4 Poster Printing</h3>
+                        <form id="a4PosterQuoteForm">
                             <div class="form-group">
-                                <label for="calendarQuantity">Quantity</label>
-                                <input type="number" id="calendarQuantity" name="calendarQuantity" placeholder="e.g., 200" required>
+                                <label for="posterQuantity">Quantity</label>
+                                <input type="number" id="posterQuantity" name="posterQuantity" placeholder="e.g., 100" required>
                             </div>
                             <div class="form-group">
                                 <label for="paperType">Paper Type</label>
                                 <select id="paperType" name="paperType">
-                                    <option value="200gsm-coated">200gsm Coated Paper</option>
-                                    <option value="250gsm-art">250gsm Art Paper</option>
-                                    <option value="300gsm-premium">300gsm Premium Paper</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="bindingType">Binding Type</label>
-                                <select id="bindingType" name="bindingType">
-                                    <option value="wire-o">Wire-O Binding</option>
-                                    <option value="spiral">Spiral Binding</option>
-                                    <option value="twin-loop">Twin Loop Binding</option>
+                                    <option value="standard-paper">Standard Paper (80gsm)</option>
+                                    <option value="premium-paper">Premium Paper (120gsm)</option>
+                                    <option value="photo-paper">Photo Paper</option>
+                                    <option value="cardstock">Cardstock (200gsm)</option>
+                                    <option value="recycled">Recycled Paper</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="finishType">Finish Type</label>
                                 <select id="finishType" name="finishType">
-                                    <option value="matt-lamination">Matt Lamination</option>
-                                    <option value="gloss-lamination">Gloss Lamination</option>
-                                    <option value="no-lamination">No Lamination</option>
+                                    <option value="matte">Matte Finish</option>
+                                    <option value="gloss">Gloss Finish</option>
+                                    <option value="satin">Satin Finish</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="calendarYear">Calendar Year</label>
-                                <select id="calendarYear" name="calendarYear">
-                                    <option value="2024">2024</option>
-                                    <option value="2025">2025</option>
-                                    <option value="2026">2026</option>
-                                    <option value="custom">Custom Date Range</option>
+                                <label for="colorType">Color Type</label>
+                                <select id="colorType" name="colorType">
+                                    <option value="full-color">Full Color (CMYK)</option>
+                                    <option value="black-white">Black & White</option>
+                                    <option value="single-color">Single Color</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="designUpload">Upload Your Design (Optional)</label>
-                                <input type="file" id="designUpload" name="designUpload" accept=".pdf,.ai,.psd,.jpg,.png">
+                                <label for="usageType">Usage Type</label>
+                                <select id="usageType" name="usageType">
+                                    <option value="notice">Notice/Announcement</option>
+                                    <option value="promotional">Small Promotional Material</option>
+                                    <option value="office">Office Display</option>
+                                    <option value="personal">Personal Project</option>
+                                    <option value="educational">Educational Material</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="printSides">Print Sides</label>
+                                <select id="printSides" name="printSides">
+                                    <option value="single-sided">Single Sided</option>
+                                    <option value="double-sided">Double Sided</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="turnaroundTime">Turnaround Time</label>
+                                <select id="turnaroundTime" name="turnaroundTime">
+                                    <option value="same-day">Same Day</option>
+                                    <option value="next-day">Next Day</option>
+                                    <option value="standard">Standard (2-3 days)</option>
+                                    <option value="bulk">Bulk Order (3-5 days)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="designUpload">Upload Your Design</label>
+                                <input type="file" id="designUpload" name="designUpload" accept=".pdf,.ai,.psd,.jpg,.png,.doc,.docx">
                             </div>
                             <div class="form-group">
                                 <label for="deliveryDate">Preferred Delivery Date</label>
@@ -599,39 +380,39 @@
     <section class="related-products">
         <div class="container">
             <div class="section-title">
-                <h2>Other Calendar Sizes You Might Like</h2>
+                <h2>Budget-Friendly Printing You Might Like</h2>
             </div>
             <div class="product-grid">
-                <a href="a2-wall-calendar-print.html" class="product-card">
-                    <img src="/placeholder.svg?height=200&width=280" alt="A2 Wall Calendar Printing">
+                <a href="flyer-printing.html" class="product-card">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Flyer Printing">
                     <div class="product-card-content">
-                        <h3>A2 Wall Calendar Printing</h3>
-                        <p>Larger wall calendars for maximum visibility and impact.</p>
-                        <div class="price">From ₦4,500</div>
-                    </div>
-                </a>
-                <a href="a4-wall-calendar-print.html" class="product-card">
-                    <img src="/placeholder.svg?height=200&width=280" alt="A4 Wall Calendar Printing">
-                    <div class="product-card-content">
-                        <h3>A4 Wall Calendar Printing</h3>
-                        <p>Compact wall calendars for personal and small office use.</p>
-                        <div class="price">Starting from ₦2,500</div>
-                    </div>
-                </a>
-                <a href="desk-calendar-print.html" class="product-card">
-                    <img src="/placeholder.svg?height=200&width=280" alt="Desk Calendar Printing">
-                    <div class="product-card-content">
-                        <h3>Desk Calendar Printing</h3>
-                        <p>Professional desk calendars for office environments.</p>
+                        <h3>Flyer Printing</h3>
+                        <p>Cost-effective flyers for marketing campaigns.</p>
                         <div class="price">From ₦2,800</div>
                     </div>
                 </a>
-                <a href="photo-calendar-print.html" class="product-card">
-                    <img src="/placeholder.svg?height=200&width=280" alt="Photo Calendar Printing">
+                <a href="leaflet-printing.html" class="product-card">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Leaflet Printing">
                     <div class="product-card-content">
-                        <h3>Photo Calendar Printing</h3>
-                        <p>Personalized photo calendars with your favorite memories.</p>
-                        <div class="price">From ₦3,800</div>
+                        <h3>Leaflet Printing</h3>
+                        <p>Simple leaflets for information distribution.</p>
+                        <div class="price">Starting from ₦1,800</div>
+                    </div>
+                </a>
+                <a href="notice-printing.html" class="product-card">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Notice Printing">
+                    <div class="product-card-content">
+                        <h3>Notice Printing</h3>
+                        <p>Professional notices and announcements.</p>
+                        <div class="price">From ₦1,500</div>
+                    </div>
+                </a>
+                <a href="document-printing.html" class="product-card">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Document Printing">
+                    <div class="product-card-content">
+                        <h3>Document Printing</h3>
+                        <p>High-quality document printing services.</p>
+                        <div class="price">From ₦500</div>
                     </div>
                 </a>
             </div>
@@ -640,13 +421,237 @@
 
     <section class="cta-section">
         <div class="container">
-            <h2>Ready to Print Your A3 Wall Calendars?</h2>
-            <p>Get a custom quote today and create compact, professional calendars perfect for smaller spaces while maintaining excellent quality and functionality.</p>
+            <h2>Ready for Budget-Friendly A4 Poster Printing?</h2>
+            <p>Get a custom quote today and let Inksnap provide cost-effective A4 poster printing that meets your everyday business and personal printing needs without compromising on quality.</p>
             <a href="quotes.html" class="cta-button">Request Free Quote</a>
         </div>
     </section>
 
-    <!-- Original Footer - Preserved exactly as requested -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a class="navbar-brand" href="index.html">
+                        <img class="navbar-brand-item light-mode-item" src="images/logo-white.png" alt="Inksnap Logo" style="height: 40px; width: auto;">
+                        <img class="navbar-brand-item dark-mode-item" src="images/logo-white.png" alt="Inksnap Logo" style="height: 40px; width: auto;">
+                    </a>
+                    <p>Your trusted partner for all printing needs. Quality prints, competitive prices, fast delivery.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <li><a class="dropdown-item" href="custom-casting-lapel-badge-printing.html">Lapel Pin Badge</a></li>
+                                        <li><a class="dropdown-item" href="custom-reusable-name-tag-print.html">Reusable Name Tag</a></li>
+                                    </ul>
+                                </li>
+                                
+                                <!-- Posters & Signages -->
+                                <li class="dropdown-submenu dropend">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Posters & Signages</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="advert-poster-print.html">Posters</a></li>
+                                        <li><a class="dropdown-item" href="custom-acrylic-business-social-media-signage.html">Acrylic Social Media Sign</a></li>
+                                        <li><a class="dropdown-item" href="custom-indoor-and-outdoor-3d-company-signage-branding.html">3D Company Signage</a></li>
+                                        <li><a class="dropdown-item" href="3d-non-illuminated-business-company-signage-in-lagos.html">Non Illuminated Signage</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">SERVICES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="quotes.html">GET QUOTE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="track-order.html">TRACK ORDER</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">BLOG</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="calculator.html">CALCULATOR</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="stores.html">STORES</a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link theme-toggle-btn" id="themeToggle">
+                                <i class="fas fa-moon dark-icon"></i>
+                                <i class="fas fa-sun light-icon"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="product-hero">
+        <div class="container">
+            <h1>A4 Poster Printing</h1>
+            <p>Small format A4 poster printing (210 x 297mm) perfect for notices, announcements, and small displays. Cost-effective printing solution with excellent quality for everyday business and personal needs.</p>
+            <div class="hero-price">Starting from ₦2,500 per poster</div>
+        </div>
+    </section>
+
+    <section class="product-details">
+        <div class="container">
+            <div class="details-grid">
+                <div class="product-images">
+                    <img id="mainImage" src="images/a4-poster1.jpg" alt="A4 Poster Printing" style="width: 100%; height: 400px; object-fit: cover; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <div class="thumbnail-gallery" style="display: flex; gap: 1rem; justify-content: center;">
+                        <img src="images/a4-poster2.jpg" alt="A4 Poster Thumbnail 1" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
+                        <img src="images/a4-poster3.jpg" alt="A4 Poster Thumbnail 2" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
+                        <img src="images/a4-poster4.jpg" alt="A4 Poster Thumbnail 3" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h2>Key Features & Benefits</h2>
+                    <p>Our A4 poster printing service provides the most economical solution for small format displays. Perfect for office notices, announcements, small promotional materials, and personal projects where budget-friendly quality printing is essential.</p>
+                    <ul class="features-list">
+                        <li>Standard A4 size: 210 x 297mm (8.3 x 11.7 inches)</li>
+                        <li>High-quality digital printing up to 1200dpi</li>
+                        <li>Most cost-effective poster printing option</li>
+                        <li>Quick turnaround for urgent needs</li>
+                        <li>Perfect for notices and announcements</li>
+                        <li>Bulk pricing available for large quantities</li>
+                        <li>Starting from ₦2,500 per poster</li>
+                    </ul>
+                    <h3>A4 Poster Specifications & Options</h3>
+                    <p>Choose from various materials and finishing options:</p>
+                    <ul class="features-list">
+                        <li><strong>Standard Size:</strong> A4 (210 x 297mm)</li>
+                        <li><strong>Materials:</strong> Standard paper, photo paper, cardstock</li>
+                        <li><strong>Finishes:</strong> Matte, gloss options</li>
+                        <li><strong>Applications:</strong> Notices, announcements, small displays</li>
+                        <li><strong>Mounting:</strong> Basic mounting options available</li>
+                    </ul>
+                    <div class="order-form">
+                        <h3>Get a Custom Quote for A4 Poster Printing</h3>
+                        <form id="a4PosterQuoteForm">
+                            <div class="form-group">
+                                <label for="posterQuantity">Quantity</label>
+                                <input type="number" id="posterQuantity" name="posterQuantity" placeholder="e.g., 100" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="paperType">Paper Type</label>
+                                <select id="paperType" name="paperType">
+                                    <option value="standard-paper">Standard Paper (80gsm)</option>
+                                    <option value="premium-paper">Premium Paper (120gsm)</option>
+                                    <option value="photo-paper">Photo Paper</option>
+                                    <option value="cardstock">Cardstock (200gsm)</option>
+                                    <option value="recycled">Recycled Paper</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="finishType">Finish Type</label>
+                                <select id="finishType" name="finishType">
+                                    <option value="matte">Matte Finish</option>
+                                    <option value="gloss">Gloss Finish</option>
+                                    <option value="satin">Satin Finish</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="colorType">Color Type</label>
+                                <select id="colorType" name="colorType">
+                                    <option value="full-color">Full Color (CMYK)</option>
+                                    <option value="black-white">Black & White</option>
+                                    <option value="single-color">Single Color</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="usageType">Usage Type</label>
+                                <select id="usageType" name="usageType">
+                                    <option value="notice">Notice/Announcement</option>
+                                    <option value="promotional">Small Promotional Material</option>
+                                    <option value="office">Office Display</option>
+                                    <option value="personal">Personal Project</option>
+                                    <option value="educational">Educational Material</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="printSides">Print Sides</label>
+                                <select id="printSides" name="printSides">
+                                    <option value="single-sided">Single Sided</option>
+                                    <option value="double-sided">Double Sided</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="turnaroundTime">Turnaround Time</label>
+                                <select id="turnaroundTime" name="turnaroundTime">
+                                    <option value="same-day">Same Day</option>
+                                    <option value="next-day">Next Day</option>
+                                    <option value="standard">Standard (2-3 days)</option>
+                                    <option value="bulk">Bulk Order (3-5 days)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="designUpload">Upload Your Design</label>
+                                <input type="file" id="designUpload" name="designUpload" accept=".pdf,.ai,.psd,.jpg,.png,.doc,.docx">
+                            </div>
+                            <div class="form-group">
+                                <label for="deliveryDate">Preferred Delivery Date</label>
+                                <input type="date" id="deliveryDate" name="deliveryDate">
+                            </div>
+                            <button type="submit" style="background: #17a2b8; color: white; padding: 12px 25px; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: background 0.3s; width: 100%;">Request Quote</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="related-products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Budget-Friendly Printing You Might Like</h2>
+            </div>
+            <div class="product-grid">
+                <a href="flyer-printing.html" class="product-card">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Flyer Printing">
+                    <div class="product-card-content">
+                        <h3>Flyer Printing</h3>
+                        <p>Cost-effective flyers for marketing campaigns.</p>
+                        <div class="price">From ₦2,800</div>
+                    </div>
+                </a>
+                <a href="leaflet-printing.html" class="product-card">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Leaflet Printing">
+                    <div class="product-card-content">
+                        <h3>Leaflet Printing</h3>
+                        <p>Simple leaflets for information distribution.</p>
+                        <div class="price">Starting from ₦1,800</div>
+                    </div>
+                </a>
+                <a href="notice-printing.html" class="product-card">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Notice Printing">
+                    <div class="product-card-content">
+                        <h3>Notice Printing</h3>
+                        <p>Professional notices and announcements.</p>
+                        <div class="price">From ₦1,500</div>
+                    </div>
+                </a>
+                <a href="document-printing.html" class="product-card">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Document Printing">
+                    <div class="product-card-content">
+                        <h3>Document Printing</h3>
+                        <p>High-quality document printing services.</p>
+                        <div class="price">From ₦500</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready for Budget-Friendly A4 Poster Printing?</h2>
+            <p>Get a custom quote today and let Inksnap provide cost-effective A4 poster printing that meets your everyday business and personal printing needs without compromising on quality.</p>
+            <a href="quotes.html" class="cta-button">Request Free Quote</a>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -706,25 +711,21 @@
             }
         });
 
-        // Original form submission functionality
-        document.getElementById('calendarQuoteForm').addEventListener('submit', function(e) {
+        document.getElementById('a4PosterQuoteForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Your custom quote request for A3 Wall Calendars has been submitted! We will get back to you shortly.');
+            alert('Your custom quote request for A4 Poster Printing has been submitted! We will get back to you shortly.');
             this.reset();
         });
 
-        // Original image gallery functionality
         function updateMainImage(src) {
             const mainImage = document.getElementById('mainImage');
             mainImage.src = src;
-            // Add a fade effect
             mainImage.style.opacity = '0';
             setTimeout(() => {
                 mainImage.style.opacity = '1';
             }, 100);
         }
 
-        // Add transition effect to main image
         const mainImage = document.getElementById('mainImage');
         mainImage.style.transition = 'opacity 0.3s ease';
 

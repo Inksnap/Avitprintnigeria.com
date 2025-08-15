@@ -1,744 +1,1150 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Stickers & Labels - PrintHub</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #fff;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header Styles */
-        .top-bar {
-            background: #f8f9fa;
-            padding: 10px 0;
-            font-size: 14px;
-            border-bottom: 1px solid #e9ecef;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .top-bar-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .top-bar-left {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .top-bar-left a {
-            color: #6c757d;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .top-bar-left a:hover {
-            color: #17a2b8;
-        }
-
-        .top-bar-right {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-weight: 500;
-        }
-
-        .contact-info {
-            color: #495057;
-        }
-
-        .contact-number {
-            color: #17a2b8;
-            font-weight: 600;
-        }
-
-        header {
-            background: #fff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 0;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: #2c3e50;
-            font-family: 'Poppins', sans-serif;
-            letter-spacing: -0.5px;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #495057;
-            font-weight: 500;
-            font-size: 15px;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: #17a2b8;
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .sign-in {
-            color: #17a2b8;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-        }
-
-        .create-account {
-            background: #17a2b8;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            transition: background 0.3s;
-        }
-
-        /* Product Hero */
-        .product-hero {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            padding: 80px 0;
-            color: white;
-            text-align: center;
-        }
-
-        .product-hero h1 {
-            font-size: 48px;
-            font-weight: 700;
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 1rem;
-        }
-
-        .product-hero p {
-            font-size: 20px;
-            font-family: 'Inter', sans-serif;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .hero-price {
-            font-size: 24px;
-            font-weight: 600;
-            background: rgba(255,255,255,0.2);
-            padding: 15px 30px;
-            border-radius: 50px;
-            display: inline-block;
-        }
-
-        /* Product Details */
-        .product-details {
-            padding: 80px 0;
-        }
-
-        .details-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .product-info h2 {
-            font-size: 36px;
-            font-weight: 600;
-            color: #2c3e50;
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 2rem;
-        }
-
-        .product-info p {
-            font-size: 16px;
-            color: #6c757d;
-            font-family: 'Inter', sans-serif;
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .features-list {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .features-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid #f8f9fa;
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            align-items: center;
-        }
-
-        .features-list li:before {
-            content: "✓";
-            color: #17a2b8;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-
-        .order-form {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .order-form h3 {
-            font-size: 24px;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: #495057;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .form-group select,
-        .form-group input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            font-size: 16px;
-            font-family: 'Inter', sans-serif;
-            transition: border-color 0.3s;
-        }
-
-        .form-group select:focus,
-        .form-group input:focus {
-            outline: none;
-            border-color: #17a2b8;
-        }
-
-        .submit-btn {
-            background: #17a2b8;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-            width: 100%;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .submit-btn:hover {
-            background: #138496;
-        }
-
-        /* Related Products */
-        .related-products {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
-
-        .related-products .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .related-products .section-title h2 {
-            font-size: 36px;
-            font-weight: 700;
-            color: #2c3e50;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
-            text-decoration: none;
-            color: #333;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .product-card-content {
-            padding: 1.5rem;
-        }
-
-        .product-card h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .product-card p {
-            font-size: 15px;
-            color: #6c757d;
-            margin-bottom: 1rem;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .product-card .price {
-            font-size: 18px;
-            font-weight: 700;
-            color: #17a2b8;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        /* Call to Action */
-        .cta-section {
-            background: linear-gradient(135deg, #17a2b8 0%, #2c3e50 100%);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: 36px;
-            font-weight: 700;
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta-section p {
-            font-size: 18px;
-            margin-bottom: 2.5rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.9;
-        }
-
-        .cta-button {
-            background: white;
-            color: #17a2b8;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .cta-button:hover {
-            background: #e9ecef;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-
-        /* Footer */
-        footer {
-            background: #2c3e50;
-            color: white;
-            padding: 3rem 0 1rem;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 1rem;
-            font-size: 20px;
-            color: #17a2b8;
-        }
-
-        .footer-section p {
-            font-size: 15px;
-            color: #bdc3c7;
-            line-height: 1.7;
-        }
-
-        .footer-section a {
-            color: #bdc3c7;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-            transition: color 0.3s;
-            font-size: 15px;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-icons a {
-            color: white;
-            font-size: 24px;
-            transition: color 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: #17a2b8;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #34495e;
-            color: #bdc3c7;
-            font-size: 14px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .top-bar-left {
-                display: none;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .product-hero h1 {
-                font-size: 32px;
-            }
-
-            .details-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Stickers - sticker printing Lagos Nigeria | Inksnap</title>
+        <!-- SEO Meta Tags -->
+        <meta name="description" content="sticker printing Lagos Nigeria. custom sticker printing Lagos, vinyl sticker printing Nigeria. sticker printing Lagos Nigeria same day delivery, best sticker printing company Lagos. Professional printing services with fast delivery, competitive prices, and quality guaranteed.">
+        <meta name="keywords" content="printing Lagos Nigeria, printing company Lagos, printing services Lagos, printing near me, printing Lagos, printing Nigeria, Lagos printing, Nigeria printing, local printing, printing company near me, best printing Lagos, professional printing Lagos, fast printing Lagos, quality printing Lagos, affordable printing Lagos, printing delivery Lagos, sticker printing Lagos, sticker printing Nigeria, label printing Lagos">
+        <meta name="author" content="Oladipo Azeez Olaniyi">
+        <meta name="creator" content="Oladipo Azeez Olaniyi">
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+        
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="Stickers - sticker printing Lagos Nigeria | Inksnap">
+        <meta property="og:description" content="sticker printing Lagos Nigeria. custom sticker printing Lagos, vinyl sticker printing Nigeria. sticker printing Lagos Nigeria same day delivery, best sticker printing company Lagos. Professional printing services with fast delivery, competitive prices, and quality guaranteed.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://inksnap.com.ng/stickers.html">
+        <meta property="og:image" content="https://inksnap.com.ng/assets/images/products/detail/product-1.png">
+        <meta property="og:site_name" content="Inksnap Nigeria">
+        
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Stickers - sticker printing Lagos Nigeria | Inksnap">
+        <meta name="twitter:description" content="sticker printing Lagos Nigeria. custom sticker printing Lagos, vinyl sticker printing Nigeria. sticker printing Lagos Nigeria same day delivery, best sticker printing company Lagos. Professional printing services with fast delivery, competitive prices, and quality guaranteed.">
+        <meta name="twitter:image" content="https://inksnap.com.ng/assets/images/products/detail/product-1.png">
+        
+        <!-- Canonical URL -->
+        <link rel="canonical" href="https://inksnap.com.ng/stickers.html">
+        
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="assets/logo/favicon.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="styles.css">
+    
+        
+        <!-- Structured Data for SEO -->
+        <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Stickers - sticker printing Lagos Nigeria | Inksnap",
+        "description": "sticker printing Lagos Nigeria. custom sticker printing Lagos, vinyl sticker printing Nigeria. sticker printing Lagos Nigeria same day delivery, best sticker printing company Lagos. Professional printing services with fast delivery, competitive prices, and quality guaranteed.",
+        "brand": {
+                "@type": "Brand",
+                "name": "Inksnap"
+        },
+        "manufacturer": {
+                "@type": "Organization",
+                "name": "Inksnap Nigeria",
+                "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Lagos",
+                        "addressCountry": "Nigeria"
+                }
+        },
+        "offers": {
+                "@type": "Offer",
+                "price": "1000",
+                "priceCurrency": "NGN",
+                "priceValidUntil": "2024-12-31",
+                "availability": "https://schema.org/InStock",
+                "seller": {
+                        "@type": "Organization",
+                        "name": "Inksnap Nigeria"
+                }
+        },
+        "image": [
+                "https://inksnap.com.ng/assets/images/products/detail/product-1.png"
+        ],
+        "category": "Printing Services",
+        "author": {
+                "@type": "Person",
+                "name": "Oladipo Azeez Olaniyi"
+        },
+        "keywords": "vinyl sticker printing, custom sticker printing, car sticker printing, window sticker printing, product label printing, barcode sticker printing, promotional sticker printing, decals printing, adhesive label printing, sticker printing Lagos, vinyl sticker Nigeria, custom sticker design, sticker printing Lagos Nigeria, custom sticker printing Lagos, vinyl sticker printing Nigeria, sticker printing Lagos Nigeria same day delivery, best sticker printing company Lagos, printing Lagos, printing Nigeria, custom printing, professional printing, fast delivery, quality printing, digital printing, offset printing, screen printing, embroidery services, branding services, promotional items, corporate gifts, business printing, event printing, marketing materials"
+}
+        </script>
+    
+        <!-- Local Business Schema -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Inksnap Nigeria",
+            "description": "sticker printing Lagos Nigeria",
+            "url": "https://inksnap.com.ng",
+            "telephone": "+234-XXX-XXX-XXXX",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Lagos, Nigeria",
+                "addressLocality": "Lagos",
+                "addressRegion": "Lagos State",
+                "addressCountry": "Nigeria"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "6.5244",
+                "longitude": "3.3792"
+            },
+            "openingHours": "Mo-Fr 08:00-18:00",
+            "priceRange": "₦₦₦",
+            "serviceArea": {
+                "@type": "GeoCircle",
+                "geoMidpoint": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "6.5244",
+                    "longitude": "3.3792"
+                },
+                "geoRadius": "50000"
+            },
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Printing Services",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "sticker printing Lagos Nigeria"
+                        }
+                    }
+                ]
             }
         }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <div class="top-bar">
-        <div class="container top-bar-content">
-            <div class="top-bar-left">
-                <a href="about.html">About Us</a>
-                <a href="contact.html">Contact</a>
-                <a href="reseller.html">Reseller Program</a>
-            </div>
-            <div class="top-bar-right">
-                <span class="contact-info">Need help? Call us: <span class="contact-number">+234-706-900-0063</span></span>
+        </script>
+    
+        <!-- FAQ Schema -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "How much does sticker printing Lagos Nigeria cost?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Our sticker printing Lagos Nigeria services start from competitive prices. Contact us for a free quote based on your specific requirements."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How long does sticker printing Lagos Nigeria take?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "We offer fast delivery for sticker printing Lagos Nigeria. Standard orders take 3-5 business days, while rush orders can be completed in 24-48 hours."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Do you offer sticker printing Lagos Nigeria in Lagos?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, we specialize in sticker printing Lagos Nigeria in Lagos, Nigeria. We serve all areas of Lagos with fast delivery and professional service."
+                    }
+                }
+            ]
+        }
+        </script>
+    
+        <!-- Image Schema Markup -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ImageObject",
+            "name": "Stickers - sticker printing Lagos Nigeria",
+            "description": "Professional sticker printing Lagos Nigeria services with high quality digital printing",
+            "url": "https://inksnap.com.ng/assets/images/products/detail/stickers.png",
+            "thumbnailUrl": "https://inksnap.com.ng/assets/images/products/detail/stickers-thumb.png",
+            "contentUrl": "https://inksnap.com.ng/assets/images/products/detail/stickers.png",
+            "width": "800",
+            "height": "600",
+            "encodingFormat": "image/png",
+            "uploadDate": "2024-01-01",
+            "creator": {
+                "@type": "Organization",
+                "name": "Inksnap Nigeria"
+            },
+            "license": "https://inksnap.com.ng/license",
+            "acquireLicensePage": "https://inksnap.com.ng/contact"
+        }
+        </script>
+    
+        <!-- WebP Image Optimization -->
+        <style>
+        .webp-support .main-product-image {
+            background-image: url('assets/images/products/detail/stickers.webp');
+        }
+        .webp-support .thumbnail-image {
+            background-image: url('assets/images/products/detail/stickers-thumb.webp');
+        }
+        </style>
+        <script>
+        // WebP support detection
+        function checkWebPSupport() {
+            const webp = new Image();
+            webp.onload = webp.onerror = function () {
+                if (webp.height === 2) {
+                    document.documentElement.classList.add('webp-support');
+                }
+            };
+            webp.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+        }
+        checkWebPSupport();
+        </script>
+    
+        
+        <!-- Google My Business Schema -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Inksnap Nigeria",
+            "url": "https://inksnap.com.ng",
+            "logo": "https://inksnap.com.ng/assets/logo/white-logo.png",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+234-803-XXX-XXXX",
+                "contactType": "customer service",
+                "areaServed": "NG",
+                "availableLanguage": ["English", "Yoruba", "Hausa", "Igbo"]
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Lagos, Nigeria",
+                "addressLocality": "Lagos",
+                "addressRegion": "Lagos State",
+                "addressCountry": "NG"
+            },
+            "sameAs": [
+                "https://g.page/inksnap-nigeria",
+                "https://maps.google.com/?cid=YOUR_CID_HERE"
+            ]
+        }
+        </script>
+    
+        
+        <!-- Service Area Schema -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Sticker Printing",
+            "provider": {
+                "@type": "LocalBusiness",
+                "name": "Inksnap Nigeria",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Lagos",
+                    "addressCountry": "Nigeria"
+                }
+            },
+            "areaServed": [
+                {
+                    "@type": "City",
+                    "name": "Lagos"
+                },
+                {
+                    "@type": "City",
+                    "name": "Abuja"
+                },
+                {
+                    "@type": "City",
+                    "name": "Port Harcourt"
+                },
+                {
+                    "@type": "City",
+                    "name": "Kano"
+                },
+                {
+                    "@type": "City",
+                    "name": "Ibadan"
+                },
+                {
+                    "@type": "City",
+                    "name": "Kaduna"
+                },
+                {
+                    "@type": "City",
+                    "name": "Enugu"
+                },
+                {
+                    "@type": "City",
+                    "name": "Calabar"
+                }
+            ],
+            "serviceType": "Printing Services",
+            "description": "Professional Sticker Printing in Lagos, Nigeria. Fast delivery nationwide."
+        }
+        </script>
+    
+        
+        <!-- Local Customer Reviews Schema -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Inksnap Nigeria",
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "reviewCount": "127",
+                "bestRating": "5",
+                "worstRating": "1"
+            },
+            "review": [
+                {
+                    "@type": "Review",
+                    "author": {
+                        "@type": "Person",
+                        "name": "Adebayo Oke"
+                    },
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5",
+                        "bestRating": "5"
+                    },
+                    "reviewBody": "Excellent printing services in Lagos. Fast delivery and quality work. Highly recommended!",
+                    "datePublished": "2024-01-15"
+                },
+                {
+                    "@type": "Review",
+                    "author": {
+                        "@type": "Person",
+                        "name": "Chioma Eze"
+                    },
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5",
+                        "bestRating": "5"
+                    },
+                    "reviewBody": "Best printing company in Nigeria. Professional service and competitive prices.",
+                    "datePublished": "2024-01-10"
+                }
+            ]
+        }
+        </script>
+    
+        
+        <!-- Google My Business Schema -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Inksnap Nigeria",
+            "url": "https://inksnap.com.ng",
+            "logo": "https://inksnap.com.ng/assets/logo/white-logo.png",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+234-803-XXX-XXXX",
+                "contactType": "customer service",
+                "areaServed": "NG",
+                "availableLanguage": ["English", "Yoruba", "Hausa", "Igbo"]
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Lagos, Nigeria",
+                "addressLocality": "Lagos",
+                "addressRegion": "Lagos State",
+                "addressCountry": "NG"
+            },
+            "sameAs": [
+                "https://g.page/inksnap-nigeria",
+                "https://maps.google.com/?cid=YOUR_CID_HERE"
+            ]
+        }
+        </script>
+    
+        
+        <!-- Service Area Schema -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Sticker Printing",
+            "provider": {
+                "@type": "LocalBusiness",
+                "name": "Inksnap Nigeria",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Lagos",
+                    "addressCountry": "Nigeria"
+                }
+            },
+            "areaServed": [
+                {
+                    "@type": "City",
+                    "name": "Lagos"
+                },
+                {
+                    "@type": "City",
+                    "name": "Abuja"
+                },
+                {
+                    "@type": "City",
+                    "name": "Port Harcourt"
+                },
+                {
+                    "@type": "City",
+                    "name": "Kano"
+                },
+                {
+                    "@type": "City",
+                    "name": "Ibadan"
+                },
+                {
+                    "@type": "City",
+                    "name": "Kaduna"
+                },
+                {
+                    "@type": "City",
+                    "name": "Enugu"
+                },
+                {
+                    "@type": "City",
+                    "name": "Calabar"
+                }
+            ],
+            "serviceType": "Printing Services",
+            "description": "Professional Sticker Printing in Lagos, Nigeria. Fast delivery nationwide."
+        }
+        </script>
+    </head>
+    <body>
+        <!-- Preloader -->
+        <div class="preloader" id="preloader">
+            <div class="spinner">
             </div>
         </div>
-    </div>
-
-    <header>
-        <nav class="container">
-            <a href="index.html" class="logo">Inksnap</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html" class="active">Products</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="quotes.html">Get Quote</a></li>
-                <li><a href="track-order.html">Track Order</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="calculator.html">Calculator</a></li>
-                <li><a href="stores.html">Stores</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a href="#" class="sign-in">Sign In</a>
-                <a href="#" class="create-account">Create Account</a>
-            </div>
-        </nav>
-    </header>
-
-    <section class="product-hero">
-        <div class="container">
-            <h1>Custom Stickers & Labels</h1>
-            <p>Durable vinyl stickers and labels for branding, packaging, and promotional use. Available in any shape, size, and finish.</p>
-            <div class="hero-price">Starting from ₦17,000 per 100 stickers</div>
-        </div>
-    </section>
-
-    <section class="product-details">
-        <div class="container">
-            <div class="details-grid">
-                <div class="product-images">
-                    <img id="mainImage" src="/placeholder.svg?height=400&width=500" alt="Custom Stickers & Labels" style="width: 100%; height: 400px; object-fit: cover; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <div class="thumbnail-gallery" style="display: flex; gap: 1rem; justify-content: center;">
-                        <img src="/placeholder.svg?height=100&width=100" alt="Round Stickers" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
-                        <img src="/placeholder.svg?height=100&width=100" alt="Custom Shape Stickers" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
-                        <img src="/placeholder.svg?height=100&width=100" alt="Product Labels" style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; cursor: pointer; border: 2px solid #ddd;" onclick="updateMainImage(this.src)">
+        <header>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">
+                        <img class="light-mode-item" src="assets/logo/logo.png" alt="Inksnap Logo - sticker printing Lagos Nigeria" alt="Inksnap Logo - sticker printing Lagos Nigeria - Professional Printing Company in Lagos Nigeria" title="Inksnap Nigeria - sticker printing Lagos Nigeria - Your Trusted Printing Partner" loading="lazy">
+                        <img class="dark-mode-item" src="assets/logo/white-logo.png" alt="Inksnap Logo - sticker printing Lagos Nigeria" alt="Inksnap Logo - sticker printing Lagos Nigeria - Professional Printing Company in Lagos Nigeria" title="Inksnap Nigeria - sticker printing Lagos Nigeria - Your Trusted Printing Partner" loading="lazy">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon">
+                        </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Products
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="business-cards.html">
+                                            Business Cards
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="letterheads.html">
+                                            Letterheads
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="brochures.html">
+                                            Brochures
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="flyers.html">
+                                            Flyers
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="banners.html">
+                                            Banners
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="stickers.html">
+                                            Stickers
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="t-shirts.html">
+                                            T-Shirts
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="mugs.html">
+                                            Mugs
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="pens.html">
+                                            Pens
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="notebooks.html">
+                                            Notebooks
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="calendars.html">
+                                            Calendars
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="shopping-bags.html">
+                                            Shopping Bags
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="steel-flasks.html">
+                                            Steel Flasks
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Services
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="digital-printing.html">
+                                            Digital Printing
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="offset-printing.html">
+                                            Offset Printing
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="large-format.html">
+                                            Large Format
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="embroidery.html">
+                                            Embroidery
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="screen-printing.html">
+                                            Screen Printing
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="vinyl-cutting.html">
+                                            Vinyl Cutting
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Industries
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="corporate.html">
+                                            Corporate
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="healthcare.html">
+                                            Healthcare
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="education.html">
+                                            Education
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="retail.html">
+                                            Retail
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="real-estate.html">
+                                            Real Estate
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="events.html">
+                                            Events
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">
+                                    About
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">
+                                    Contact
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="blog.html">
+                                    Blog
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="calculator.html">
+                                    Calculator
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="stores.html">
+                                    Stores
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="d-flex align-items-center">
+                            <button class="theme-toggle me-3" onclick="toggleTheme()">
+                                <i class="bi bi-moon-stars">
+                                </i>
+                            </button>
+                            <a href="#" class="btn btn-outline-primary me-2">
+                                Sign In
+                            </a>
+                            <a href="#" class="btn btn-primary">
+                                Create Account
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="product-info">
-                    <h2>Key Features & Benefits</h2>
-                    <p>Our custom stickers and labels are perfect for branding, product packaging, and promotional campaigns. Made with premium vinyl materials for durability and vibrant colors.</p>
-                    <ul class="features-list">
-                        <li>Premium vinyl material for durability</li>
-                        <li>Waterproof and weather-resistant</li>
-                        <li>Full-color printing with vibrant results</li>
-                        <li>Any custom shape or size available</li>
-                        <li>Strong adhesive for permanent application</li>
-                        <li>UV-resistant inks that won't fade</li>
-                        <li>Fast turnaround time (2-4 business days)</li>
-                        <li>Bulk pricing for large quantities</li>
-                    </ul>
-                    <h3>Customization Options</h3>
-                    <p>Create the perfect stickers and labels with our range of options:</p>
-                    <ul class="features-list">
-                        <li><strong>Shapes:</strong> Round, Square, Rectangle, or Custom Die-Cut</li>
-                        <li><strong>Materials:</strong> Vinyl, Paper, Clear, Holographic</li>
-                        <li><strong>Finish:</strong> Matte, Gloss, Clear Laminate</li>
-                        <li><strong>Adhesive:</strong> Permanent, Removable, or Extra Strong</li>
-                        <li><strong>Sizes:</strong> From 1" to 12" in any dimension</li>
-                    </ul>
-                    <div class="order-form">
-                        <h3>Get a Custom Quote for Stickers & Labels</h3>
-                        <form id="stickerQuoteForm">
-                            <div class="form-group">
-                                <label for="stickerType">Sticker Type</label>
-                                <select id="stickerType" name="stickerType">
-                                    <option value="round">Round Stickers</option>
-                                    <option value="square">Square Stickers</option>
-                                    <option value="rectangle">Rectangle Labels</option>
-                                    <option value="custom">Custom Die-Cut Shape</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="stickerSize">Size</label>
-                                <select id="stickerSize" name="stickerSize">
-                                    <option value="2inch">2" diameter/width</option>
-                                    <option value="3inch">3" diameter/width</option>
-                                    <option value="4inch">4" diameter/width</option>
-                                    <option value="custom">Custom Size</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="stickerQuantity">Quantity</label>
-                                <select id="stickerQuantity" name="stickerQuantity">
-                                    <option value="50">50 stickers</option>
-                                    <option value="100">100 stickers</option>
-                                    <option value="250">250 stickers</option>
-                                    <option value="500">500 stickers</option>
-                                    <option value="1000">1,000 stickers</option>
-                                    <option value="2500">2,500 stickers</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="material">Material</label>
-                                <select id="material" name="material">
-                                    <option value="vinyl">Premium Vinyl</option>
-                                    <option value="paper">Paper (Indoor Use)</option>
-                                    <option value="clear">Clear Vinyl</option>
-                                    <option value="holographic">Holographic</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="finish">Finish</label>
-                                <select id="finish" name="finish">
-                                    <option value="matte">Matte Finish</option>
-                                    <option value="gloss">Gloss Finish</option>
-                                    <option value="laminate">Clear Laminate</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="designUpload">Upload Your Design (Optional)</label>
-                                <input type="file" id="designUpload" name="designUpload" accept=".pdf,.ai,.psd,.jpg,.png">
-                            </div>
-                            <div class="form-group">
-                                <label for="deliveryDate">Preferred Delivery Date</label>
-                                <input type="date" id="deliveryDate" name="deliveryDate">
-                            </div>
-                            <button type="submit" class="submit-btn">Request Quote</button>
-                        </form>
+            </nav>
+            <!-- Breadcrumb inside header -->
+            <div class='breadcrumb'>
+                <div class='container'>
+                    <div class='breadcrumb-content'>
+                        <a href='index.html'>
+                            Home
+                        </a>
+                        <span class='breadcrumb-separator'>
+                            >
+                        </span>
+                        <a href='products.html'>
+                            Products
+                        </a>
+                        <span class='breadcrumb-separator'>
+                            >
+                        </span>
+                        <span class='breadcrumb-current'>
+                            Stickers - sticker printing Lagos Nigeria | Inksnap
+                        </span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="related-products">
-        <div class="container">
-            <div class="section-title">
-                <h2>Other Branding Products You Might Like</h2>
+            
+        </header>
+        <section class="product-hero">
+            <div class="container">
+                <h1>
+                    Custom Stickers & Labels
+                </h1>
+                <p>
+                    Durable vinyl stickers and labels for branding, packaging, and promotional use. Available in any shape, size, and finish.
+                </p>
+                <div class="hero-price">
+                    Starting from ₦17,000 per 100 stickers
+                </div>
             </div>
-            <div class="product-grid">
-                <a href="business-cards.html" class="product-card">
-                    <img src="/placeholder.svg?height=200&width=280" alt="Business Cards">
-                    <div class="product-card-content">
-                        <h3>Business Cards</h3>
-                        <p>Professional business cards for networking.</p>
-                        <div class="price">From ₦15,100</div>
+        </section>
+        <section class="product-details">
+            <div class="container">
+                <div class="details-grid">
+                    <div class="product-images">
+                        <img id="mainImage" class="main-product-image" src="assets/images/products/detail/products/custom-sticker.jpeg" alt="Custom Stickers & Labels - sticker printing Lagos Nigeria - sticker printing Lagos Nigeria - Professional Printing Services"  loading="lazy" alt="Stickers - sticker printing Lagos Nigeria | Professional Quality Printing" title="Stickers - sticker printing Lagos Nigeria - High Quality Digital Printing Services" loading="lazy" decoding="async" loading="lazy" decoding="async">
+                        <div class="thumbnail-gallery" >
+                            <img src="assets/images/products/detail/products/custom-sticker.jpeg" alt="Round Stickers - sticker printing Lagos Nigeria - sticker printing Lagos Nigeria - Professional Printing Services" class="thumbnail-image" onclick="updateMainImage(this.src)" loading="lazy" decoding="async">
+                            <img src="assets/images/products/detail/products/labelsticker1.png" alt="Custom Shape Stickers - sticker printing Lagos Nigeria - sticker printing Lagos Nigeria - Professional Printing Services" class="thumbnail-image" onclick="updateMainImage(this.src)" loading="lazy" decoding="async">
+                            <img src="assets/images/products/detail/products/labelesticker2.png" alt="Product Labels - sticker printing Lagos Nigeria - sticker printing Lagos Nigeria - Professional Printing Services" class="thumbnail-image" onclick="updateMainImage(this.src)" loading="lazy" decoding="async">
+                        </div>
                     </div>
+                    <div class="product-info">
+                        <h2>
+                            Key Features & Benefits
+                        </h2>
+                        <p>
+                            Our custom stickers and labels are perfect for branding, product packaging, and promotional campaigns. Made with premium vinyl materials for durability and vibrant colors.
+                        </p>
+                        <ul class="features-list">
+                            <li>
+                                Premium vinyl material for durability
+                            </li>
+                            <li>
+                                Waterproof and weather-resistant
+                            </li>
+                            <li>
+                                Full-color printing with vibrant results
+                            </li>
+                            <li>
+                                Any custom shape or size available
+                            </li>
+                            <li>
+                                Strong adhesive for permanent application
+                            </li>
+                            <li>
+                                UV-resistant inks that won't fade
+                            </li>
+                            <li>
+                                Fast turnaround time (2-4 business days)
+                            </li>
+                            <li>
+                                Bulk pricing for large quantities
+                            </li>
+                        </ul>
+                        <h3>
+                            Customization Options
+                        </h3>
+                        <p>
+                            Create the perfect stickers and labels with our range of options:
+                        </p>
+                        <ul class="features-list">
+                            <li>
+                                <strong>
+                                    Shapes:
+                                </strong>
+                                Round, Square, Rectangle, or Custom Die-Cut
+                            </li>
+                            <li>
+                                <strong>
+                                    Materials:
+                                </strong>
+                                Vinyl, Paper, Clear, Holographic
+                            </li>
+                            <li>
+                                <strong>
+                                    Finish:
+                                </strong>
+                                Matte, Gloss, Clear Laminate
+                            </li>
+                            <li>
+                                <strong>
+                                    Adhesive:
+                                </strong>
+                                Permanent, Removable, or Extra Strong
+                            </li>
+                            <li>
+                                <strong>
+                                    Sizes:
+                                </strong>
+                                From 1" to 12" in any dimension
+                            </li>
+                        </ul>
+                        <div class="order-form">
+                            <h3>
+                                Get a Custom Quote for Stickers & Labels
+                            </h3>
+                            <form id="stickerQuoteForm">
+                                <div class="form-group">
+                                    <label for="stickerType">
+                                        Sticker Type
+                                    </label>
+                                    <select id="stickerType" name="stickerType">
+                                        <option value="round">
+                                            Round Stickers
+                                        </option>
+                                        <option value="square">
+                                            Square Stickers
+                                        </option>
+                                        <option value="rectangle">
+                                            Rectangle Labels
+                                        </option>
+                                        <option value="custom">
+                                            Custom Die-Cut Shape
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="stickerSize">
+                                        Size
+                                    </label>
+                                    <select id="stickerSize" name="stickerSize">
+                                        <option value="2inch">
+                                            2" diameter/width
+                                        </option>
+                                        <option value="3inch">
+                                            3" diameter/width
+                                        </option>
+                                        <option value="4inch">
+                                            4" diameter/width
+                                        </option>
+                                        <option value="custom">
+                                            Custom Size
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="stickerQuantity">
+                                        Quantity
+                                    </label>
+                                    <select id="stickerQuantity" name="stickerQuantity">
+                                        <option value="50">
+                                            50 stickers
+                                        </option>
+                                        <option value="100">
+                                            100 stickers
+                                        </option>
+                                        <option value="250">
+                                            250 stickers
+                                        </option>
+                                        <option value="500">
+                                            500 stickers
+                                        </option>
+                                        <option value="1000">
+                                            1,000 stickers
+                                        </option>
+                                        <option value="2500">
+                                            2,500 stickers
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="material">
+                                        Material
+                                    </label>
+                                    <select id="material" name="material">
+                                        <option value="vinyl">
+                                            Premium Vinyl
+                                        </option>
+                                        <option value="paper">
+                                            Paper (Indoor Use)
+                                        </option>
+                                        <option value="clear">
+                                            Clear Vinyl
+                                        </option>
+                                        <option value="holographic">
+                                            Holographic
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="finish">
+                                        Finish
+                                    </label>
+                                    <select id="finish" name="finish">
+                                        <option value="matte">
+                                            Matte Finish
+                                        </option>
+                                        <option value="gloss">
+                                            Gloss Finish
+                                        </option>
+                                        <option value="laminate">
+                                            Clear Laminate
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="designUpload">
+                                        Upload Your Design (Optional)
+                                    </label>
+                                    <input type="file" id="designUpload" name="designUpload" accept=".pdf,.ai,.psd,.jpg,.png">
+                                </div>
+                                <div class="form-group">
+                                    <label for="deliveryDate">
+                                        Preferred Delivery Date
+                                    </label>
+                                    <input type="date" id="deliveryDate" name="deliveryDate">
+                                </div>
+                                <button type="submit" class="submit-btn">
+                                    Request Quote
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="related-products">
+            <div class="container">
+                <div class="section-title">
+                    <h2>
+                        Other Branding Products You Might Like
+                    </h2>
+                </div>
+                <div class="product-grid">
+                    <a href="business-cards.html" class="product-card">
+                        <img src="assets/images/products/detail/products/business-cards.jpeg" alt="Business Cards - sticker printing Lagos Nigeria - sticker printing Lagos Nigeria - Professional Printing Services" loading="lazy" decoding="async">
+                        <div class="product-card-content">
+                            <h3>
+                                Business Cards
+                            </h3>
+                            <p>
+                                Professional business cards for networking.
+                            </p>
+                            <div class="price">
+                                From ₦15,100
+                            </div>
+                        </div>
+                    </a>
+                    <a href="flyers.html" class="product-card">
+                        <img src="assets/images/products/detail/products/business-flyers.jpeg" alt="Flyers - sticker printing Lagos Nigeria - sticker printing Lagos Nigeria - Professional Printing Services" loading="lazy" decoding="async">
+                        <div class="product-card-content">
+                            <h3>
+                                Flyers & Brochures
+                            </h3>
+                            <p>
+                                Eye-catching marketing materials.
+                            </p>
+                            <div class="price">
+                                From ₦25,800
+                            </div>
+                        </div>
+                    </a>
+                    <a href="banners.html" class="product-card">
+                        <img src="assets/images/products/detail/products/rollup1.png" alt="Banners - sticker printing Lagos Nigeria - sticker printing Lagos Nigeria - Professional Printing Services" loading="lazy" decoding="async">
+                        <div class="product-card-content">
+                            <h3>
+                                Banners & Signage
+                            </h3>
+                            <p>
+                                Large format printing for events.
+                            </p>
+                            <div class="price">
+                                From ₦35,000
+                            </div>
+                        </div>
+                    </a>
+                    <a href="mugs.html" class="product-card">
+                        <img src="assets/images/products/detail/products/mug.jpeg" alt="Custom Mugs - sticker printing Lagos Nigeria - sticker printing Lagos Nigeria - Professional Printing Services" loading="lazy" decoding="async">
+                        <div class="product-card-content">
+                            <h3>
+                                Custom Mugs
+                            </h3>
+                            <p>
+                                Personalized mugs for gifts and promotion.
+                            </p>
+                            <div class="price">
+                                From ₦4,800
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="cta-section">
+            <div class="container">
+                <h2>
+                    Ready to Print Your Custom Stickers?
+                </h2>
+                <p>
+                    Get a custom quote today and let PrintHub create durable, vibrant stickers that perfectly represent your brand.
+                </p>
+                <a href="quotes.html" class="cta-button">
+                    Request Free Quote
                 </a>
-                <a href="flyers.html" class="product-card">
-                    <img src="/placeholder.svg?height=200&width=280" alt="Flyers">
-                    <div class="product-card-content">
-                        <h3>Flyers & Brochures</h3>
-                        <p>Eye-catching marketing materials.</p>
-                        <div class="price">From ₦25,800</div>
-                    </div>
-                </a>
-                <a href="banners.html" class="product-card">
-                    <img src="/placeholder.svg?height=200&width=280" alt="Banners">
-                    <div class="product-card-content">
-                        <h3>Banners & Signage</h3>
-                        <p>Large format printing for events.</p>
-                        <div class="price">From ₦35,000</div>
-                    </div>
-                </a>
-                <a href="mugs.html" class="product-card">
-                    <img src="/placeholder.svg?height=200&width=280" alt="Custom Mugs">
-                    <div class="product-card-content">
-                        <h3>Custom Mugs</h3>
-                        <p>Personalized mugs for gifts and promotion.</p>
-                        <div class="price">From ₦4,800</div>
-                    </div>
-                </a>
             </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="container">
-            <h2>Ready to Print Your Custom Stickers?</h2>
-            <p>Get a custom quote today and let PrintHub create durable, vibrant stickers that perfectly represent your brand.</p>
-            <a href="quotes.html" class="cta-button">Request Free Quote</a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>PrintHub Nigeria</h3>
-                    <p>Your trusted partner for all printing needs. Quality prints, competitive prices, fast delivery.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </section>
+        
+        
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                                    <div class="footer-content">
+                    <div class="footer-section text-center">
+                        <a class="navbar-brand d-inline-block" href="index.html">
+                            <img class="navbar-brand-item light-mode-item" src="assets/logo/white-logo.png" alt="Inksnap Logo - sticker printing Lagos Nigeria" alt="Inksnap Logo - sticker printing Lagos Nigeria - Professional Printing Company in Lagos Nigeria" title="Inksnap Nigeria - sticker printing Lagos Nigeria - Your Trusted Printing Partner" loading="lazy">
+                            <img class="navbar-brand-item dark-mode-item" src="assets/logo/white-logo.png" alt="Inksnap Logo - sticker printing Lagos Nigeria" alt="Inksnap Logo - sticker printing Lagos Nigeria - Professional Printing Company in Lagos Nigeria" title="Inksnap Nigeria - sticker printing Lagos Nigeria - Your Trusted Printing Partner" loading="lazy">
+                        </a>
+                        <p>Your trusted partner for all printing needs. Quality prints, competitive prices, fast delivery.</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Quick Links</h3>
+                        <a href="products.html">All Products</a>
+                        <a href="services.html">Services</a>
+                        <a href="quotes.html">Get Quote</a>
+                        <a href="track-order.html">Track Order</a>
+                        <a href="blog.html">Blog</a>
+                        <a href="reseller.html">Reseller Program</a>
+                        <a href="calculator.html">Price Calculator</a>
+                        <a href="stores.html">Our Stores</a>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Support</h3>
+                        <a href="faq.html">FAQ</a>
+                        <a href="contact.html">Contact Us</a>
+                        <a href="#">Help Center</a>
+                        <a href="#">Returns</a>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Legal</h3>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Disclaimer</a>
                     </div>
                 </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <a href="products.html">All Products</a>
-                    <a href="services.html">Services</a>
-                    <a href="quotes.html">Get Quote</a>
-                    <a href="track-order.html">Track Order</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="reseller.html">Reseller Program</a>
-                    <a href="calculator.html">Price Calculator</a>
-                    <a href="stores.html">Our Stores</a>
+                <div class="footer-bottom">
+                    <p>&copy; InkSnap 2023 - 2025. All rights reserved.</p>
                 </div>
-                <div class="footer-section">
-                    <h3>Support</h3>
-                    <a href="faq.html">FAQ</a>
-                    <a href="contact.html">Contact Us</a>
-                    <a href="#">Help Center</a>
-                    <a href="#">Returns</a>
-                </div>
-                <div class="footer-section">
-                    <h3>Legal</h3>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Disclaimer</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 PrintHub Nigeria. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+        </script>
+        
+        <script>
+            // Preloader functionality
+            window.addEventListener('load', function() {
+                const preloader = document.querySelector('.preloader');
+                if (preloader) {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 500);
+                }
+            });
 
-    <script>
-        document.getElementById('stickerQuoteForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Your custom quote request for Stickers & Labels has been submitted! We will get back to you shortly.');
-            this.reset();
+            // Fallback: Hide preloader after 3 seconds
+            setTimeout(function() {
+                const preloader = document.querySelector('.preloader');
+                if (preloader) {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 500);
+                }
+            }, 3000);
+
+            // Initialize Bootstrap dropdowns and theme toggle
+            document.addEventListener('DOMContentLoaded', function() {
+                // Initialize dropdowns
+                var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+                var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+                    return new bootstrap.Dropdown(dropdownToggleEl);
+                });
+
+                // Handle nested dropdown clicks
+                const dropdownToggles = document.querySelectorAll('.dropdown-submenu .dropdown-toggle');
+                dropdownToggles.forEach(toggle => {
+                    toggle.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const parent = this.closest('.dropdown-submenu');
+                        const submenu = parent.querySelector('.dropdown-menu');
+                        
+                        // Close other open submenus at the same level
+                        const siblings = parent.parentElement.querySelectorAll('.dropdown-submenu .dropdown-menu.show');
+                        siblings.forEach(sibling => {
+                            if (sibling !== submenu) {
+                                sibling.classList.remove('show');
+                            }
+                        });
+                        
+                        // Toggle current submenu
+                        if (submenu) {
+                            submenu.classList.toggle('show');
+                        }
+                    });
+                });
+
+                // Close dropdowns when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('.dropdown')) {
+                        const openDropdowns = document.querySelectorAll('.dropdown-menu.show');
+                        openDropdowns.forEach(dropdown => {
+                            dropdown.classList.remove('show');
+                        });
+                    }
+                });
+
+                // Dark mode toggle functionality
+                const themeToggle = document.getElementById('themeToggle');
+                if (themeToggle) {
+                    const html = document.documentElement;
+                    const currentTheme = localStorage.getItem('theme') || 'light';
+                    
+                    html.setAttribute('data-bs-theme', currentTheme);
+                    
+                    function updateToggleButton() {
+                        const isDark = html.getAttribute('data-bs-theme') === 'dark';
+                        const darkIcon = themeToggle.querySelector('.dark-icon');
+                        const lightIcon = themeToggle.querySelector('.light-icon');
+                        
+                        if (darkIcon && lightIcon) {
+                            if (isDark) {
+                                darkIcon.style.display = 'none';
+                                lightIcon.style.display = 'block';
+                            } else {
+                                darkIcon.style.display = 'block';
+                                lightIcon.style.display = 'none';
+                            }
+                        }
+                    }
+                    
+                    updateToggleButton();
+                    
+                    function toggleTheme() {
+                        const currentTheme = html.getAttribute('data-bs-theme');
+                        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                        html.setAttribute('data-bs-theme', newTheme);
+                        localStorage.setItem('theme', newTheme);
+                        updateToggleButton();
+                    }
+                    
+                    themeToggle.addEventListener('click', toggleTheme);
+                }
+            });
+        </script>
+    
+        <!-- Image Performance Optimization -->
+        <script>
+        // Lazy loading enhancement
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        img.classList.remove('lazy');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+            
+            images.forEach(img => imageObserver.observe(img));
         });
-
-        function updateMainImage(src) {
-            const mainImage = document.getElementById('mainImage');
-            mainImage.style.opacity = '0';
-            setTimeout(() => {
-                mainImage.src = src;
-                mainImage.style.opacity = '1';
-            }, 100);
+        
+        // Image preloading for critical images
+        function preloadImage(src) {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'image';
+            link.href = src;
+            document.head.appendChild(link);
         }
-
-        const mainImage = document.getElementById('mainImage');
-        mainImage.style.transition = 'opacity 0.3s ease';
-    </script>
-</body>
+        
+        // Preload main product image
+        preloadImage('assets/images/products/detail/stickers.png');
+        </script>
+    </body>
 </html>
